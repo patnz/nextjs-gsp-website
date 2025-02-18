@@ -18,6 +18,13 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        gsp: {
+          green: '#085E1A',
+          gold: '#D5AB20',
+          white: '#FCF9ED',
+          red: '#8A1919',
+          black: '#26292B',
+        },
       },
     },
   },

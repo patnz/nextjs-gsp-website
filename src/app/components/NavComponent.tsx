@@ -14,6 +14,9 @@ import {
 } from '@heroui/react'
 // import DrawerComponent from './DrawerComponent'
 
+// import 'gsp-logo'
+import Image from 'next/image'
+
 export const AcmeLogo = () => {
   return (
     <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -40,20 +43,22 @@ export default function App() {
   ]
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      className=" bg-gsp-gold border-gsp-black"
+    >
       {/* <DrawerComponent></DrawerComponent> */}
       <NavbarContent>
-        <NavbarBrand>
-          <div className="w-full flex justify-start">
-            <p className="font-bold text-inherit border-black">logo</p>
-          </div>
+        <NavbarBrand className="flex justify-start">
+          {/* <p className="font-bold text-inherit border-black">logo</p> */}
+          <Image src="/gsp-logo.png" alt="GSP Logo" width={36} height={36} />
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="lg:hidden"
         />
       </NavbarContent>
-      <NavbarContent className="hidden lg:flex gap-4" justify="center">
+      <NavbarContent className="hidden lg:flex gap-[1vw]" justify="center">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Button className="font-amaticSc text-[5vh]" size="sm">
@@ -64,7 +69,7 @@ export default function App() {
       </NavbarContent>
       <NavbarMenu className="flex flex-col gap-4 overflow-y-scroll py-5">
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`} className="">
+          <NavbarMenuItem key={`${item}-${index}`} className="text-gspGreen">
             <Button
               className="font-amaticSc text-[8vh] py-6 drop-shadow-md animate-appearance-in w-full"
               size="md"
