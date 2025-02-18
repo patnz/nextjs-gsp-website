@@ -93,15 +93,17 @@ export default async function ShowPage({
           <h2 className="text-2xl font-bold mb-4">Image Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Skip first image as it's already displayed at the top */}
-            {show.imageGallery.slice(1).map((image: any, index: number) => (
-              <div key={index} className="bg-gray-100 p-2 rounded">
-                <img
-                  src={urlFor(image)?.width(320).height(240).url() || ''}
-                  alt={`Show image ${index + 1}`}
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-            ))}
+            {show.imageGallery
+              .slice(1)
+              .map((image: SanityImageSource, index: number) => (
+                <div key={index} className="bg-gray-100 p-2 rounded">
+                  <Image
+                    src={urlFor(image)?.width(320).height(240).url() || ''}
+                    alt={`Show image ${index + 1}`}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+              ))}
           </div>
         </div>
       )}
