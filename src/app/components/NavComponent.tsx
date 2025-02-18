@@ -12,6 +12,7 @@ import {
   Link,
   Button,
 } from '@heroui/react'
+import DrawerComponent from './DrawerComponent'
 
 export const AcmeLogo = () => {
   return (
@@ -40,6 +41,7 @@ export default function App() {
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
+      <DrawerComponent></DrawerComponent>
       <NavbarContent>
         <NavbarBrand>
           <div className="w-full flex justify-start">
