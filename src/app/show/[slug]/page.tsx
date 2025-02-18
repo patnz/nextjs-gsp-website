@@ -3,6 +3,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import { client } from '@/app/sanity/client'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const SHOW_QUERY = `*[_type == "show" && slug.current == $slug][0]`
 
@@ -49,7 +50,7 @@ export default async function ShowPage({
         ← Back to shows
       </Link>
       {showImageUrl && (
-        <img
+        <Image
           src={showImageUrl}
           alt={show.title}
           className="aspect-video rounded-xl w-full"
