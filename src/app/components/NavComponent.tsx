@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <DrawerComponent></DrawerComponent>
+      {/* <DrawerComponent></DrawerComponent> */}
       <NavbarContent>
         <NavbarBrand>
           <div className="w-full flex justify-start">
