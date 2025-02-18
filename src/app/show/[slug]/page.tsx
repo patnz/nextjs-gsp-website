@@ -101,6 +101,8 @@ export default async function ShowPage({
                     src={urlFor(image)?.width(320).height(240).url() || ''}
                     alt={`Show image ${index + 1}`}
                     className="w-full h-64 object-cover"
+                    width={320}
+                    height={240}
                   />
                 </div>
               ))}
