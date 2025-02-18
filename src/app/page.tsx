@@ -37,10 +37,10 @@ export default function HomePage() {
     <div>
       <NavComponent />
       <main className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-5xl font-bold mb-4">Welcome to Our Next.js App</h1>
-        <p className="text-lg text-center">
-          Explore our shows, projects, and community. Join us in our journey!
-        </p>
+        <h1 className="text-[10vw] text-center font-bold mb-4 font-amaticSc">
+          Welcome to Our Next.js App
+        </h1>
+
         <Button>Click me</Button>
       </main>
     </div>

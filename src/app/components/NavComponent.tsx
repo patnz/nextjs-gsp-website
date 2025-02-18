@@ -31,12 +31,12 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   const menuItems = [
-    'Profile',
-    'Dashboard',
-    'Activity',
-    'Analytics',
-    'System',
-    'Test',
+    'Shows',
+    'Projects',
+    'Members',
+    'Community',
+    'About',
+    'Links',
   ]
 
   return (
@@ -56,20 +56,18 @@ export default function App() {
       <NavbarContent className="hidden lg:flex gap-4" justify="center">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Button className="" color={'danger'} href="#" size="lg">
+            <Button className="font-amaticSc text-[5vh]" size="sm">
               {item}
             </Button>
           </NavbarMenuItem>
         ))}
       </NavbarContent>
-      <NavbarMenu className="">
+      <NavbarMenu className="flex flex-col gap-4 overflow-y-scroll py-5">
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item}-${index}`} className="">
             <Button
-              className="w-full border-orange-300 border-4"
-              color={'danger'}
-              href="#"
-              size="lg"
+              className="font-amaticSc text-[8vh] py-6 drop-shadow-md animate-appearance-in w-full"
+              size="md"
             >
               {item}
             </Button>

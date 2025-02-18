@@ -12,6 +12,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        amaticSc: 'var(--font-amatic-sc)',
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
