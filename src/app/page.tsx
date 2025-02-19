@@ -35,7 +35,6 @@ import NavComponent from './components/NavComponent'
 export default function HomePage() {
   return (
     <div>
-      <NavComponent />
       <main className="bg-gsp-black flex flex-col items-center justify-center min-h-screen">
         <h1 className="text-[10vw] text-center font-bold mb-4 font-amaticSc">
           Welcome to Our Next.js App

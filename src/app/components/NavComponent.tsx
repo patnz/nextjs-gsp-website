@@ -15,10 +15,15 @@ import {
 // import DrawerComponent from './DrawerComponent'
 
 // import 'gsp-logo'
+import type { Show } from '../sanity/types'
 import Image from 'next/image'
-import DropdownComponent from './Dropdown'
+import { ShowsDropdown } from './Dropdown'
 
-export default function App() {
+interface ShowsDropdownProps {
+  shows: Show[]
+}
+
+export default function NavComponent({ shows }: ShowsDropdownProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   const menuItems = [
@@ -70,7 +75,7 @@ export default function App() {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
-      <DropdownComponent />
+      <ShowsDropdown shows={shows} />
     </Navbar>
   )
 }
