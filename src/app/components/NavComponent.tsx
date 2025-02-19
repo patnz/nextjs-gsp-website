@@ -37,7 +37,8 @@ export default function NavComponent({ data }: NavComponentProps) {
         label: `${show.title} (${show.year})`,
         href: `/shows/${show.slug.current}`,
       })),
-      defaultHref: '/shows',
+      // defaultHref: '/shows',
+      defaultHref: '/',
     },
     {
       label: 'Projects',
@@ -45,7 +46,8 @@ export default function NavComponent({ data }: NavComponentProps) {
         label: project.title,
         href: `/projects/${project.slug.current}`,
       })),
-      defaultHref: '/projects',
+      // defaultHref: '/projects',
+      defaultHref: '/',
     },
     {
       label: 'Team',
@@ -53,7 +55,8 @@ export default function NavComponent({ data }: NavComponentProps) {
         label: member.name,
         href: `/team/${member._id}`,
       })),
-      defaultHref: '/team',
+      // defaultHref: '/team',
+      defaultHref: '/',
     },
     {
       label: 'Links',
@@ -61,12 +64,23 @@ export default function NavComponent({ data }: NavComponentProps) {
         label: link.title,
         href: link.url,
       })),
-      defaultHref: '/links',
+      // defaultHref: '/links',
+      defaultHref: '/',
+    },
+    {
+      label: 'Community',
+      items: data.communityPosts.map((post) => ({
+        label: post.title,
+        href: `/community/${post.slug.current}`,
+      })),
+      // defaultHref: '/community',
+      defaultHref: '/',
     },
     {
       label: 'About',
       items: [],
-      defaultHref: '/about',
+      // defaultHref: '/about',
+      defaultHref: '/',
     },
   ]
 
