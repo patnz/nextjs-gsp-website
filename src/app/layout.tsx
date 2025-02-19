@@ -1,11 +1,17 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Amatic_SC } from 'next/font/google'
+import { Geist, Geist_Mono, Amatic_SC, Orbitron } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 
 const amaticSc = Amatic_SC({
   variable: '--font-amatic-sc',
   weight: '700',
+  subsets: ['latin'],
+})
+
+const orbitron = Orbitron({
+  variable: '--font-orbitron',
+  weight: 'variable',
   subsets: ['latin'],
 })
 
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${amaticSc.variable}  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${amaticSc.variable} ${orbitron.variable}  antialiased`}
       >
         <Providers>{children}</Providers>
       </body>

@@ -61,8 +61,11 @@ export default function App() {
       <NavbarContent className="hidden lg:flex gap-[1vw]" justify="center">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Button className="font-amaticSc text-[5vh]" size="sm">
-              {item}
+            <Button
+              className="font-orbitron text-md rounded-none border-gsp-gold/80 border-2 drop-shadow-md"
+              size="sm"
+            >
+              {item.toUpperCase()}
             </Button>
           </NavbarMenuItem>
         ))}
@@ -71,10 +74,10 @@ export default function App() {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`} className="text-gspGreen">
             <Button
-              className="font-amaticSc text-[8vh] py-6 drop-shadow-md animate-appearance-in w-full"
+              className="font-orbitron text-md py-6 drop-shadow-md animate-appearance-in w-full"
               size="md"
             >
-              {item}
+              {item.toUpperCase()}
             </Button>
           </NavbarMenuItem>
         ))}

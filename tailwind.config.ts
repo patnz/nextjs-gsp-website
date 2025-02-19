@@ -14,6 +14,7 @@ export default {
     extend: {
       fontFamily: {
         amaticSc: 'var(--font-amatic-sc)',
+        orbitron: 'var(--font-orbitron)',
       },
       colors: {
         background: 'var(--background)',
