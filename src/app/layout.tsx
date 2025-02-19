@@ -1,9 +1,16 @@
+// app/layout.tsx
+import {
+  getAllShows,
+  getAllProjects,
+  getAllTeamMembers,
+  getAllCommunityPosts,
+  getAllLinks,
+} from '@/app/sanity/client'
+import NavComponent from './components/NavComponent'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Amatic_SC, Orbitron } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
-import { getAllShows } from './sanity/client'
-import NavComponent from './components/NavComponent'
 
 // FONT THINGS
 
@@ -36,17 +43,35 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
-  const shows = await getAllShows()
+}) {
+  // Fetch all data for navigation
+  const [shows, projects, teamMembers, communityPosts, links] =
+    await Promise.all([
+      getAllShows(),
+      getAllProjects(),
+      getAllTeamMembers(),
+      getAllCommunityPosts(),
+      getAllLinks(),
+    ])
+
+  const navData = {
+    shows,
+    projects,
+    teamMembers,
+    communityPosts,
+    links,
+  }
+
   return (
     <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${amaticSc.variable} ${orbitron.variable}  antialiased`}
       >
         <Providers>
-          <NavComponent shows={shows} />
+          <NavComponent data={navData} />
+
           {children}
         </Providers>
       </body>

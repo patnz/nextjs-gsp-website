@@ -70,7 +70,7 @@ interface TeamMember {
 interface NavData {
   shows: Show[]
   projects: Project[]
-  team: TeamMember[]
+  teamMembers: TeamMember[]
   communityPosts: CommunityPost[]
   links: Link[]
 }

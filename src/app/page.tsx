@@ -30,17 +30,14 @@
 //   )
 // }
 import { Button } from '@heroui/button'
-import NavComponent from './components/NavComponent'
 
 export default function HomePage() {
   return (
     <div>
-      <main className="bg-gsp-black flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-[10vw] text-center font-bold mb-4 font-amaticSc">
-          Welcome to Our Next.js App
-        </h1>
-
-        <Button>Click me</Button>
+      <main className="bg-gsp-black flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
+        <Button className="text-[10vw] text-center font-bold mb-4 font-amaticSc h-[10vw] px-12 py-24 border-8 rounded-none border-gsp-gold/80">
+          Click me
+        </Button>
       </main>
     </div>
   )
