@@ -18,3 +18,4 @@ Notes
 -- Do paper cutouts of each puppet
 -- Float animation for these
 -- Look into golden scissors animation
+- Look at getting live updates going. Currently project needs to be redeployed to show new Sanity content.
