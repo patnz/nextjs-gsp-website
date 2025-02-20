@@ -117,7 +117,7 @@ export default function NavComponent({ data }: NavComponentProps) {
             ) : (
               <Link
                 href={nav.defaultHref}
-                className="w-full p-2 text-white hover:bg-gsp-white/20 transition-colors"
+                className="w-full text-white hover:bg-gsp-white/20 transition-colors text-right text-sm p-4 font-pressStart"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Go to {nav.label}
@@ -215,7 +215,10 @@ export default function NavComponent({ data }: NavComponentProps) {
                 className="font-pressStart bg-gsp-gold border-none text-gsp-white text-md rounded-none drop-shadow-lg shadow-inner"
                 size="sm"
                 key={`${item.href}-${index}`}
-                onClick={() => handleMenuToggle(item.label)}
+                onClick={() => {
+                  handleMenuToggle(item.label)
+                  setIsDesktopMenuOpen(null)
+                }}
               >
                 <Link
                   key={`${item.href}-${index}`}
