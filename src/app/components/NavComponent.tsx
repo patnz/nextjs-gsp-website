@@ -90,7 +90,7 @@ export default function NavComponent({ data }: NavComponentProps) {
       return (
         <NavbarMenuItem key={nav.label}>
           <Button
-            className="font-orbitron text-md rounded-none border-gsp-gold/80 border-2 drop-shadow-md"
+            className="font-pressStart bg-gsp-gold border-none text-gsp-white text-md rounded-none drop-shadow-lg shadow-inner"
             size="sm"
             onClick={() => router.push(nav.defaultHref)}
           >
@@ -105,7 +105,7 @@ export default function NavComponent({ data }: NavComponentProps) {
         <Dropdown>
           <DropdownTrigger>
             <Button
-              className="font-orbitron text-md rounded-none border-gsp-gold/80 border-2 drop-shadow-md"
+              className="font-pressStart bg-gsp-gold border-none text-gsp-white text-md rounded-none drop-shadow-lg shadow-inner"
               size="sm"
               // endContent={<ChevronDown className="h-4 w-4" />}
             >
@@ -130,10 +130,9 @@ export default function NavComponent({ data }: NavComponentProps) {
   const renderMobileNavItem = (nav: (typeof navStructure)[0]) => {
     if (nav.items.length === 0) {
       return (
-        <NavbarMenuItem key={nav.label} className="text-gspGreen">
+        <NavbarMenuItem key={nav.label}>
           <Button
-            className="font-orbitron text-md py-6 drop-shadow-md animate-appearance-in w-full"
-            size="md"
+            className="font-pressStart bg-gsp-gold border-none text-gsp-white text-md py-6 drop-shadow-md w-full rounded-none"
             onClick={() => {
               router.push(nav.defaultHref)
               setIsMenuOpen(false)
@@ -146,12 +145,11 @@ export default function NavComponent({ data }: NavComponentProps) {
     }
 
     return (
-      <NavbarMenuItem key={nav.label} className="text-gspGreen">
+      <NavbarMenuItem key={nav.label}>
         <Dropdown className="w-full">
           <DropdownTrigger className="w-full">
             <Button
-              className="font-orbitron text-md py-6 drop-shadow-md animate-appearance-in w-full"
-              size="md"
+              className="font-pressStart bg-gsp-gold border-none text-gsp-white text-md rounded-none drop-shadow-lg shadow-inner"
               // endContent={<ChevronDown className="h-4 w-4" />}
             >
               {nav.label.toUpperCase()}
@@ -177,7 +175,7 @@ export default function NavComponent({ data }: NavComponentProps) {
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-gsp-gold border-gsp-black"
+      className="bg-gsp-gold border-gsp-white"
     >
       <NavbarContent>
         <NavbarBrand className="flex justify-start">
