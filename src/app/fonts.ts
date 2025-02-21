@@ -4,6 +4,7 @@ import {
   Amatic_SC,
   Orbitron,
   Press_Start_2P,
+  Courier_Prime,
 } from 'next/font/google'
 import './globals.css'
 
@@ -37,6 +38,19 @@ const pressStart = Press_Start_2P({
   subsets: ['latin'],
 })
 
-const fonts = { amaticSc, orbitron, geistSans, geistMono, pressStart }
+const courierPrime = Courier_Prime({
+  variable: '--font-courier-prime',
+  weight: '400',
+  subsets: ['latin'],
+})
+
+const fonts = {
+  amaticSc,
+  orbitron,
+  geistSans,
+  geistMono,
+  pressStart,
+  courierPrime,
+}
 
 export default fonts

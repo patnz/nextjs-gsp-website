@@ -16,6 +16,7 @@ export default {
         amaticSc: 'var(--font-amatic-sc)',
         orbitron: 'var(--font-orbitron)',
         pressStart: 'var(--font-press-start)',
+        courierPrime: 'var(--font-courier-prime)',
       },
       colors: {
         background: 'var(--background)',

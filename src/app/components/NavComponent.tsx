@@ -96,20 +96,18 @@ export default function NavComponent({ data }: NavComponentProps) {
           key={nav.label}
           aria-label={nav.label}
           title={
-            <span className="font-pressStart text-gsp-white">
-              {nav.label.toUpperCase()}
-            </span>
+            <span className="font-courierPrime">{nav.label.toUpperCase()}</span>
           }
           className="bg-gsp-gold mb-2 px-4"
         >
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 text-right">
             {nav.items.length > 0 ? (
               nav.items.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="w-full text-white hover:bg-gsp-white/20 transition-colors text-right text-sm p-4 font-pressStart"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full hover:bg-gsp-white/20 transition-colors p-4 font-courierPrime"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   {item.label.toLocaleUpperCase()}
                 </Link>
@@ -117,8 +115,8 @@ export default function NavComponent({ data }: NavComponentProps) {
             ) : (
               <Link
                 href={nav.defaultHref}
-                className="w-full text-white hover:bg-gsp-white/20 transition-colors text-right text-sm p-4 font-pressStart"
-                onClick={() => setIsMenuOpen(false)}
+                className="w-full hover:bg-gsp-white/20 transition-colors p-4 font-courierPrime"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 Go to {nav.label}
               </Link>
@@ -133,7 +131,7 @@ export default function NavComponent({ data }: NavComponentProps) {
   const renderDesktopNavItem = (nav: (typeof navStructure)[0]) => (
     <NavbarMenuItem key={nav.label}>
       <Button
-        className="font-pressStart bg-gsp-gold border-none text-gsp-white text-md rounded-none drop-shadow-lg shadow-inner"
+        className="font-courierPrime bg-gsp-gold text-xl tracking-wider border-none rounded-none drop-shadow-lg shadow-inner"
         size="sm"
         onClick={() => handleMenuToggle(nav.label)}
       >
@@ -212,7 +210,7 @@ export default function NavComponent({ data }: NavComponentProps) {
               // DROP DOWN BUTTON STYLING
 
               <Button
-                className="font-pressStart bg-gsp-gold border-none text-gsp-white text-md rounded-none drop-shadow-lg shadow-inner"
+                className="font-courierPrime bg-gsp-gold border-none rounded-none drop-shadow-lg shadow-inner"
                 size="sm"
                 key={`${item.href}-${index}`}
                 onClick={() => {
@@ -223,7 +221,7 @@ export default function NavComponent({ data }: NavComponentProps) {
                 <Link
                   key={`${item.href}-${index}`}
                   href={item.href}
-                  className="px-8 py-4 text-white hover:bg-gsp-white/20 transition-colors flex-shrink-0"
+                  className="px-8 py-4 hover:bg-gsp-white/20 transition-colors flex-shrink-0"
                   onClick={() => handleMenuToggle(isDesktopMenuOpen!)}
                 >
                   {item.label}
