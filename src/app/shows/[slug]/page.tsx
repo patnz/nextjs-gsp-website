@@ -29,11 +29,11 @@ export default async function ShowPage({
   // Handle the case where show doesn't exist
   if (!show) {
     return (
-      <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
-        <Link href="/" className="hover:underline">
-          ← Back to shows
+      <main className=" container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
+        <Link href="/" className=" hover:underline">
+          ← back to shows
         </Link>
-        <h1 className="text-4xl font-bold mb-8">Show not found</h1>
+        <h1 className=" text-4xl mb-8">{`show not found :(`}</h1>
       </main>
     )
   }
@@ -45,24 +45,25 @@ export default async function ShowPage({
       : null
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4">
-      <Link href="/" className="hover:underline">
-        ← Back to shows
-      </Link>
+    <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 font-courierPrime">
+      <div className="w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
+        <h1 className="w-fit bg-gsp-white/30 border-2 border-gsp-white/80 px-6 pt-2">
+          {`${show.title.toLowerCase()}`}
+          <span className="text-base md:text-xl"> {show.year}</span>
+        </h1>
+      </div>
       {showImageUrl && (
         <Image
           src={showImageUrl}
           alt={show.title}
-          className="aspect-video rounded-xl w-full"
+          className=" aspect-video w-full border-black border-4 mb-8"
           width="550"
           height="310"
         />
       )}
-      <h1 className="text-4xl font-bold mb-4">{show.title}</h1>
-      <p className="text-xl mb-8">{show.year}</p>
-      <div className="prose max-w-none">
+      <div className=" prose max-w-none my-6 p-3 mb-8 text-justify">
         {typeof show.description === 'string' ? (
-          <p>{show.description}</p>
+          <p>{show.description.toLowerCase()}</p>
         ) : (
           Array.isArray(show.description) && (
             <PortableText value={show.description} />
@@ -72,15 +73,19 @@ export default async function ShowPage({
 
       {/* Press quotes section */}
       {show.pressQuotes && show.pressQuotes.length > 0 && (
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Press Quotes</h2>
-          <div className="flex flex-col gap-4">
+        <div className="">
+          <div className="w-full flex text-xl my-8 text-center justify-start px-0 md:px-4">
+            <h2 className="w-fit bg-gsp-white/30  drop-shadow-xl px-2 pt-1">
+              things people said:
+            </h2>
+          </div>
+          <div className=" flex flex-col gap-4 text-justify">
             {show.pressQuotes.map((quote: string, index: number) => (
               <blockquote
                 key={index}
-                className="border-l-4 border-gray-200 pl-4 italic"
+                className=" border-l-4 border-gray-200 pl-4 italic"
               >
-                {quote}
+                {quote.toLowerCase()}
               </blockquote>
             ))}
           </div>
@@ -89,18 +94,22 @@ export default async function ShowPage({
 
       {/* Image gallery section */}
       {show.imageGallery && show.imageGallery.length > 1 && (
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Image Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className=" mt-8">
+          <div className="w-full flex text-xl my-8 text-center justify-start px-0 md:px-4">
+            <h2 className="w-fit bg-gsp-white/30  drop-shadow-xl px-2 pt-1">
+              things people said:
+            </h2>
+          </div>
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Skip first image as it's already displayed at the top */}
             {show.imageGallery
               .slice(1)
               .map((image: SanityImageSource, index: number) => (
-                <div key={index} className="bg-gray-100 p-2 rounded">
+                <div key={index} className=" bg-gray-100 p-2 rounded">
                   <Image
                     src={urlFor(image)?.width(320).height(240).url() || ''}
                     alt={`Show image ${index + 1}`}
-                    className="w-full h-64 object-cover"
+                    className=" w-full h-64 object-cover"
                     width={320}
                     height={240}
                   />
@@ -109,6 +118,9 @@ export default async function ShowPage({
           </div>
         </div>
       )}
+      <Link href="/" className=" hover:underline">
+        ← back to shows
+      </Link>
     </main>
   )
 }
