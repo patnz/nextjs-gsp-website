@@ -177,7 +177,7 @@ export default function NavComponent({ data }: NavComponentProps) {
       <Navbar
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className="fixed backdrop-saturate-100"
+        className="fixed backdrop-saturate-100 z-30"
       >
         <NavbarContent>
           <NavbarBrand className="flex justify-start">
@@ -208,7 +208,7 @@ export default function NavComponent({ data }: NavComponentProps) {
       <div
         className={`
           hidden lg:block w-full bg-gsp-white/10 fixed top-16 left-0 h-16
-          transition-all duration-300 ease-in-out
+          transition-all duration-300 ease-in-out z-30 backdrop-blur-lg
           ${isDesktopMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}
           ${isAnimating ? 'pointer-events-none' : ''}
         `}
