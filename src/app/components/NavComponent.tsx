@@ -94,8 +94,10 @@ export default function NavComponent({ data }: NavComponentProps) {
     setOpenAccordions(new Set([]))
   }, [])
 
-  const handleAccordionChange = (keys: Set<string>) => {
-    setOpenAccordions(keys)
+  const handleAccordionChange = (keys: 'all' | Set<React.Key>) => {
+    if (keys instanceof Set) {
+      setOpenAccordions(keys as Set<string>)
+    }
   }
 
   const renderMobileNavContent = () => (
