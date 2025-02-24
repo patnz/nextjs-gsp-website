@@ -76,7 +76,7 @@ export default async function ShowPage({
         <div className="">
           <div className="w-full flex text-xl my-8 text-center justify-start px-0 md:px-4">
             <h2 className="w-fit bg-gsp-white/30  drop-shadow-xl px-2 pt-1">
-              things people said:
+              things people said...
             </h2>
           </div>
           <div className=" flex flex-col gap-4 text-justify">
@@ -97,7 +97,7 @@ export default async function ShowPage({
         <div className=" mt-8">
           <div className="w-full flex text-xl my-8 text-center justify-start px-0 md:px-4">
             <h2 className="w-fit bg-gsp-white/30  drop-shadow-xl px-2 pt-1">
-              things people said:
+              things people saw...
             </h2>
           </div>
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

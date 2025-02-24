@@ -151,7 +151,7 @@ export default function NavComponent({ data }: NavComponentProps) {
   const renderDesktopNavItem = (nav: (typeof navStructure)[0]) => (
     <NavbarMenuItem key={nav.label}>
       <Button
-        className="font-courierPrime font-extralight bg-transparent  border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl border-gsp-white hover:text-gsp-gold"
+        className="font-courierPrime font-extralight bg-transparent  border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl border-gsp-white hover:text-gsp-black hover:bg-gsp-white"
         onClick={() => handleMenuToggle(nav.label)}
       >
         {`${nav.label.toLowerCase()}_`}
@@ -222,7 +222,7 @@ export default function NavComponent({ data }: NavComponentProps) {
           >
             {duplicatedItems.map((item, index) => (
               <Button
-                className="font-courierPrime bg-gsp-white/50 rounded-none hover:bg-gsp-white hover:border-gsp-gold border-gsp-black border-2 py-4 px-12 text-gsp-black tracking-[-0.25rem] text-xl"
+                className="font-courierPrime bg-gsp-white/50 rounded-none hover:bg-gsp-black/90 hover:bg-blend-difference hover:border-gsp-white border-gsp-black border-2 py-4 px-12 text-gsp-black hover:text-gsp-white tracking-[-0.25rem] text-xl"
                 size="sm"
                 key={`${item.href}-${index}`}
               >
