@@ -103,6 +103,8 @@ export default function NavComponent({ data }: NavComponentProps) {
       className="px-2 py-2 gap-2"
       selectionMode="multiple"
       selectedKeys={openAccordions}
+      // error here, but this is the only way i can get it to work
+      // so that the menu closes when a link is clicked to navigate
       onSelectionChange={handleAccordionChange}
     >
       {navStructure.map((nav) => (
