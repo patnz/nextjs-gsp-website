@@ -71,11 +71,11 @@ export default function NavComponent({ data }: NavComponentProps) {
       })),
       defaultHref: '/',
     },
-    {
-      label: 'About',
-      items: [],
-      defaultHref: '/',
-    },
+    // {
+    //   label: 'About',
+    //   items: [],
+    //   defaultHref: '/',
+    // },
   ]
 
   const handleMenuToggle = (label: string) => {
@@ -112,19 +112,19 @@ export default function NavComponent({ data }: NavComponentProps) {
           key={nav.label}
           aria-label={nav.label}
           title={
-            <span className="w-full h-full hover:bg-gsp-white/20 transition-colors font-courierPrime bg-gsp-gold px-2 rounded-none text-gsp-black tracking-[-0.2rem] text-xl hover:text-gsp-white">
+            <span className="w-full h-full transition-colors font-courierPrime bg-gsp-gold px-2  rounded-none text-gsp-black tracking-[-0.2rem] text-xl">
               {`${nav.label.toLowerCase()}_`}
             </span>
           }
-          className="bg-gsp-gold px-4 mb-4 border-2 border-gsp-white"
+          className="bg-gsp-gold px-4 mb-4 border-2 border-gsp-black"
         >
           <div className="flex flex-col gap-2 text-right">
             {nav.items.length > 0 ? (
-              nav.items.map((item, index) => (
+              nav.items.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="w-full hover:bg-gsp-white/20 transition-colors py-2 font-courierPrime bg-gsp-gold  border-none rounded-none text-gsp-black tracking-[-0.2rem] text-xl hover:text-gsp-white"
+                  className="w-full p-2 font-courierPrime bg-gsp-gold border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                   onClick={handleLinkClick}
                 >
                   {`_${item.label.replace(' ', '_').toLowerCase()}`}
@@ -134,10 +134,10 @@ export default function NavComponent({ data }: NavComponentProps) {
             ) : (
               <Link
                 href={nav.defaultHref}
-                className="w-full hover:bg-gsp-white/20 transition-colors p-4 font-courierPrime"
+                className="w-full p-2 font-courierPrime bg-gsp-gold border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                 onClick={handleLinkClick}
               >
-                Go to {nav.label}
+                {`_go_to_${nav.label.replace(' ', '_').toLowerCase()}`}
               </Link>
             )}
           </div>
@@ -152,7 +152,7 @@ export default function NavComponent({ data }: NavComponentProps) {
         className="font-courierPrime font-extralight bg-gsp-gold  border-none rounded-none text-gsp-black tracking-[-0.25rem] text-xl hover:text-gsp-white"
         onClick={() => handleMenuToggle(nav.label)}
       >
-        {nav.label.toLowerCase()} .
+        {`${nav.label.toLowerCase()}_`}
       </Button>
     </NavbarMenuItem>
   )
@@ -220,16 +220,12 @@ export default function NavComponent({ data }: NavComponentProps) {
           >
             {duplicatedItems.map((item, index) => (
               <Button
-                className="font-courierPrime bg-gsp-gold border-none rounded-none drop-shadow-lg shadow-inner"
+                className="font-courierPrime bg-gsp-gold rounded-none hover:text-gsp-white hover:bg-gsp-black border-gsp-black border-2 py-4 px-12 text-gsp-black tracking-[-0.25rem] text-xl"
                 size="sm"
                 key={`${item.href}-${index}`}
               >
-                <Link
-                  href={item.href}
-                  className="px-8 py-4 hover:bg-gsp-white/20 transition-colors flex-shrink-0"
-                  onClick={handleLinkClick}
-                >
-                  {item.label}
+                <Link href={item.href} onClick={handleLinkClick}>
+                  {`${item.label.replace(' ', '_').toLowerCase()}_`}
                 </Link>
               </Button>
             ))}
