@@ -43,6 +43,11 @@ export default function HomePage() {
           autoPlay
           className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-10"
         ></video>
+        {/* <p className="flex flex-col font-courierPrime fixed z-20 text-[15vw] md:text-[5vw] text-center tracking-[-.5rem] mix-blend-difference">
+          <span className="relative top-16 md:top-20">golden</span>
+          <span className="">scissor</span>
+          <span className="relative bottom-16 md:bottom-20">puppets</span>
+        </p> */}
         <FloatingGallery />
       </main>
     </div>
