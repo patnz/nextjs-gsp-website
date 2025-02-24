@@ -50,8 +50,10 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   line-height: 1.6;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #26292B;
+  /* gsp back ^ */
+  color: #FCF9ED;
+  /* gsp white */
 }
 
 .container {

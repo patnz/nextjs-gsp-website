@@ -102,7 +102,7 @@ export default function NavComponent({ data }: NavComponentProps) {
 
   const renderMobileNavContent = () => (
     <Accordion
-      className="px-2 py-2 gap-2 "
+      className="px-2 py-2 gap-2"
       selectionMode="multiple"
       selectedKeys={openAccordions}
       // error here, but this is the only way i can get it to work
@@ -151,7 +151,7 @@ export default function NavComponent({ data }: NavComponentProps) {
   const renderDesktopNavItem = (nav: (typeof navStructure)[0]) => (
     <NavbarMenuItem key={nav.label}>
       <Button
-        className="font-courierPrime font-extralight bg-gsp-gold  border-none rounded-none text-gsp-black tracking-[-0.25rem] text-xl hover:text-gsp-white"
+        className="font-courierPrime font-extralight bg-transparent  border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl border-gsp-white hover:text-gsp-gold"
         onClick={() => handleMenuToggle(nav.label)}
       >
         {`${nav.label.toLowerCase()}_`}
@@ -177,7 +177,7 @@ export default function NavComponent({ data }: NavComponentProps) {
       <Navbar
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className="bg-gsp-gold border-gsp-white"
+        className="fixed backdrop-saturate-100"
       >
         <NavbarContent>
           <NavbarBrand className="flex justify-start">
@@ -207,7 +207,7 @@ export default function NavComponent({ data }: NavComponentProps) {
 
       <div
         className={`
-          hidden lg:block w-full bg-gsp-gold/50 fixed top-16 left-0 h-16
+          hidden lg:block w-full bg-gsp-white/10 fixed top-16 left-0 h-16
           transition-all duration-300 ease-in-out
           ${isDesktopMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}
           ${isAnimating ? 'pointer-events-none' : ''}
@@ -222,7 +222,7 @@ export default function NavComponent({ data }: NavComponentProps) {
           >
             {duplicatedItems.map((item, index) => (
               <Button
-                className="font-courierPrime bg-gsp-gold rounded-none hover:text-gsp-white hover:bg-gsp-black border-gsp-black border-2 py-4 px-12 text-gsp-black tracking-[-0.25rem] text-xl"
+                className="font-courierPrime bg-gsp-white/50 rounded-none hover:bg-gsp-white hover:border-gsp-gold border-gsp-black border-2 py-4 px-12 text-gsp-black tracking-[-0.25rem] text-xl"
                 size="sm"
                 key={`${item.href}-${index}`}
               >
