@@ -100,7 +100,7 @@ export default function NavComponent({ data }: NavComponentProps) {
 
   const renderMobileNavContent = () => (
     <Accordion
-      className="px-2 py-2 gap-2"
+      className="px-2 py-2 gap-2 "
       selectionMode="multiple"
       selectedKeys={openAccordions}
       // error here, but this is the only way i can get it to work
@@ -112,23 +112,23 @@ export default function NavComponent({ data }: NavComponentProps) {
           key={nav.label}
           aria-label={nav.label}
           title={
-            <span className="font-courierPrime bg-gsp-black text-gsp-gold px-2 p-1 drop-shadow-xl tracking-[-0.2rem] text-xl">
-              {nav.label.toLowerCase()}
-              {` >`}
+            <span className="w-full h-full hover:bg-gsp-white/20 transition-colors font-courierPrime bg-gsp-gold px-2 rounded-none text-gsp-black tracking-[-0.2rem] text-xl hover:text-gsp-white">
+              {`${nav.label.toLowerCase()}_`}
             </span>
           }
-          className="bg-gsp-gold mb-2 px-4"
+          className="bg-gsp-gold px-4 mb-4 border-2 border-gsp-white"
         >
           <div className="flex flex-col gap-2 text-right">
             {nav.items.length > 0 ? (
-              nav.items.map((item) => (
+              nav.items.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="w-full hover:bg-gsp-white/20 transition-colors p-4 font-courierPrime"
+                  className="w-full hover:bg-gsp-white/20 transition-colors py-2 font-courierPrime bg-gsp-gold  border-none rounded-none text-gsp-black tracking-[-0.2rem] text-xl hover:text-gsp-white"
                   onClick={handleLinkClick}
                 >
-                  {item.label.toLocaleUpperCase()}
+                  {`_${item.label.replace(' ', '_').toLowerCase()}`}
+                  {/* {`[${index}] ${item.label.replace(' ', '_').toLowerCase()}`} */}
                 </Link>
               ))
             ) : (
@@ -149,11 +149,10 @@ export default function NavComponent({ data }: NavComponentProps) {
   const renderDesktopNavItem = (nav: (typeof navStructure)[0]) => (
     <NavbarMenuItem key={nav.label}>
       <Button
-        className="font-courierPrime bg-gsp-gold text-xl tracking-wider border-none rounded-none drop-shadow-lg shadow-inner"
-        size="sm"
+        className="font-courierPrime font-extralight bg-gsp-gold  border-none rounded-none text-gsp-black tracking-[-0.25rem] text-xl hover:text-gsp-white"
         onClick={() => handleMenuToggle(nav.label)}
       >
-        {nav.label.toUpperCase()}
+        {nav.label.toLowerCase()} .
       </Button>
     </NavbarMenuItem>
   )
