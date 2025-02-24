@@ -102,7 +102,7 @@ export default function NavComponent({ data }: NavComponentProps) {
 
   const renderMobileNavContent = () => (
     <Accordion
-      className="px-2 py-2 gap-2"
+      className="px-2 py-2 gap-2 "
       selectionMode="multiple"
       selectedKeys={openAccordions}
       // error here, but this is the only way i can get it to work
@@ -114,11 +114,11 @@ export default function NavComponent({ data }: NavComponentProps) {
           key={nav.label}
           aria-label={nav.label}
           title={
-            <span className="w-full h-full transition-colors font-courierPrime bg-gsp-gold px-2  rounded-none text-gsp-black tracking-[-0.2rem] text-xl">
+            <span className="w-full h-full transition-colors font-courierPrime  px-2  rounded-none text-gsp-black tracking-[-0.2rem] text-xl">
               {`${nav.label.toLowerCase()}_`}
             </span>
           }
-          className="bg-gsp-gold px-4 mb-4 border-2 border-gsp-black"
+          className=" px-4 mb-4 border-2 border-gsp-black bg-gsp-white/80 backdrop-brightness-200"
         >
           <div className="flex flex-col gap-2 text-right">
             {nav.items.length > 0 ? (
@@ -126,7 +126,7 @@ export default function NavComponent({ data }: NavComponentProps) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="w-full p-2 font-courierPrime bg-gsp-gold border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
+                  className="w-full p-2 font-courierPrime border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                   onClick={handleLinkClick}
                 >
                   {`_${item.label.replace(' ', '_').toLowerCase()}`}
@@ -136,7 +136,7 @@ export default function NavComponent({ data }: NavComponentProps) {
             ) : (
               <Link
                 href={nav.defaultHref}
-                className="w-full p-2 font-courierPrime bg-gsp-gold border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
+                className="w-full p-2 font-courierPrime  border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                 onClick={handleLinkClick}
               >
                 {`_go_to_${nav.label.replace(' ', '_').toLowerCase()}`}
@@ -177,7 +177,7 @@ export default function NavComponent({ data }: NavComponentProps) {
       <Navbar
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className="fixed backdrop-saturate-100 z-30"
+        className="fixed z-30 backdrop-blur-sm"
       >
         <NavbarContent>
           <NavbarBrand className="flex justify-start">
@@ -200,15 +200,15 @@ export default function NavComponent({ data }: NavComponentProps) {
           {navStructure.map(renderDesktopNavItem)}
         </NavbarContent>
 
-        <NavbarMenu className="pt-6 px-2">
+        <NavbarMenu className="pt-6 px-2 backdrop-blur-sm backdrop-invert">
           {renderMobileNavContent()}
         </NavbarMenu>
       </Navbar>
 
       <div
         className={`
-          hidden lg:block w-full bg-gsp-white/10 fixed top-16 left-0 h-16
-          transition-all duration-300 ease-in-out z-30 backdrop-blur-lg
+          hidden lg:block w-full fixed top-16 left-0 h-16
+          transition-all duration-300 ease-in-out z-30 backdrop-blur-sm backdrop-brightness-150
           ${isDesktopMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}
           ${isAnimating ? 'pointer-events-none' : ''}
         `}
