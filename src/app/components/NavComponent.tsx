@@ -26,8 +26,10 @@ export default function NavComponent({ data }: NavComponentProps) {
     string | null
   >(null)
   const [isAnimating, setIsAnimating] = React.useState(false)
+  const [openAccordions, setOpenAccordions] = React.useState<Set<string>>(
+    new Set([])
+  )
 
-  // Define navigation structure
   const navStructure = [
     {
       label: 'Shows',
@@ -76,7 +78,6 @@ export default function NavComponent({ data }: NavComponentProps) {
     },
   ]
 
-  // Handle menu open/close with animation
   const handleMenuToggle = (label: string) => {
     setIsAnimating(true)
     if (isDesktopMenuOpen === label) {
@@ -84,19 +85,35 @@ export default function NavComponent({ data }: NavComponentProps) {
     } else {
       setIsDesktopMenuOpen(label)
     }
-    // Reset animating state after animation completes
     setTimeout(() => setIsAnimating(false), 300)
   }
 
-  // Mobile navigation content with links
+  const handleLinkClick = React.useCallback(() => {
+    setIsMenuOpen(false)
+    setIsDesktopMenuOpen(null)
+    setOpenAccordions(new Set([]))
+  }, [])
+
+  const handleAccordionChange = (keys: Set<string>) => {
+    setOpenAccordions(keys)
+  }
+
   const renderMobileNavContent = () => (
-    <Accordion className="px-2 py-2 gap-2" selectionMode="multiple">
+    <Accordion
+      className="px-2 py-2 gap-2"
+      selectionMode="multiple"
+      selectedKeys={openAccordions}
+      onSelectionChange={handleAccordionChange}
+    >
       {navStructure.map((nav) => (
         <AccordionItem
           key={nav.label}
           aria-label={nav.label}
           title={
-            <span className="font-courierPrime">{nav.label.toUpperCase()}</span>
+            <span className="font-courierPrime bg-gsp-black text-gsp-gold px-2 p-1 drop-shadow-xl tracking-[-0.2rem] text-xl">
+              {nav.label.toLowerCase()}
+              {` >`}
+            </span>
           }
           className="bg-gsp-gold mb-2 px-4"
         >
@@ -107,7 +124,7 @@ export default function NavComponent({ data }: NavComponentProps) {
                   key={item.href}
                   href={item.href}
                   className="w-full hover:bg-gsp-white/20 transition-colors p-4 font-courierPrime"
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  onClick={handleLinkClick}
                 >
                   {item.label.toLocaleUpperCase()}
                 </Link>
@@ -116,7 +133,7 @@ export default function NavComponent({ data }: NavComponentProps) {
               <Link
                 href={nav.defaultHref}
                 className="w-full hover:bg-gsp-white/20 transition-colors p-4 font-courierPrime"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={handleLinkClick}
               >
                 Go to {nav.label}
               </Link>
@@ -127,7 +144,6 @@ export default function NavComponent({ data }: NavComponentProps) {
     </Accordion>
   )
 
-  // Desktop navigation with mega menu
   const renderDesktopNavItem = (nav: (typeof navStructure)[0]) => (
     <NavbarMenuItem key={nav.label}>
       <Button
@@ -140,7 +156,6 @@ export default function NavComponent({ data }: NavComponentProps) {
     </NavbarMenuItem>
   )
 
-  // Get the current menu items and duplicate them for smooth scrolling
   const currentMenuItems = isDesktopMenuOpen
     ? navStructure.find((nav) => nav.label === isDesktopMenuOpen)?.items || []
     : []
@@ -157,12 +172,13 @@ export default function NavComponent({ data }: NavComponentProps) {
   return (
     <>
       <Navbar
+        isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         className="bg-gsp-gold border-gsp-white"
       >
         <NavbarContent>
           <NavbarBrand className="flex justify-start">
-            <Link href="/">
+            <Link href="/" onClick={handleLinkClick}>
               <Image
                 src="/gsp-logo.png"
                 alt="GSP Logo"
@@ -177,18 +193,15 @@ export default function NavComponent({ data }: NavComponentProps) {
           />
         </NavbarContent>
 
-        {/* Desktop Navigation */}
         <NavbarContent className="hidden lg:flex gap-[1vw]" justify="center">
           {navStructure.map(renderDesktopNavItem)}
         </NavbarContent>
 
-        {/* Mobile Navigation */}
         <NavbarMenu className="pt-6 px-2">
           {renderMobileNavContent()}
         </NavbarMenu>
       </Navbar>
 
-      {/* Desktop Mega Menu */}
       <div
         className={`
           hidden lg:block w-full bg-gsp-gold/50 fixed top-16 left-0 h-16
@@ -197,8 +210,6 @@ export default function NavComponent({ data }: NavComponentProps) {
           ${isAnimating ? 'pointer-events-none' : ''}
         `}
       >
-        {/* DROP DOWN STYLING */}
-
         <div className="relative w-full h-full overflow-hidden">
           <div
             className="flex items-center absolute gap-4 left-0 top-0 h-full whitespace-nowrap animate-scroll"
@@ -207,22 +218,15 @@ export default function NavComponent({ data }: NavComponentProps) {
             }}
           >
             {duplicatedItems.map((item, index) => (
-              // DROP DOWN BUTTON STYLING
-
               <Button
                 className="font-courierPrime bg-gsp-gold border-none rounded-none drop-shadow-lg shadow-inner"
                 size="sm"
                 key={`${item.href}-${index}`}
-                onClick={() => {
-                  handleMenuToggle(item.label)
-                  setIsDesktopMenuOpen(null)
-                }}
               >
                 <Link
-                  key={`${item.href}-${index}`}
                   href={item.href}
                   className="px-8 py-4 hover:bg-gsp-white/20 transition-colors flex-shrink-0"
-                  onClick={() => handleMenuToggle(isDesktopMenuOpen!)}
+                  onClick={handleLinkClick}
                 >
                   {item.label}
                 </Link>
