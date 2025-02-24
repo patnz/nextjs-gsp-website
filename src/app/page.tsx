@@ -30,7 +30,7 @@
 //   )
 // }
 // import { Button } from '@heroui/button'
-import FloatingGallery from './components/FloatingGallery'
+// import FloatingGallery from './components/FloatingGallery'
 
 export default function HomePage() {
   return (
