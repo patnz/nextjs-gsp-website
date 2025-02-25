@@ -113,7 +113,7 @@ export default function NavComponent({ data }: NavComponentProps) {
               {`${nav.label.toLowerCase()}_`}
             </span>
           }
-          className=" px-4 mb-4 border-2 border-gsp-black bg-gsp-white/80 backdrop-brightness-200"
+          className=" px-4 mb-4 border-2 border-x-[3px] border-gsp-white bg-gsp-white/80"
         >
           <div className="flex flex-col gap-2 text-right">
             {nav.items.length > 0 ? (

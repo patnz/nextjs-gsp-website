@@ -75,7 +75,7 @@ export default async function ShowPage({
         )}
       </div>
 
-      {/* Press quotes section */}
+      {/* Press quotes section
       {show.pressQuotes && show.pressQuotes.length > 0 && (
         <div className=" flex flex-col gap-4 text-justify">
           {show.pressQuotes.map((quote: string, index: number) => (
@@ -87,11 +87,11 @@ export default async function ShowPage({
             </blockquote>
           ))}
         </div>
-      )}
+      )} */}
 
       {/* Image gallery section */}
       {show.imageGallery && show.imageGallery.length > 1 && (
-        <div className=" mt-8">
+        <div className="">
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Skip first image as it's already displayed at the top */}
             {show.imageGallery
@@ -110,9 +110,9 @@ export default async function ShowPage({
           </div>
         </div>
       )}
-      <Link href="/" className=" hover:underline">
+      {/* <Link href="/" className=" hover:underline">
         ← back to shows
-      </Link>
+      </Link> */}
     </main>
   )
 }
