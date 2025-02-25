@@ -49,18 +49,18 @@ export default async function ShowPage({
   return (
     <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 font-courierPrime">
       <div className=" w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
-        <h1 className="flex gap-2  w-fit border-b-2 border-gsp-white/80 px-6 pt-2 animate-appearance-in">
-          <span className="text-2xl md:text-4xl">
+        <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in">
+          <span className="text-2xl md:text-4xl -rotate-1 font-extrabold">
             {`${show.title.toLowerCase()}`}
           </span>
-          <span className="text-base md:text-xl">{show.year}</span>
+          <span className="text-base md:text-xl rotate-3">{show.year}</span>
         </h1>
       </div>
       {showImageUrl && (
         <Image
           src={showImageUrl}
           alt={show.title}
-          className="w-full object-cover"
+          className="w-full object-cover border-2 border-gsp-white/80"
           width="550"
           height="310"
         />
