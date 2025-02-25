@@ -1,11 +1,9 @@
-'use client'
-
 import Image from 'next/image'
 
 export default function HomePage() {
-  const n = Math.floor(Math.random() * 3)
+  // const n = Math.floor(Math.random() * 3)
 
-  const images = ['/gold-1.png', '/white-1.png', '/green-1.png']
+  // const images = ['/gold-1.png', '/white-1.png', '/green-1.png']
   return (
     <div>
       <main className="bg-gsp-black flex flex-col items-center justify-center h-screen">
@@ -33,7 +31,7 @@ export default function HomePage() {
           alt="Golden Scissor Puppets"
         ></Image>
         <Image
-          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-11 md:mb-10 ml-1 opacity-50"
+          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-11 md:mb-10 ml-1 opacity-50 "
           // src={images[n]}
           src="/gold-1.png"
           width={500}
