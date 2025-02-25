@@ -88,12 +88,6 @@ export default async function GalleryPage({
           No images in this gallery yet.
         </p>
       )}
-
-      <div className="my-8">
-        <Link href="/galleries" className="hover:underline text-lg">
-          ← back to galleries
-        </Link>
-      </div>
     </main>
   )
 }

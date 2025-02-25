@@ -73,12 +73,6 @@ export default async function LinkPage({
           Visit {linkItem.title.toLowerCase()}
         </a>
       </div>
-
-      <div className="my-4">
-        <Link href="/links" className="hover:underline text-lg">
-          ← back to links
-        </Link>
-      </div>
     </main>
   )
 }

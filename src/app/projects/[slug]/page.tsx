@@ -117,12 +117,6 @@ export default async function ProjectPage({
           </div>
         </div>
       )}
-
-      <div className="my-8">
-        <Link href="/projects" className="hover:underline text-lg">
-          ← back to projects
-        </Link>
-      </div>
     </main>
   )
 }

@@ -88,12 +88,6 @@ export default async function TeamMemberPage({
       </div>
 
       {/* You could add related projects or shows by this team member here */}
-
-      <div className="mt-8">
-        <Link href="/team" className="hover:underline text-lg">
-          ← back to team
-        </Link>
-      </div>
     </main>
   )
 }
