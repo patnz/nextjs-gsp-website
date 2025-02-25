@@ -34,7 +34,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Shows',
       items: data.shows.map((show) => ({
-        label: `${show.title} (${show.year})`,
+        label: show.title.replaceAll(' ', '_').toLowerCase() + '_' + show.year,
         href: `/shows/${show.slug.current}`,
       })),
       defaultHref: '/',
@@ -42,7 +42,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Projects',
       items: data.projects.map((project) => ({
-        label: project.title,
+        label: project.title.replaceAll(' ', '_').toLowerCase(),
         href: `/projects/${project.slug.current}`,
       })),
       defaultHref: '/',
@@ -50,7 +50,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Team',
       items: data.teamMembers.map((member) => ({
-        label: member.name,
+        label: member.name.replaceAll(' ', '_').toLowerCase(),
         href: `/team/${member._id}`,
       })),
       defaultHref: '/',
@@ -58,7 +58,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Links',
       items: data.links.map((link) => ({
-        label: link.title,
+        label: link.title.replaceAll(' ', '_').toLowerCase(),
         href: link.url,
       })),
       defaultHref: '/',
@@ -66,16 +66,11 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Community',
       items: data.communityPosts.map((post) => ({
-        label: post.title,
+        label: post.title.replaceAll(' ', '_').toLowerCase(),
         href: `/community/${post.slug.current}`,
       })),
       defaultHref: '/',
     },
-    // {
-    //   label: 'About',
-    //   items: [],
-    //   defaultHref: '/',
-    // },
   ]
 
   const handleMenuToggle = (label: string) => {
@@ -129,8 +124,8 @@ export default function NavComponent({ data }: NavComponentProps) {
                   className="w-full p-2 font-courierPrime border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                   onClick={handleLinkClick}
                 >
-                  {`_${item.label.replace(' ', '_').toLowerCase()}`}
-                  {/* {`[${index}] ${item.label.replace(' ', '_').toLowerCase()}`} */}
+                  {`_${item.label}`}
+                  {/* {`[${index}] ${item.label}`} */}
                 </Link>
               ))
             ) : (
@@ -139,7 +134,7 @@ export default function NavComponent({ data }: NavComponentProps) {
                 className="w-full p-2 font-courierPrime  border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                 onClick={handleLinkClick}
               >
-                {`_go_to_${nav.label.replace(' ', '_').toLowerCase()}`}
+                {`_go_to_${nav.label}`}
               </Link>
             )}
           </div>
@@ -227,7 +222,7 @@ export default function NavComponent({ data }: NavComponentProps) {
                 key={`${item.href}-${index}`}
               >
                 <Link href={item.href} onClick={handleLinkClick}>
-                  {`${item.label.replace(' ', '_').toLowerCase()}_`}
+                  {`${item.label}_`}
                 </Link>
               </Button>
             ))}
