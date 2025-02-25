@@ -1,38 +1,11 @@
-// import Link from 'next/link'
-// import { type SanityDocument } from 'next-sanity'
+'use client'
 
-// import { client } from './sanity/client'
-
-// const POSTS_QUERY = `*[
-//   _type == "post"
-//   && defined(slug.current)
-// ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`
-
-// const options = { next: { revalidate: 30 } }
-
-// export default async function IndexPage() {
-//   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options)
-
-//   return (
-//     <main className="container mx-auto min-h-screen max-w-3xl p-8">
-//       <h1 className="text-4xl font-bold mb-8">Posts</h1>
-//       <ul className="flex flex-col gap-y-4">
-//         {posts.map((post) => (
-//           <li className="hover:underline" key={post._id}>
-//             <Link href={`/post/${post.slug.current}`}>
-//               <h2 className="text-xl font-semibold">{post.title}</h2>
-//               <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
-//             </Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </main>
-//   )
-// }
-// import { Button } from '@heroui/button'
-// import FloatingGallery from './components/FloatingGallery'
+import Image from 'next/image'
 
 export default function HomePage() {
+  const n = Math.floor(Math.random() * 3)
+
+  const images = ['/gold-1.png', '/white-1.png', '/green-1.png']
   return (
     <div>
       <main className="bg-gsp-black flex flex-col items-center justify-center h-screen">
@@ -43,7 +16,30 @@ export default function HomePage() {
           autoPlay
           className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-10"
         ></video>
-        {/* <FloatingGallery /> */}
+        <Image
+          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-12 opacity-100"
+          // src={images[n]}
+          src="/white-1.png"
+          width={500}
+          height={500}
+          alt="Golden Scissor Puppets"
+        ></Image>
+        <Image
+          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-[48px] md:mb-[52px] mr-1 opacity-20"
+          // src={images[n]}
+          src="/green-1.png"
+          width={500}
+          height={500}
+          alt="Golden Scissor Puppets"
+        ></Image>
+        <Image
+          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-11 md:mb-10 ml-1 opacity-50"
+          // src={images[n]}
+          src="/gold-1.png"
+          width={500}
+          height={500}
+          alt="Golden Scissor Puppets"
+        ></Image>
       </main>
     </div>
   )
