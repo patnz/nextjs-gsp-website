@@ -47,35 +47,47 @@ export default async function ShowPage({
       : null
 
   return (
-    <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 font-courierPrime">
-      <div className=" w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
-        <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in">
-          <span className="text-2xl md:text-4xl -rotate-1 font-extrabold">
-            {`${show.title.toLowerCase()}`}
-          </span>
-          <span className="text-base md:text-xl rotate-3">{show.year}</span>
-        </h1>
-      </div>
-      {showImageUrl && (
-        <Image
-          src={showImageUrl}
-          alt={show.title}
-          className="w-full object-cover border-2 border-gsp-white/80"
-          width="550"
-          height="310"
+    <>
+      {/* VIDEO BACKDROP */}
+      <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          className="w-full h-full object-cover opacity-20"
+          src="/texture-backdrop-1.mp4"
         />
-      )}
-      <div className="prose max-w-none my-6 p-3 text-justify">
-        {typeof show.description === 'string' ? (
-          <p>{show.description.toLowerCase()}</p>
-        ) : (
-          Array.isArray(show.description) && (
-            <PortableText value={show.description} />
-          )
-        )}
       </div>
+      {/* VIDEO BACKDROP */}
+      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 lg:px-32 font-courierPrime z-10 relative mix-blend-color-dodge">
+        <div className=" w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
+          <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in ">
+            <span className="text-2xl md:text-4xl -rotate-1 font-extrabold">
+              {`${show.title.toLowerCase()}`}
+            </span>
+            <span className="text-base md:text-xl rotate-3">{show.year}</span>
+          </h1>
+        </div>
+        {showImageUrl && (
+          <Image
+            src={showImageUrl}
+            alt={show.title}
+            className="w-full object-cover border-2 border-gsp-white/80"
+            width="550"
+            height="310"
+          />
+        )}
+        <div className="prose max-w-none my-6 p-3 text-justify text-white">
+          {typeof show.description === 'string' ? (
+            <p>{show.description.toLowerCase()}</p>
+          ) : (
+            Array.isArray(show.description) && (
+              <PortableText value={show.description} />
+            )
+          )}
+        </div>
 
-      {/* Press quotes section
+        {/* Press quotes section
       {show.pressQuotes && show.pressQuotes.length > 0 && (
         <div className=" flex flex-col gap-4 text-justify">
           {show.pressQuotes.map((quote: string, index: number) => (
@@ -89,30 +101,31 @@ export default async function ShowPage({
         </div>
       )} */}
 
-      {/* Image gallery section */}
-      {show.imageGallery && show.imageGallery.length > 1 && (
-        <div className="">
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* Skip first image as it's already displayed at the top */}
-            {show.imageGallery
-              .slice(1)
-              .map((image: SanityImageSource, index: number) => (
-                <div key={index} className="border-2 border-gsp-white/80">
-                  <Image
-                    src={urlFor(image)?.width(320).height(240).url() || ''}
-                    alt={`Show image ${index + 1}`}
-                    className=" w-full h-64 object-cover"
-                    width={320}
-                    height={240}
-                  />
-                </div>
-              ))}
+        {/* Image gallery section */}
+        {show.imageGallery && show.imageGallery.length > 1 && (
+          <div className="">
+            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Skip first image as it's already displayed at the top */}
+              {show.imageGallery
+                .slice(1)
+                .map((image: SanityImageSource, index: number) => (
+                  <div key={index} className="border-2 border-gsp-white/80">
+                    <Image
+                      src={urlFor(image)?.width(320).height(240).url() || ''}
+                      alt={`Show image ${index + 1}`}
+                      className=" w-full h-64 object-cover"
+                      width={320}
+                      height={240}
+                    />
+                  </div>
+                ))}
+            </div>
           </div>
-        </div>
-      )}
-      {/* <Link href="/" className=" hover:underline">
+        )}
+        {/* <Link href="/" className=" hover:underline">
         ← back to shows
       </Link> */}
-    </main>
+      </main>
+    </>
   )
 }
