@@ -23,7 +23,7 @@ export default function HomePage() {
           alt="Golden Scissor Puppets"
         ></Image>
         <Image
-          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-[48px] md:mb-[52px] mr-1 opacity-20"
+          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-[48px] md:mb-[52px] mr-1 opacity-20 animate-flicker"
           // src={images[n]}
           src="/green-1.png"
           width={500}
@@ -31,7 +31,7 @@ export default function HomePage() {
           alt="Golden Scissor Puppets"
         ></Image>
         <Image
-          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-11 md:mb-10 ml-1 opacity-50 "
+          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-11 md:mb-10 ml-1 opacity-50 animate-flicker"
           // src={images[n]}
           src="/gold-1.png"
           width={500}
