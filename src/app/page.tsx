@@ -12,7 +12,7 @@ export default function HomePage() {
           muted
           loop
           autoPlay
-          className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-10 opacity-0 animate-fade-in"
+          className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-10 opacity-0 animate-fade-in pointer-events-none"
         ></video>
         <Image
           className="fixed z-10 w-[500px] mix-blend-color-dodge mb-12 opacity-100"
@@ -31,7 +31,7 @@ export default function HomePage() {
           alt="Golden Scissor Puppets"
         ></Image>
         <Image
-          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-11 md:mb-10 ml-1 opacity-50 animate-flicker"
+          className="fixed z-10 w-[500px] mix-blend-color-dodge mb-11 md:mb-10 ml-1 opacity-50 animate-flicker hover:scale-105"
           // src={images[n]}
           src="/gold-1.png"
           width={500}

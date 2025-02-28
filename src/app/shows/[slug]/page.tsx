@@ -46,7 +46,7 @@ export default async function ShowPage({
   return (
     <>
       {/* VIDEO BACKDROP */}
-      <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden opacity-0 animate-fade-in">
+      <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden opacity-0 animate-fade-in pointer-events-none">
         <video
           autoPlay
           muted
@@ -56,7 +56,7 @@ export default async function ShowPage({
         />
       </div>
       {/* VIDEO BACKDROP */}
-      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 font-courierPrime z-10">
+      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 font-courierPrime z-30">
         <div className=" w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
           <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in ">
             <span className="text-2xl md:text-4xl -rotate-1 font-extrabold">
