@@ -155,7 +155,7 @@ export default function FloatingImages({
             img.visible && (
               <motion.div
                 key={img.id}
-                className="absolute pointer-events-auto cursor-pointer"
+                className="absolute pointer-events-auto cursor-pointer hover:scale-125 duration-300"
                 style={{
                   left: img.x,
                   top: img.y,

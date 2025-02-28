@@ -68,6 +68,12 @@
   100% { opacity: 1; }
 }
 
+@keyframes simple-fade-in {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 @layer utilities {
   /* More natural flicker effect */
   @keyframes flicker {
@@ -94,6 +100,10 @@
   
   .animate-fade-in {
     animation: fade-in 10s linear 0.5s forwards;
+  }
+
+  .animate-simple-fade-in {
+    animation: simple-fade-in 5s linear 0.5s forwards;
   }
 
   .animate-fade-in-floating {
