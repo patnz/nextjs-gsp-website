@@ -55,6 +55,7 @@ interface Show {
   slug: { current: string }
   description: string
   year: number
+  mainImage: SanityImage
   imageGallery?: SanityImage[]
   pressQuotes?: string[]
 }
