@@ -1,4 +1,3 @@
-// app/layout.tsx
 import {
   getAllShows,
   getAllProjects,
@@ -7,11 +6,11 @@ import {
   getAllLinks,
 } from '@/app/sanity/client'
 import NavComponent from './components/NavComponent'
+import FloatingDecorations from './components/FloatingDecorations'
 import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
 import fonts from './fonts'
-// FONT THINGS
 
 export const metadata: Metadata = {
   title:
@@ -45,11 +44,11 @@ export default async function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable}  antialiased`}
+        className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} antialiased`}
       >
         <Providers>
+          <FloatingDecorations />
           <NavComponent data={navData} />
-
           {children}
         </Providers>
       </body>

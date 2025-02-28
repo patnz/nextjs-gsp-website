@@ -15,66 +15,91 @@
 }
 
 
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-16.66%);
-          }
-        }
-        .animate-scroll {
-          will-change: transform;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-16.66%);
+  }
+}
+.animate-scroll {
+  will-change: transform;
+}
 
-        }
+@keyframes figureEight {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(200px, 200px);
+  }
+  50% {
+    transform: translate(0, 200px);
+  }
+  75% {
+    transform: translate(-200px, 200px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
-        @keyframes figureEight {
-          0% {
-            transform: translate(0, 0);
-          }
-          25% {
-            transform: translate(200px, 200px);
-          }
-          50% {
-            transform: translate(0, 200px);
-          }
-          75% {
-            transform: translate(-200px, 200px);
-          }
-          100% {
-            transform: translate(0, 0);
-          }
-        }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
 
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
+@keyframes fade-in {
+  0% { opacity: 0; }
+  10% { opacity: 0; }
+  20% { opacity: 0; }
+  30% { opacity: 0.15; }
+  40% { opacity: 0.3; }
+  41% { opacity: 0;}
+  42% {opacity: 0.31;}
+  50% { opacity: 0.45; }
+  60% { opacity: 0.6; }
+  70% { opacity: 0.75; }
+  80% { opacity: 0.9; }
+  90% { opacity: 1; }
+  91% {opacity: 0;}
+  92% {opacity: 1;}
+  100% { opacity: 1; }
+}
 
-        @layer utilities {
-          /* More natural flicker effect */
-          @keyframes flicker {
-            0% { opacity: 1; }
-            7% { opacity: 0.8; }
-            14% { opacity: 0.6; }
-            21% { opacity: 1; }
-            28% { opacity: 0.5; }
-            35% { opacity: 1; }
-            42% { opacity: 0.7; }
-            50% { opacity: 0.3; }
-            57% { opacity: 1; }
-            64% { opacity: 0.6; }
-            71% { opacity: 0.9; }
-            78% { opacity: 0.4; }
-            85% { opacity: 1; }
-            92% { opacity: 0.8; }
-            100% { opacity: 1; }
-          }
-        
-          .animate-flicker {
-            animation: flicker .6s infinite steps(10);
-          }
-        }
+@layer utilities {
+  /* More natural flicker effect */
+  @keyframes flicker {
+    0% { opacity: 1; }
+    7% { opacity: 0.8; }
+    14% { opacity: 0.6; }
+    21% { opacity: 1; }
+    28% { opacity: 0.5; }
+    35% { opacity: 1; }
+    42% { opacity: 0.7; }
+    50% { opacity: 0.3; }
+    57% { opacity: 1; }
+    64% { opacity: 0.6; }
+    71% { opacity: 0.9; }
+    78% { opacity: 0.4; }
+    85% { opacity: 1; }
+    92% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+
+  .animate-flicker {
+    animation: flicker .6s infinite steps(10);
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 10s linear 0.5s forwards;
+  }
+
+  .animate-fade-in-floating {
+    animation: fade-in 5s linear 0.5s forwards;
+  }
+}
 
 
 body {
