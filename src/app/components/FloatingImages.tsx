@@ -81,6 +81,7 @@ export default function FloatingImages({
     const animationFrame = requestAnimationFrame(() => {
       setFloatingImages((prevImages) => {
         return prevImages.map((img) => {
+          // eslint-disable-next-line prefer-const
           let { x, y, xSpeed, ySpeed, visible, size } = img
 
           // Move the image
