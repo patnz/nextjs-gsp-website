@@ -42,8 +42,6 @@ export default async function RootLayout({
     links,
   }
 
-  console.log(navData.shows)
-
   return (
     <html lang="en" className="dark">
       <body

@@ -40,11 +40,7 @@ export default async function ShowPage({
     )
   }
 
-  // Get the first image from the gallery if it exists
-  const showImageUrl =
-    show.imageGallery && show.imageGallery.length > 0
-      ? urlFor(show.imageGallery[0])?.width(550).height(310).url()
-      : null
+  const mainImage = show.mainImage ? urlFor(show.mainImage)?.url() : null
 
   return (
     <>
@@ -68,9 +64,9 @@ export default async function ShowPage({
             <span className="text-base md:text-xl rotate-3">{show.year}</span>
           </h1>
         </div>
-        {showImageUrl && (
+        {mainImage && (
           <Image
-            src={showImageUrl}
+            src={mainImage}
             alt={show.title}
             className="w-full object-cover border-2 border-gsp-white/80"
             width="550"
@@ -106,9 +102,8 @@ export default async function ShowPage({
           <div className="">
             <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {/* Skip first image as it's already displayed at the top */}
-              {show.imageGallery
-                .slice(1)
-                .map((image: SanityImageSource, index: number) => (
+              {show.imageGallery.map(
+                (image: SanityImageSource, index: number) => (
                   <div key={index} className="border-2 border-gsp-white/80">
                     <Image
                       src={urlFor(image)?.width(320).height(240).url() || ''}
@@ -118,7 +113,8 @@ export default async function ShowPage({
                       height={240}
                     />
                   </div>
-                ))}
+                )
+              )}
             </div>
           </div>
         )}
