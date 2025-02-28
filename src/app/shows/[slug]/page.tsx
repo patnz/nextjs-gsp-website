@@ -26,6 +26,8 @@ export default async function ShowPage({
     options
   )
 
+  console.log(show.imageGallery)
+
   // console.log(show)
 
   // Handle the case where show doesn't exist
@@ -55,7 +57,7 @@ export default async function ShowPage({
         />
       </div>
       {/* VIDEO BACKDROP */}
-      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 lg:px-32 font-courierPrime z-10 relative mix-blend-color-dodge">
+      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 font-courierPrime z-10">
         <div className=" w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
           <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in ">
             <span className="text-2xl md:text-4xl -rotate-1 font-extrabold">
@@ -68,7 +70,7 @@ export default async function ShowPage({
           <Image
             src={mainImage}
             alt={show.title}
-            className="w-full object-cover border-2 border-gsp-white/80"
+            className="w-full max-w-[600px] object-contain border-2 border-gsp-white/80 "
             width="550"
             height="310"
           />
@@ -101,13 +103,12 @@ export default async function ShowPage({
         {show.imageGallery && show.imageGallery.length > 1 && (
           <div className="">
             <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {/* Skip first image as it's already displayed at the top */}
               {show.imageGallery.map(
                 (image: SanityImageSource, index: number) => (
                   <div key={index} className="border-2 border-gsp-white/80">
                     <Image
                       src={urlFor(image)?.width(320).height(240).url() || ''}
-                      alt={`Show image ${index + 1}`}
+                      alt={`Show image ${index}`}
                       className=" w-full h-64 object-cover"
                       width={320}
                       height={240}
