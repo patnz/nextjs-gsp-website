@@ -26,8 +26,7 @@ export default async function ShowPage({
     options
   )
 
-  console.log(show.imageGallery)
-
+  // console.log(show.imageGallery)
   // console.log(show)
 
   // Handle the case where show doesn't exist
@@ -70,7 +69,7 @@ export default async function ShowPage({
           <Image
             src={mainImage}
             alt={show.title}
-            className="w-full max-w-[600px] object-contain border-2 border-gsp-white/80 "
+            className="w-full max-w-[600px] object-contain border-gsp-white/80 "
             width="550"
             height="310"
           />
