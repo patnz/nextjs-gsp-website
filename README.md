@@ -1,21 +1,35 @@
-## GSP Website
+# GSP Website
 
-Notes
+This is a work in progress project to replace Golden Scissor Puppets' current Squarespace website.
 
-#### So far...
+## Goals and Purpose
 
-- NextJS + Sanity setup deployed
-- Navigation setup with document data being fetched from Sanity
-- Dropdown menu for each nav item with documents
 
-#### To do....
+## Progress So Far 🚀
 
-- Look at options for dropdown styling on both mobile and desktop.
--- Mobile would be better with an accordion but I dunno about desktop.
-- Pick some fonts
-- Pick better colour scheme
-- Design landing page
--- Do paper cutouts of each puppet
--- Float animation for these
--- Look into golden scissors animation
-- Look at getting live updates going. Currently project needs to be redeployed to show new Sanity content.
+- **Setup:** Next.js + Sanity deployed successfully.  
+- **Navigation:** Integrated navigation with document data fetched from Sanity.  
+- **Dropdown Menu:** Implemented for each nav item using Sanity documents.
+- **Layout:** Flickering video backdrop on each page.
+- **Test data:** Test data for all document types.
+- **Live updates:** Webhook created when documents are created/updated/deleted.
+
+## To-Do List 🛠️
+
+### Styling
+- Explore dropdown styling options for:  
+  - 📱 **Mobile:** Consider an accordion-style menu.  
+  - 🖥️ **Desktop:** Find a suitable dropdown style.  
+- Choose fonts.  
+- Select a better color scheme.
+
+### Design
+- Work on landing page: 
+  - ✂️ Design paper cutouts of each puppet.  
+  - 🌊 Implement float animations.  
+  - ✨ Research golden scissors animation.
+- Add testimonials page/schema.
+
+### Functionality
+- Test image ratios, add comments to Sanity Studio for upload guides.
+- Migrate existing data from current website.
