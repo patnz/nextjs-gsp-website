@@ -30,18 +30,13 @@ export default function NavComponent({ data }: NavComponentProps) {
     new Set([])
   )
 
-  // todo: fix this up. we are currently truncating long labels so that they don't clog up the mobile nav menu
-
+  // Todo: truncate long nav links with '...' - at the moment they're overflowing
+  // Filter out nav sections with no items
   const navStructure = [
     {
       label: 'Shows',
       items: data.shows.map((show) => ({
-        label:
-          (show.title.replaceAll(' ', '_').toLowerCase().length > 37
-            ? show.title.replaceAll(' ', '_').toLowerCase().slice(0, 29) + '...'
-            : show.title.replaceAll(' ', '_').toLowerCase()) +
-          '_' +
-          show.year,
+        label: show.title.replaceAll(' ', '_').toLowerCase() + '_' + show.year,
         href: `/shows/${show.slug.current}`,
       })),
       defaultHref: '/',
@@ -49,11 +44,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Projects',
       items: data.projects.map((project) => ({
-        label:
-          project.title.replaceAll(' ', '_').toLowerCase().length > 37
-            ? project.title.replaceAll(' ', '_').toLowerCase().slice(0, 29) +
-              '...'
-            : project.title.replaceAll(' ', '_').toLowerCase(),
+        label: project.title.replaceAll(' ', '_').toLowerCase(),
         href: `/projects/${project.slug.current}`,
       })),
       defaultHref: '/',
@@ -61,11 +52,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Team',
       items: data.teamMembers.map((member) => ({
-        label:
-          member.name.replaceAll(' ', '_').toLowerCase().length > 37
-            ? member.name.replaceAll(' ', '_').toLowerCase().slice(0, 29) +
-              '...'
-            : member.name.replaceAll(' ', '_').toLowerCase(),
+        label: member.name.replaceAll(' ', '_').toLowerCase(),
         href: `/team/${member._id}`,
       })),
       defaultHref: '/',
@@ -73,10 +60,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Links',
       items: data.links.map((link) => ({
-        label:
-          link.title.replaceAll(' ', '_').toLowerCase().length > 37
-            ? link.title.replaceAll(' ', '_').toLowerCase().slice(0, 29) + '...'
-            : link.title.replaceAll(' ', '_').toLowerCase(),
+        label: link.title.replaceAll(' ', '_').toLowerCase(),
         href: link.url,
       })),
       defaultHref: '/',
@@ -84,14 +68,12 @@ export default function NavComponent({ data }: NavComponentProps) {
     {
       label: 'Community',
       items: data.communityPosts.map((post) => ({
-        label:
-          post.title.replaceAll(' ', '_').toLowerCase().length > 37
-            ? post.title.replaceAll(' ', '_').toLowerCase().slice(0, 29) + '...'
-            : post.title.replaceAll(' ', '_').toLowerCase(),
+        label: post.title.replaceAll(' ', '_').toLowerCase(),
         href: `/community/${post.slug.current}`,
       })),
       defaultHref: '/',
     },
+    // Filter out nav sections with no items
   ].filter((section) => section.items.length > 0)
 
   const handleMenuToggle = (label: string) => {
