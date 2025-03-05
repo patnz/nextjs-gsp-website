@@ -17,8 +17,8 @@ export default function FloatingDecorations() {
     <FloatingImages
       images={decorationImages}
       maxImages={8}
-      minSize={80} // Minimum size around 80px
-      maxSize={120} // Maximum size around 120px
+      minSize={80} // Minimum size 80px
+      maxSize={120} // Maximum size 120px
     />
   )
 }

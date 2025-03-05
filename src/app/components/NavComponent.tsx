@@ -30,6 +30,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     new Set([])
   )
 
+  // Filter out nav sections with no items
   const navStructure = [
     {
       label: 'Shows',
@@ -71,7 +72,8 @@ export default function NavComponent({ data }: NavComponentProps) {
       })),
       defaultHref: '/',
     },
-  ]
+    // Filter out nav sections with no items
+  ].filter((section) => section.items.length > 0)
 
   const handleMenuToggle = (label: string) => {
     setIsAnimating(true)
@@ -158,7 +160,7 @@ export default function NavComponent({ data }: NavComponentProps) {
     ? navStructure.find((nav) => nav.label === isDesktopMenuOpen)?.items || []
     : []
 
-  // todo: better logic here
+  // todo: fix the logic
   //
   // currently, menu items are duplicated to ensure
   // the scrolling navigation on desktop exceeds the screen width

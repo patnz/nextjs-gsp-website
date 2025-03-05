@@ -9,7 +9,7 @@ export default function HomePage() {
           muted
           loop
           autoPlay
-          className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-10 opacity-0 animate-fade-in pointer-events-none"
+          className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-0 opacity-0 animate-fade-in pointer-events-none"
         ></video>
         <Image
           className="fixed z-10 w-[500px] mix-blend-color-dodge mb-12 opacity-100"

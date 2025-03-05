@@ -138,12 +138,6 @@ export default async function CommunityPostPage({
           </div>
         </div>
       )}
-
-      {/* <div className="my-8">
-        <Link href="/community" className="hover:underline text-lg">
-          ← back to community posts
-        </Link>
-      </div> */}
     </main>
   )
 }

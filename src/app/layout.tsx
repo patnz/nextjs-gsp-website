@@ -6,7 +6,7 @@ import {
   getAllLinks,
 } from '@/app/sanity/client'
 import NavComponent from './components/NavComponent'
-import FloatingDecorations from './components/FloatingDecorations'
+// import FloatingDecorations from './components/FloatingDecorations'
 import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
@@ -46,8 +46,19 @@ export default async function RootLayout({
       <body
         className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} antialiased`}
       >
+        {/* VIDEO BACKDROP */}
+        <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden opacity-0 animate-fade-in pointer-events-none">
+          <video
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover opacity-20"
+            src="/videos/texture-backdrop-1.mp4"
+          />
+        </div>
+        {/* VIDEO BACKDROP */}
         <Providers>
-          <FloatingDecorations />
+          {/* <FloatingDecorations /> */}
           <NavComponent data={navData} />
           {children}
         </Providers>
