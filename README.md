@@ -2,6 +2,10 @@
 
 This is a work in progress project to replace Golden Scissor Puppets' current Squarespace website.
 
+## Tech
+
+NextJS / React / Sanity / TypeScript / Tailwind / Framer-Motion
+
 ## Progress So Far 
 
 - **Setup:** Next.js + Sanity deployed successfully.  
