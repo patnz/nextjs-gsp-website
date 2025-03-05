@@ -52,7 +52,7 @@ export default async function ShowPage({
           muted
           loop
           className="w-full h-full object-cover opacity-20"
-          src="/texture-backdrop-1.mp4"
+          src="/videos/texture-backdrop-1.mp4"
         />
       </div>
       {/* VIDEO BACKDROP */}

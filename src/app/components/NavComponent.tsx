@@ -158,6 +158,11 @@ export default function NavComponent({ data }: NavComponentProps) {
     ? navStructure.find((nav) => nav.label === isDesktopMenuOpen)?.items || []
     : []
 
+  // todo: better logic here
+  //
+  // currently, menu items are duplicated to ensure
+  // the scrolling navigation on desktop exceeds the screen width
+
   const duplicatedItems = [
     ...currentMenuItems,
     ...currentMenuItems,
@@ -178,7 +183,7 @@ export default function NavComponent({ data }: NavComponentProps) {
           <NavbarBrand className="flex justify-start">
             <Link href="/" onClick={handleLinkClick}>
               <Image
-                src="/gsp-logo.png"
+                src="/images/gsp-logo.png"
                 alt="GSP Logo"
                 width={36}
                 height={36}

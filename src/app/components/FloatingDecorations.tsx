@@ -2,15 +2,15 @@ import FloatingImages from './FloatingImages'
 
 export default function FloatingDecorations() {
   const decorationImages = [
-    '/gsp-logo-white.png',
-    '/demon-white.png',
-    '/birge-white.png',
-    '/gsp-logo-white.png',
-    '/demon-white.png',
-    '/birge-white.png',
-    '/gsp-logo-white.png',
-    '/demon-white.png',
-    '/birge-white.png',
+    '/images/gsp-logo-white.png',
+    '/images/demon-white.png',
+    '/images/birge-white.png',
+    '/images/gsp-logo-white.png',
+    '/images/demon-white.png',
+    '/images/birge-white.png',
+    '/images/gsp-logo-white.png',
+    '/images/demon-white.png',
+    '/images/birge-white.png',
   ]
 
   return (
