@@ -2,7 +2,7 @@
 
 This is a work in progress project to replace Golden Scissor Puppets' current Squarespace website.
 
-## Progress So Far 🚀
+## Progress So Far 
 
 - **Setup:** Next.js + Sanity deployed successfully.  
 - **Navigation:** Integrated navigation with document data fetched from Sanity.  
@@ -15,16 +15,16 @@ This is a work in progress project to replace Golden Scissor Puppets' current Sq
 
 ### Styling
 - Explore dropdown styling options for:  
-  - 📱 **Mobile:** Consider an accordion-style menu.  
-  - 🖥️ **Desktop:** Find a suitable dropdown style.  
+  - **Mobile:** Consider an accordion-style menu.  
+  - **Desktop:** Find a suitable dropdown style.  
 - Choose fonts.  
 - Select a better color scheme.
 
 ### Design
 - Work on landing page: 
-  - ✂️ Design paper cutouts of each puppet.  
-  - 🌊 Implement float animations.  
-  - ✨ Research golden scissors animation.
+  - Design paper cutouts of each puppet.  
+  - Implement float animations.  
+  - Research golden scissors animation.
 - Add testimonials page/schema.
 
 ### Functionality
