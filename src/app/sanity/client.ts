@@ -1,5 +1,5 @@
 import { createClient } from 'next-sanity'
-import * as Types from './types'
+import * as Types from '../types/documentTypes'
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,

@@ -14,7 +14,7 @@ import {
 } from '@heroui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { NavData } from '../sanity/types'
+import { NavData } from '../types/documentTypes'
 
 interface NavComponentProps {
   data: NavData

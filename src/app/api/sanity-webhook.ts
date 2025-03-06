@@ -6,7 +6,7 @@ import {
   Project,
   Show,
   TeamMember,
-} from '@/app/sanity/types'
+} from '@/app/types/documentTypes'
 
 type SanityWebhookPayload<T> = {
   action: 'create' | 'update' | 'delete'
