@@ -47,7 +47,7 @@ export default async function RootLayout({
         className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} antialiased`}
       >
         {/* VIDEO BACKDROP */}
-        <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden opacity-0 animate-fade-in pointer-events-none">
+        <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden opacity-0 animate-fade-in-not-quite pointer-events-none">
           <video
             autoPlay
             muted
