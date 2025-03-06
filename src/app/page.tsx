@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function HomePage() {
   return (
     <div>
-      <main className="bg-gsp-black flex flex-col items-center justify-center h-screen">
+      <main className="bg-black flex flex-col items-center justify-center h-screen">
         <video
           src="/videos/home-page-clip.mp4"
           muted
