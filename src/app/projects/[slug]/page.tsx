@@ -63,7 +63,7 @@ export default async function ProjectPage({
             height="310"
           />
         )}
-        <div className="prose max-w-none my-6 p-3 text-justify">
+        <div className="prose max-w-none my-4 p-3 text-justify">
           {typeof project.description === 'string' ? (
             <p>{project.description.toLowerCase()}</p>
           ) : (

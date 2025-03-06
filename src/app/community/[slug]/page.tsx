@@ -59,9 +59,10 @@ export default async function CommunityPostPage({
   return (
     <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 font-courierPrime">
       <div className="w-full flex flex-col text-2xl md:text-4xl my-8 text-center items-center px-4">
-        <h1 className="w-fit border-b-2 border-gsp-white/80 px-6 pt-2 animate-appearance-in">
+        <h1 className="px-6 pt-2 animate-appearance-in">
           {post.title.toLowerCase()}
         </h1>
+        <div className="h-4 w-full border-b-2 border-gsp-white/80"></div>
         <div className="mt-4 text-base flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
           <time className="text-gsp-white/70">{formattedDate}</time>
           {post.author && (
@@ -99,7 +100,7 @@ export default async function CommunityPostPage({
         </div>
       )}
 
-      <article className="prose max-w-none my-6 p-3 text-justify">
+      <article className="prose max-w-none my-4 p-3 text-justify">
         {typeof post.content === 'string' ? (
           <p>{post.content.toLowerCase()}</p>
         ) : (
