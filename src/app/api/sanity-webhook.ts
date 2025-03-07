@@ -25,8 +25,6 @@ export default async function handler(
     CommunityPost | Gallery | Link | Project | Show | TeamMember
   >
 
-  console.log('Sanity Webhook Event:', body)
-
   // Security: Validate webhook secret
   const SANITY_WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET
   const signature = req.headers['sanity-webhook-signature']
@@ -59,7 +57,6 @@ export default async function handler(
 
     if (path) {
       await res.revalidate(path)
-      console.log(`Revalidated ${path}`)
     }
 
     return res.status(200).json({ message: `Webhook processed for ${action}` })

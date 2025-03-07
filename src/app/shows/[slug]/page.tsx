@@ -26,9 +26,6 @@ export default async function ShowPage({
     options
   )
 
-  // console.log(show.imageGallery)
-  // console.log(show)
-
   // Handle the case where show doesn't exist
   if (!show) {
     return (

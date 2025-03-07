@@ -110,19 +110,11 @@ function processNavData(data: NavData) {
 }
 
 function duplicateItems(items: Array<{ label: string; href: string }>) {
-  console.log('items in, ', items)
+  if (items.length === 0) return items
   let duplicatedItems = items
-
   for (let i = 0; duplicatedItems.length < 8; i++) {
     duplicatedItems = [...duplicatedItems, ...items]
-    console.log('loop number ' + i + ' current items: ' + duplicatedItems)
   }
-  console.log(
-    'items out',
-    duplicatedItems,
-    'duplicated items length =',
-    duplicatedItems.length
-  )
   return duplicatedItems
 }
 
