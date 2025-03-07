@@ -27,7 +27,7 @@ export default function Navigation({ data }: NavComponentProps) {
 
   const navStructure = processNavData(data)
 
-  const handleMenuToggle = (label: string) => {
+  const handleDesktopMenuToggle = (label: string) => {
     setIsAnimating(true)
     if (isDesktopMenuOpen === label) {
       setIsDesktopMenuOpen(null)
@@ -70,7 +70,7 @@ export default function Navigation({ data }: NavComponentProps) {
           navData={navStructure.desktopNavData}
           isDesktopMenuOpen={isDesktopMenuOpen}
           isAnimating={isAnimating}
-          handleMenuToggle={handleMenuToggle}
+          handleDesktopMenuToggle={handleDesktopMenuToggle}
           handleLinkClick={handleLinkClick}
         />
 

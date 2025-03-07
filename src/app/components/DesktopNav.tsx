@@ -9,7 +9,7 @@ interface DesktopNavProps {
   navData: ProcessedDesktopNavItem[]
   isDesktopMenuOpen: string | null
   isAnimating: boolean
-  handleMenuToggle: (label: string) => void
+  handleDesktopMenuToggle: (label: string) => void
   handleLinkClick: () => void
 }
 
@@ -17,14 +17,14 @@ export default function DesktopNav({
   navData,
   isDesktopMenuOpen,
   isAnimating,
-  handleMenuToggle,
+  handleDesktopMenuToggle,
   handleLinkClick,
 }: DesktopNavProps) {
   const renderDesktopNavItem = (nav: ProcessedDesktopNavItem) => (
     <NavbarMenuItem key={nav.label}>
       <Button
         className="font-courierPrime font-extralight bg-transparent border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl border-gsp-white hover:text-gsp-black hover:bg-gsp-white"
-        onClick={() => handleMenuToggle(nav.label)}
+        onClick={() => handleDesktopMenuToggle(nav.label)}
       >
         {`${nav.label}`}
       </Button>

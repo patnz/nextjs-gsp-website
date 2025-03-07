@@ -3,8 +3,7 @@
 import React from 'react'
 import { NavbarMenu, Accordion, AccordionItem } from '@heroui/react'
 import Link from 'next/link'
-import { ProcessedMobileNavItem } from '@/app/types' // You'll need to update your types
-
+import { ProcessedMobileNavItem } from '@/app/types'
 interface MobileNavProps {
   isMenuOpen: boolean
   navData: ProcessedMobileNavItem[]
