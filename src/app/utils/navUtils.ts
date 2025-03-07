@@ -1,6 +1,6 @@
-import { NavData } from '@/app/types'
+import { NavData, ProcessedNavData } from '@/app/types'
 
-function processNavData(data: NavData) {
+function processNavData(data: NavData): ProcessedNavData {
   // Filter out nav sections with no items
   // Duplicate nav items for desktop to fill navigation scroll menu
   return {

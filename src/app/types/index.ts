@@ -76,6 +76,26 @@ interface NavData {
   links: Link[]
 }
 
+export interface NavItem {
+  label: string
+  href: string
+}
+
+export interface ProcessedMobileNavItem {
+  label: string
+  items: NavItem[]
+}
+
+export interface ProcessedDesktopNavItem {
+  label: string
+  items: NavItem[]
+}
+
+export interface ProcessedNavData {
+  mobileNavData: ProcessedMobileNavItem[]
+  desktopNavData: ProcessedDesktopNavItem[]
+}
+
 export type {
   CommunityPost,
   ContactInfo,

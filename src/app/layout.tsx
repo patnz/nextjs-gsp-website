@@ -1,4 +1,4 @@
-import NavComponent from './components/NavComponent'
+import Navigation from '@/app/components/Navigation'
 // import FloatingDecorations from './components/FloatingDecorations'
 import fetchDocuments from './utils/fetchingUtils'
 import type { Metadata } from 'next'
@@ -38,7 +38,7 @@ export default async function RootLayout({
         {/* VIDEO BACKDROP */}
         <Providers>
           {/* <FloatingDecorations /> */}
-          <NavComponent data={navData} />
+          <Navigation data={navData} />
           {children}
         </Providers>
       </body>
