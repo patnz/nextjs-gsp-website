@@ -10,7 +10,7 @@ function processNavData(data: NavData) {
       {
         label: 'shows_',
         items: data.shows.map((show) => ({
-          label: formatLabel(show.title) + '_' + show.year,
+          label: `${formatLabel(show.title)} [${show.year}]`,
           href: `/shows/${show.slug.current}`,
         })),
         defaultHref: '/',
@@ -59,7 +59,7 @@ function processNavData(data: NavData) {
         label: 'shows_',
         items: duplicateItems(
           data.shows.map((show) => ({
-            label: formatLabel(show.title) + '_' + show.year,
+            label: formatLabel(show.title) + '[' + show.year + ']',
             href: `/shows/${show.slug.current}`,
           }))
         ),
@@ -119,7 +119,7 @@ function duplicateItems(items: Array<{ label: string; href: string }>) {
 }
 
 function formatLabel(label: string) {
-  return `_${label.replaceAll(' ', '_').toLowerCase()}`
+  return `${label.toLowerCase()}`
 }
 
 export { processNavData, formatLabel }

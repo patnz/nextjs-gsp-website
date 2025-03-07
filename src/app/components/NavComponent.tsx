@@ -84,7 +84,7 @@ export default function NavComponent({ data }: NavComponentProps) {
                   className="w-full p-2 font-courierPrime border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                   onClick={handleLinkClick}
                 >
-                  {item.label}
+                  {nav.label}
                 </Link>
               ))
             ) : (
