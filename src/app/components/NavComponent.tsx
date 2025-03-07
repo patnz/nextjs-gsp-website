@@ -14,7 +14,8 @@ import {
 } from '@heroui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { NavData } from '../types/documentTypes'
+import { NavData } from '@/app/types'
+import { processNavData } from '@/app/utils/navUtils'
 
 interface NavComponentProps {
   data: NavData
@@ -32,49 +33,7 @@ export default function NavComponent({ data }: NavComponentProps) {
 
   // Todo: truncate long nav links with '...' - at the moment they're overflowing
   // Filter out nav sections with no items
-  const navStructure = [
-    {
-      label: 'Shows',
-      items: data.shows.map((show) => ({
-        label: show.title.replaceAll(' ', '_').toLowerCase() + '_' + show.year,
-        href: `/shows/${show.slug.current}`,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Projects',
-      items: data.projects.map((project) => ({
-        label: project.title.replaceAll(' ', '_').toLowerCase(),
-        href: `/projects/${project.slug.current}`,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Team',
-      items: data.teamMembers.map((member) => ({
-        label: member.name.replaceAll(' ', '_').toLowerCase(),
-        href: `/team/${member._id}`,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Links',
-      items: data.links.map((link) => ({
-        label: link.title.replaceAll(' ', '_').toLowerCase(),
-        href: link.url,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Community',
-      items: data.communityPosts.map((post) => ({
-        label: post.title.replaceAll(' ', '_').toLowerCase(),
-        href: `/community/${post.slug.current}`,
-      })),
-      defaultHref: '/',
-    },
-    // Filter out nav sections with no items
-  ].filter((section) => section.items.length > 0)
+  const navStructure = processNavData(data)
 
   const handleMenuToggle = (label: string) => {
     setIsAnimating(true)
@@ -103,17 +62,15 @@ export default function NavComponent({ data }: NavComponentProps) {
       className="px-2 py-2 gap-2 "
       selectionMode="multiple"
       selectedKeys={openAccordions}
-      // error here, but this is the only way i can get it to work
-      // so that the menu closes when a link is clicked to navigate
       onSelectionChange={handleAccordionChange}
     >
-      {navStructure.map((nav) => (
+      {navStructure.mobileNavData.map((nav) => (
         <AccordionItem
           key={nav.label}
           aria-label={nav.label}
           title={
             <span className="w-full h-full transition-colors font-courierPrime  px-2  rounded-none text-gsp-black tracking-[-0.2rem] text-xl">
-              {`${nav.label.toLowerCase()}_`}
+              {nav.label}
             </span>
           }
           className=" px-4 mb-4 border-2 border-x-[3px] border-gsp-white bg-gsp-white/80"
@@ -127,8 +84,7 @@ export default function NavComponent({ data }: NavComponentProps) {
                   className="w-full p-2 font-courierPrime border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                   onClick={handleLinkClick}
                 >
-                  {`_${item.label}`}
-                  {/* {`[${index}] ${item.label}`} */}
+                  {item.label}
                 </Link>
               ))
             ) : (
@@ -146,34 +102,23 @@ export default function NavComponent({ data }: NavComponentProps) {
     </Accordion>
   )
 
-  const renderDesktopNavItem = (nav: (typeof navStructure)[0]) => (
+  const renderDesktopNavItem = (
+    nav: (typeof navStructure.desktopNavData)[0]
+  ) => (
     <NavbarMenuItem key={nav.label}>
       <Button
         className="font-courierPrime font-extralight bg-transparent  border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl border-gsp-white hover:text-gsp-black hover:bg-gsp-white"
         onClick={() => handleMenuToggle(nav.label)}
       >
-        {`${nav.label.toLowerCase()}_`}
+        {`${nav.label}`}
       </Button>
     </NavbarMenuItem>
   )
 
   const currentMenuItems = isDesktopMenuOpen
-    ? navStructure.find((nav) => nav.label === isDesktopMenuOpen)?.items || []
+    ? navStructure.desktopNavData.find((nav) => nav.label === isDesktopMenuOpen)
+        ?.items || []
     : []
-
-  // todo: fix the logic
-  //
-  // currently, menu items are duplicated to ensure
-  // the scrolling navigation on desktop exceeds the screen width
-
-  const duplicatedItems = [
-    ...currentMenuItems,
-    ...currentMenuItems,
-    ...currentMenuItems,
-    ...currentMenuItems,
-    ...currentMenuItems,
-    ...currentMenuItems,
-  ]
 
   return (
     <>
@@ -200,7 +145,7 @@ export default function NavComponent({ data }: NavComponentProps) {
         </NavbarContent>
 
         <NavbarContent className="hidden lg:flex gap-[1vw]" justify="center">
-          {navStructure.map(renderDesktopNavItem)}
+          {navStructure.desktopNavData.map(renderDesktopNavItem)}
         </NavbarContent>
 
         <NavbarMenu className="pt-6 px-2 backdrop-blur-sm backdrop-invert">
@@ -223,14 +168,14 @@ export default function NavComponent({ data }: NavComponentProps) {
               animation: 'scroll 20s linear infinite',
             }}
           >
-            {duplicatedItems.map((item, index) => (
+            {currentMenuItems.map((item, index) => (
               <Button
                 className="font-courierPrime bg-gsp-white/50 rounded-none hover:bg-gsp-black/90 hover:bg-blend-difference hover:border-gsp-white border-gsp-black border-2 py-4 px-12 text-gsp-black hover:text-gsp-white tracking-[-0.25rem] text-xl"
                 size="sm"
                 key={`${item.href}-${index}`}
               >
                 <Link href={item.href} onClick={handleLinkClick}>
-                  {`${item.label}_`}
+                  {`${item.label}`}
                 </Link>
               </Button>
             ))}

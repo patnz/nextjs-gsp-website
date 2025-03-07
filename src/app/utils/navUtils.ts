@@ -1,64 +1,133 @@
-import { NavData } from '@/app/types/documentTypes'
+import { NavData } from '@/app/types'
 
 function processNavData(data: NavData) {
   // Filter out nav sections with no items
-  return [
-    {
-      label: 'Shows',
-      items: data.shows.map((show) => ({
-        label: show.title.replaceAll(' ', '_').toLowerCase() + '_' + show.year,
-        href: `/shows/${show.slug.current}`,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Projects',
-      items: data.projects.map((project) => ({
-        label: project.title.replaceAll(' ', '_').toLowerCase(),
-        href: `/projects/${project.slug.current}`,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Team',
-      items: data.teamMembers.map((member) => ({
-        label: member.name.replaceAll(' ', '_').toLowerCase(),
-        href: `/team/${member._id}`,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Links',
-      items: data.links.map((link) => ({
-        label: link.title.replaceAll(' ', '_').toLowerCase(),
-        href: link.url,
-      })),
-      defaultHref: '/',
-    },
-    {
-      label: 'Community',
-      items: data.communityPosts.map((post) => ({
-        label: post.title.replaceAll(' ', '_').toLowerCase(),
-        href: `/community/${post.slug.current}`,
-      })),
-      defaultHref: '/',
-    },
-  ].filter((section) => section.items.length > 0)
-}
+  // Duplicate nav items for desktop to fill navigation scroll menu
+  return {
+    // MOBILE NAV DATA
 
-function duplicateItemsForScroll(
-  items: Array<{ label: string; href: string }>,
-  repetitions = 6
-) {
-  const duplicated = []
-  for (let i = 0; i < repetitions; i++) {
-    duplicated.push(...items)
+    mobileNavData: [
+      {
+        label: 'shows_',
+        items: data.shows.map((show) => ({
+          label: formatLabel(show.title) + '_' + show.year,
+          href: `/shows/${show.slug.current}`,
+        })),
+        defaultHref: '/',
+      },
+      {
+        label: 'projects_',
+        items: data.projects.map((project) => ({
+          label: formatLabel(project.title),
+          href: `/projects/${project.slug.current}`,
+        })),
+        defaultHref: '/',
+      },
+      {
+        label: 'team_',
+        items: data.teamMembers.map((member) => ({
+          label: formatLabel(member.name),
+          href: `/team/${member._id}`,
+        })),
+        defaultHref: '/',
+      },
+      {
+        label: 'links_',
+        items: data.links.map((link) => ({
+          label: formatLabel(link.title),
+          href: link.url,
+        })),
+        defaultHref: '/',
+      },
+      {
+        label: 'community_',
+        items: data.communityPosts.map((post) => ({
+          label: formatLabel(post.title),
+          href: `/community/${post.slug.current}`,
+        })),
+        defaultHref: '/',
+      },
+    ].filter((section) => section.items.length > 0),
+
+    // DESKTOP NAV DATA
+
+    // Desktop data will have duplicate 'nav items' if there is only 1 or 2 items
+    // This is a styling choice, so there is no empty space when scrolling
+
+    desktopNavData: [
+      {
+        label: 'shows_',
+        items: duplicateItems(
+          data.shows.map((show) => ({
+            label: formatLabel(show.title) + '_' + show.year,
+            href: `/shows/${show.slug.current}`,
+          }))
+        ),
+        defaultHref: '/',
+      },
+      {
+        label: 'projects_',
+        items: duplicateItems(
+          data.projects.map((project) => ({
+            label: formatLabel(project.title),
+            href: `/projects/${project.slug.current}`,
+          }))
+        ),
+        defaultHref: '/',
+      },
+      {
+        label: 'team_',
+        items: duplicateItems(
+          data.teamMembers.map((member) => ({
+            label: formatLabel(member.name),
+            href: `/team/${member._id}`,
+          }))
+        ),
+        defaultHref: '/',
+      },
+      {
+        label: 'links_',
+        items: duplicateItems(
+          data.links.map((link) => ({
+            label: formatLabel(link.title).toLowerCase(),
+            href: link.url,
+          }))
+        ),
+        defaultHref: '/',
+      },
+      {
+        label: 'community_',
+        items: duplicateItems(
+          data.communityPosts.map((post) => ({
+            label: formatLabel(post.title).toLowerCase(),
+            href: `/community/${post.slug.current}`,
+          }))
+        ),
+        defaultHref: '/',
+      },
+    ].filter((section) => section.items.length > 0),
   }
-  return duplicated
 }
 
-function formatLabel(label: string, suffix = '_') {
-  return `${label.toLowerCase()}${suffix}`
+function duplicateItems(items: Array<{ label: string; href: string }>) {
+  console.log('items in, ', items)
+  let duplicatedItems = items
+
+  for (let i = 0; duplicatedItems.length < 8; i++) {
+    duplicatedItems = [...duplicatedItems, ...items]
+    console.log('loop number ' + i + ' current items: ' + duplicatedItems)
+  }
+  console.log(
+    'items out',
+    duplicatedItems,
+    'duplicated items length =',
+    duplicatedItems.length
+  )
+  return duplicatedItems
 }
 
-export { processNavData, duplicateItemsForScroll, formatLabel }
+function formatLabel(label: string) {
+  return `_${label.replaceAll(' ', '_').toLowerCase()}`
+}
+
+export { processNavData, formatLabel }
