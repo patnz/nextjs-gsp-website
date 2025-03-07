@@ -75,27 +75,20 @@ export default function NavComponent({ data }: NavComponentProps) {
           }
           className=" px-4 mb-4 border-2 border-x-[3px] border-gsp-white bg-gsp-white/80"
         >
-          <div className="flex flex-col gap-2 text-right">
-            {nav.items.length > 0 ? (
-              nav.items.map((item) => (
+          <div className="flex flex-col items-end gap-2 text-right">
+            {nav.items.map((item) => (
+              <>
+                <div className="w-full border-b-2 border-dashed border-gsp-black/50"></div>
                 <Link
                   key={item.href}
                   href={item.href}
                   className="w-full p-2 font-courierPrime border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
                   onClick={handleLinkClick}
                 >
-                  {nav.label}
+                  {item.label}
                 </Link>
-              ))
-            ) : (
-              <Link
-                href={nav.defaultHref}
-                className="w-full p-2 font-courierPrime  border-none rounded-none text-gsp-black hover:text-gsp-white tracking-[-0.2rem] text-xl"
-                onClick={handleLinkClick}
-              >
-                {`_go_to_${nav.label}`}
-              </Link>
-            )}
+              </>
+            ))}
           </div>
         </AccordionItem>
       ))}
