@@ -112,7 +112,7 @@ function processNavData(data: NavData): ProcessedNavData {
 function duplicateItems(items: Array<{ label: string; href: string }>) {
   if (items.length === 0) return items
   let duplicatedItems = items
-  for (let i = 0; duplicatedItems.length < 8; i++) {
+  for (let i = 0; duplicatedItems.length < 10; i++) {
     duplicatedItems = [...duplicatedItems, ...items]
   }
   return duplicatedItems

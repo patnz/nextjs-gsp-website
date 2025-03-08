@@ -23,7 +23,7 @@ export default function DesktopNav({
   const renderDesktopNavItem = (nav: ProcessedDesktopNavItem) => (
     <NavbarMenuItem key={nav.label}>
       <Button
-        className="font-courierPrime font-extralight bg-transparent border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl border-gsp-white hover:text-gsp-black hover:bg-gsp-white"
+        className="font-courierPrime font-extralight bg-transparent border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl hover:bottom-[2px]"
         onClick={() => handleDesktopMenuToggle(nav.label)}
       >
         {`${nav.label}`}
@@ -58,11 +58,15 @@ export default function DesktopNav({
           >
             {currentMenuItems.map((item, index) => (
               <Button
-                className="font-courierPrime bg-gsp-white/100 rounded-none hover:bg-gsp-black/90 hover:bg-blend-difference hover:border-gsp-white border-gsp-black border-2 py-4 px-12 text-gsp-black hover:text-gsp-white tracking-[-0.25rem] text-xl"
+                className="font-courierPrime bg-gsp-white/100 rounded-none hover:bg-gsp-black/90 hover:border-gsp-white border-gsp-black border-2 py-4 px-12 text-gsp-black hover:text-gsp-white tracking-[-0.25rem] text-xl"
                 size="sm"
                 key={`${item.href}-${index}`}
               >
-                <Link href={item.href} onClick={handleLinkClick}>
+                <Link
+                  href={item.href}
+                  onClick={handleLinkClick}
+                  className="hover:no-underline"
+                >
                   {`${item.label}`}
                 </Link>
               </Button>
