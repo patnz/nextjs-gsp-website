@@ -61,6 +61,19 @@
   100% { opacity: .5; }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0);
+  }
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
 @layer utilities {
   /* More natural flicker effect */
   @keyframes flicker {

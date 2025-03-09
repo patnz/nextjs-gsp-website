@@ -1,9 +1,13 @@
 'use client'
 
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { NavbarContent, NavbarMenuItem, Button } from '@heroui/react'
 import Link from 'next/link'
-import { ProcessedDesktopNavItem } from '@/app/types' // You'll need to update your types
+import { ProcessedDesktopNavItem } from '@/app/types'
+import {
+  calculateScrollDimensions,
+  shouldAnimate,
+} from '@/app/utils/scrollUtils'
 
 interface DesktopNavProps {
   navData: ProcessedDesktopNavItem[]
@@ -20,6 +24,33 @@ export default function DesktopNav({
   handleDesktopMenuToggle,
   handleLinkClick,
 }: DesktopNavProps) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [scrollDimensions, setScrollDimensions] = useState({
+    contentWidth: 0,
+    containerWidth: 0,
+    animationDuration: 20,
+  })
+
+  const currentMenuItems = isDesktopMenuOpen
+    ? navData.find((nav) => nav.label === isDesktopMenuOpen)?.items || []
+    : []
+
+  // Use the utility function to calculate dimensions
+  useEffect(() => {
+    if (!isDesktopMenuOpen || !scrollRef.current) return
+
+    const updateDimensions = () => {
+      const dimensions = calculateScrollDimensions(scrollRef.current)
+      setScrollDimensions(dimensions)
+    }
+
+    updateDimensions()
+
+    // Recalculate on window resize
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [isDesktopMenuOpen, currentMenuItems])
+
   const renderDesktopNavItem = (nav: ProcessedDesktopNavItem) => (
     <NavbarMenuItem key={nav.label}>
       <Button
@@ -31,9 +62,14 @@ export default function DesktopNav({
     </NavbarMenuItem>
   )
 
-  const currentMenuItems = isDesktopMenuOpen
-    ? navData.find((nav) => nav.label === isDesktopMenuOpen)?.items || []
-    : []
+  // Duplicate items to ensure continuous scrolling
+  const duplicatedItems = [...currentMenuItems, ...currentMenuItems]
+
+  // Determine if animation should be applied
+  const applyAnimation = shouldAnimate(
+    scrollDimensions.contentWidth,
+    scrollDimensions.containerWidth
+  )
 
   return (
     <>
@@ -51,14 +87,18 @@ export default function DesktopNav({
       >
         <div className="relative w-full h-full overflow-hidden">
           <div
-            className="flex items-center absolute gap-4 left-0 top-0 h-full whitespace-nowrap animate-scroll"
+            ref={scrollRef}
+            className="flex items-center absolute gap-4 left-0 top-0 h-full whitespace-nowrap"
             style={{
-              animation: 'scroll 20s linear infinite',
+              animation: applyAnimation
+                ? `scroll ${scrollDimensions.animationDuration}s linear infinite`
+                : 'none',
+              transform: 'translateZ(0)', // Force GPU acceleration
             }}
           >
-            {currentMenuItems.map((item, index) => (
+            {duplicatedItems.map((item, index) => (
               <Button
-                className="font-courierPrime bg-gsp-white/100 rounded-none hover:bg-gsp-black/90 hover:border-gsp-white border-gsp-black border-2 py-4 px-12 text-gsp-black hover:text-gsp-white tracking-[-0.25rem] text-xl"
+                className="font-courierPrime bg-gsp-white/100 rounded-none hover:bg-gsp-black/90 hover:border-gsp-white border-gsp-black border-2 py-4 px-12 text-gsp-black hover:text-gsp-white tracking-[-0.25rem] text-xl will-change-transform"
                 size="sm"
                 key={`${item.href}-${index}`}
               >
