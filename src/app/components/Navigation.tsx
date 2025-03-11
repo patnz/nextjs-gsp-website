@@ -11,8 +11,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { NavData } from '@/app/types'
 import { processNavData } from '@/app/utils/navUtils'
-import MobileNav from './MobileNav'
-import DesktopNav from './DesktopNav'
 
 interface NavComponentProps {
   data: NavData
@@ -66,7 +64,7 @@ export default function Navigation({ data }: NavComponentProps) {
           />
         </NavbarContent>
 
-        <DesktopNav
+        {/* <DesktopNav
           navData={navStructure.desktopNavData}
           isDesktopMenuOpen={isDesktopMenuOpen}
           isAnimating={isAnimating}
@@ -78,7 +76,7 @@ export default function Navigation({ data }: NavComponentProps) {
           isMenuOpen={isMenuOpen}
           navData={navStructure.mobileNavData}
           handleLinkClick={handleLinkClick}
-        />
+        /> */}
       </Navbar>
     </>
   )
