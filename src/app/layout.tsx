@@ -2,7 +2,6 @@ import Navigation from '@/app/components/Navigation'
 import fetchDocuments from '@/app/utils/fetchingUtils'
 import type { Metadata } from 'next'
 import './globals.css'
-import { Providers } from './providers'
 import fonts from './fonts'
 
 export const metadata: Metadata = {
@@ -24,10 +23,7 @@ export default async function RootLayout({
       <body
         className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} antialiased`}
       >
-        {/* <Providers> */}
-        <Navigation data={navData} />
         {children}
-        {/* </Providers> */}
       </body>
     </html>
   )
