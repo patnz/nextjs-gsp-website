@@ -4,6 +4,7 @@ import React from 'react'
 import { NavbarMenu, Accordion, AccordionItem } from '@heroui/react'
 import Link from 'next/link'
 import { ProcessedMobileNavItem } from '@/app/types'
+
 interface MobileNavProps {
   isMenuOpen: boolean
   navData: ProcessedMobileNavItem[]
@@ -22,6 +23,12 @@ export default function MobileNav({
     if (keys instanceof Set) {
       setOpenAccordions(keys as Set<string>)
     }
+  }
+
+  // Enhanced link click handler that closes accordions AND the menu
+  const handleLinkClickWithAccordionClose = () => {
+    setOpenAccordions(new Set([])) // Close all accordions
+    handleLinkClick() // Close the menu
   }
 
   return (
@@ -50,7 +57,7 @@ export default function MobileNav({
                   <Link
                     href={item.href}
                     className="w-full p-2 font-courierPrime border-none rounded-none text-gsp-black hover:text-gsp-white hover:no-underline duration-200 tracking-[-0.2rem] text-xl"
-                    onClick={handleLinkClick}
+                    onClick={handleLinkClickWithAccordionClose}
                   >
                     {item.label}
                   </Link>
