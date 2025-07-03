@@ -7,16 +7,6 @@ interface SanityImage {
   alt?: string
 }
 
-interface CommunityPost {
-  _id: string
-  title: string
-  slug: { current: string }
-  publishedDate: string
-  content: string
-  featuredImage?: SanityImage
-  author: TeamMember
-}
-
 interface ContactInfo {
   name: string
   email: string
@@ -25,31 +15,7 @@ interface ContactInfo {
   socialMediaLinks?: string[]
 }
 
-interface Gallery {
-  _id: string
-  title: string
-  slug: { current: string }
-  description?: string
-  images: SanityImage[]
-}
-
-interface Link {
-  _id: string
-  title: string
-  url: string
-  image?: SanityImage
-}
-
-interface Project {
-  _id: string
-  title: string
-  slug: { current: string }
-  description: string
-  collaborators?: string[]
-  imageGallery?: SanityImage[]
-}
-
-interface Show {
+interface Gig {
   _id: string
   title: string
   slug: { current: string }
@@ -60,20 +26,8 @@ interface Show {
   pressQuotes?: string[]
 }
 
-interface TeamMember {
-  _id: string
-  name: string
-  role: string
-  biography?: string
-  photo?: SanityImage
-}
-
 interface NavData {
-  shows: Show[]
-  projects: Project[]
-  teamMembers: TeamMember[]
-  communityPosts: CommunityPost[]
-  links: Link[]
+  gigs: Gig[]
 }
 
 export interface NavItem {
@@ -96,13 +50,4 @@ export interface ProcessedNavData {
   desktopNavData: ProcessedDesktopNavItem[]
 }
 
-export type {
-  CommunityPost,
-  ContactInfo,
-  Gallery,
-  Link,
-  Project,
-  Show,
-  TeamMember,
-  NavData,
-}
+export type { Gig, NavData }
