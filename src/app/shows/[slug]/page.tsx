@@ -70,20 +70,20 @@ export default async function ShowPage({
           )}
         </div>
 
-        {/* Press quotes section
-      {show.pressQuotes && show.pressQuotes.length > 0 && (
-        <div className=" flex flex-col gap-4 text-justify">
-          {show.pressQuotes.map((quote: string, index: number) => (
-            <blockquote
-              key={index}
-              className=" border-l-4 border-gray-200 pl-4 italic"
-            >
-              {quote.toLowerCase()}
-            </blockquote>
-          ))}
-        </div>
-      )} */}
+        {/* Press quotes section */}
 
+        {show.pressQuotes && show.pressQuotes.length > 0 && (
+          <div className=" flex flex-col gap-4 text-justify">
+            {show.pressQuotes.map((quote: string, index: number) => (
+              <blockquote
+                key={index}
+                className=" border-l-4 border-gray-200 pl-4 italic"
+              >
+                {quote.toLowerCase()}
+              </blockquote>
+            ))}
+          </div>
+        )}
         {/* Image gallery section */}
         {show.imageGallery && show.imageGallery.length > 1 && (
           <div className="">
