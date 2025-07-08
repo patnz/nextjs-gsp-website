@@ -23,18 +23,16 @@ export default function Navigation({ data }: NavComponentProps) {
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = React.useState<
     string | null
   >(null)
-  const [isAnimating, setIsAnimating] = React.useState(false)
+  // const [isAnimating, setIsAnimating] = React.useState(false)
 
   const navStructure = processNavData(data)
 
   const handleDesktopMenuToggle = (label: string) => {
-    setIsAnimating(true)
     if (isDesktopMenuOpen === label) {
       setIsDesktopMenuOpen(null)
     } else {
       setIsDesktopMenuOpen(label)
     }
-    setTimeout(() => setIsAnimating(false), 300)
   }
 
   const handleLinkClick = React.useCallback(() => {
@@ -67,16 +65,16 @@ export default function Navigation({ data }: NavComponentProps) {
         </NavbarContent>
 
         <DesktopNav
-          navData={navStructure.desktopNavData}
+          navData={navStructure.data}
           isDesktopMenuOpen={isDesktopMenuOpen}
-          isAnimating={isAnimating}
+          // isAnimating={isAnimating}
           handleDesktopMenuToggle={handleDesktopMenuToggle}
           handleLinkClick={handleLinkClick}
         />
 
         <MobileNav
           isMenuOpen={isMenuOpen}
-          navData={navStructure.mobileNavData}
+          navData={navStructure.data}
           handleLinkClick={handleLinkClick}
         />
       </Navbar>

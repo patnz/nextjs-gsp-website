@@ -81,19 +81,13 @@ export interface NavItem {
   href: string
 }
 
-export interface ProcessedMobileNavItem {
-  label: string
-  items: NavItem[]
-}
-
-export interface ProcessedDesktopNavItem {
+export interface ProcessedNavItem {
   label: string
   items: NavItem[]
 }
 
 export interface ProcessedNavData {
-  mobileNavData: ProcessedMobileNavItem[]
-  desktopNavData: ProcessedDesktopNavItem[]
+  data: ProcessedNavItem[]
 }
 
 export type {
