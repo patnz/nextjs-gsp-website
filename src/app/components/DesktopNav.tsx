@@ -1,10 +1,9 @@
 'use client'
 
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
 import { NavbarContent, NavbarMenuItem, Button } from '@heroui/react'
 import Link from 'next/link'
 import { ProcessedNavItem } from '@/app/types'
-import { nav } from 'framer-motion/client'
 
 interface DesktopNavProps {
   navData: ProcessedNavItem[]
