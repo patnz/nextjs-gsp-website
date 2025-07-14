@@ -1,8 +1,8 @@
-# GSP Website
+# GSP Website x
 
 This is a work in progress project to replace Golden Scissor Puppets' current Squarespace website.
 
-## Tech
+## Tech 
 
 NextJS / React / Sanity / TypeScript / Tailwind / Framer-Motion
 
