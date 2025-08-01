@@ -44,7 +44,7 @@ export default function MobileNav({
             key={nav.label}
             aria-label={nav.label}
             title={
-              <span className="w-full h-full transition-colors font-courierPrime px-2 rounded-none text-gsp-black tracking-[-0.2rem] text-xl">
+              <span className="w-full h-full transition-colors px-2 rounded-none text-gsp-black">
                 {nav.label}
               </span>
             }
@@ -56,7 +56,7 @@ export default function MobileNav({
                   <div className="w-full border-b-2 border-dashed border-gsp-black/50"></div>
                   <Link
                     href={item.href}
-                    className="w-full p-2 font-courierPrime border-none rounded-none text-gsp-black hover:text-gsp-white hover:no-underline duration-200 tracking-[-0.2rem] text-xl"
+                    className="w-full p-2 border-none rounded-none text-gsp-black hover:text-gsp-white hover:no-underline duration-200 "
                     onClick={handleLinkClickWithAccordionClose}
                   >
                     {item.label}

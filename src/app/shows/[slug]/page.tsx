@@ -33,7 +33,7 @@ export default async function ShowPage({
         <Link href="/" className=" hover:underline">
           ← back to shows
         </Link>
-        <h1 className=" text-4xl mb-8">{`show not found :(`}</h1>
+        <h1 className=" text-8xl mb-8">{`show not found :(`}</h1>
       </main>
     )
   }
@@ -42,10 +42,10 @@ export default async function ShowPage({
 
   return (
     <>
-      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 font-courierPrime z-30">
+      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32  z-30">
         <div className=" w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
           <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in ">
-            <span className="text-2xl md:text-4xl -rotate-1 font-extrabold">
+            <span className="text-8xl md:text-4xl -rotate-1">
               {`${show.title.toLowerCase()}`}
             </span>
             <span className="text-base md:text-xl rotate-3">{show.year}</span>

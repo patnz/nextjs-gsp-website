@@ -39,7 +39,7 @@ export default async function GalleryPage({
   }
 
   return (
-    <main className="container mx-auto min-h-screen max-w-5xl flex flex-col gap-4 font-courierPrime p-4">
+    <main className="container mx-auto min-h-screen max-w-5xl flex flex-col gap-4  p-4">
       <div className="w-full flex text-2xl md:text-4xl my-8 text-center justify-center">
         <h1 className="w-fit border-b-2 border-gsp-white/80 px-6 pt-2 animate-appearance-in">
           {gallery.title.toLowerCase()}

@@ -17,6 +17,7 @@ export default {
         orbitron: 'var(--font-orbitron)',
         pressStart: 'var(--font-press-start)',
         courierPrime: 'var(--font-courier-prime)',
+        gspFont: 'var(--font-gspFont)',
       },
       colors: {
         background: 'var(--background)',

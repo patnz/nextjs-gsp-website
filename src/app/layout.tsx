@@ -23,7 +23,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} antialiased`}
+        className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} ${fonts.gspFont.variable} antialiased font-gspFont`}
       >
         {/* VIDEO BACKDROP */}
         <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden opacity-0 animate-fade-in-not-quite pointer-events-none">

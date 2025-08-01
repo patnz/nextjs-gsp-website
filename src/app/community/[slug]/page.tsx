@@ -57,7 +57,7 @@ export default async function CommunityPostPage({
     : null
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 font-courierPrime">
+    <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 ">
       <div className="w-full flex flex-col text-2xl md:text-4xl my-8 text-center items-center px-4">
         <h1 className="px-6 pt-2 animate-appearance-in">
           {post.title.toLowerCase()}

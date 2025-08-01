@@ -46,7 +46,7 @@ export default async function ProjectPage({
 
   return (
     <>
-      <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 font-courierPrime">
+      <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4">
         <div className="w-full flex text-2xl md:text-4xl my-8 text-center justify-center px-4">
           <h1 className="flex gap-2 w-fit border-b-2 border-gsp-white/80 px-6 pt-2 animate-appearance-in">
             <span className="text-2xl md:text-4xl">

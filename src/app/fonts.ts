@@ -8,6 +8,8 @@ import {
 } from 'next/font/google'
 import './globals.css'
 
+import localFont from 'next/font/local'
+
 // FONT THINGS
 
 const amaticSc = Amatic_SC({
@@ -44,6 +46,11 @@ const courierPrime = Courier_Prime({
   subsets: ['latin'],
 })
 
+const gspFont = localFont({
+  src: '../../public/fonts/GspFont-Regular.ttf',
+  variable: '--font-gspFont',
+})
+
 const fonts = {
   amaticSc,
   orbitron,
@@ -51,6 +58,7 @@ const fonts = {
   geistMono,
   pressStart,
   courierPrime,
+  gspFont,
 }
 
 export default fonts

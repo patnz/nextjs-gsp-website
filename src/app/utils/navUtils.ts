@@ -8,7 +8,7 @@ function processNavData(data: NavData): ProcessedNavData {
 
     data: [
       {
-        label: 'shows_',
+        label: 'shows',
         items: data.shows.map((show) => ({
           label: `${formatLabel(show.title)} [${show.year}]`,
           href: `/shows/${show.slug.current}`,
@@ -16,7 +16,7 @@ function processNavData(data: NavData): ProcessedNavData {
         defaultHref: '/',
       },
       {
-        label: 'projects_',
+        label: 'projects',
         items: data.projects.map((project) => ({
           label: formatLabel(project.title),
           href: `/projects/${project.slug.current}`,
@@ -24,7 +24,7 @@ function processNavData(data: NavData): ProcessedNavData {
         defaultHref: '/',
       },
       {
-        label: 'team_',
+        label: 'team',
         items: data.teamMembers.map((member) => ({
           label: formatLabel(member.name),
           href: `/team/${member._id}`,
@@ -32,7 +32,7 @@ function processNavData(data: NavData): ProcessedNavData {
         defaultHref: '/',
       },
       {
-        label: 'links_',
+        label: 'links',
         items: data.links.map((link) => ({
           label: formatLabel(link.title),
           href: link.url,
@@ -40,7 +40,7 @@ function processNavData(data: NavData): ProcessedNavData {
         defaultHref: '/',
       },
       {
-        label: 'community_',
+        label: 'community',
         items: data.communityPosts.map((post) => ({
           label: formatLabel(post.title),
           href: `/community/${post.slug.current}`,

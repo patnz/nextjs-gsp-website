@@ -25,7 +25,7 @@ export default function DesktopNav({
   const renderDesktopNavItem = (nav: ProcessedNavItem) => (
     <NavbarMenuItem key={nav.label} className="relative">
       <Button
-        className="font-courierPrime font-extralight bg-transparent border-none rounded-none text-gsp-white tracking-[-0.25rem] text-xl hover:bottom-[2px]"
+        className="font-gspFont bg-transparent border-none rounded-none text-gsp-white hover:bottom-[2px] text-2xl"
         onClick={() => handleDesktopMenuToggle(nav.label)}
       >
         {nav.label}
@@ -37,7 +37,7 @@ export default function DesktopNav({
 
   return (
     <>
-      <nav className="flex flex-col  items-center">
+      <nav className="flex flex-col  items-center ">
         <NavbarContent className="hidden lg:flex gap-[1vw]" justify="center">
           {navData.map(renderDesktopNavItem)}
         </NavbarContent>
@@ -47,13 +47,13 @@ export default function DesktopNav({
             {currentMenuItems.map((item) => (
               <Button
                 key={item.href}
-                className="font-courierPrime bg-gsp-white hover:bg-gsp-black hover:text-gsp-white border-none rounded-none text-gsp-black tracking-[-0.25rem] text-xl px-6 py-4 border-b border-gsp-black w-full"
+                className="font-gspFont bg-gsp-white hover:bg-gsp-black hover:text-gsp-white border-none rounded-none text-gsp-black  px-6 py-4 border-b border-gsp-black w-full"
                 size="sm"
               >
                 <Link
                   href={item.href}
                   onClick={handleLinkClick}
-                  className="hover:no-underline w-full  text-right"
+                  className="hover:no-underline w-full text-right"
                 >
                   {item.label}
                 </Link>
