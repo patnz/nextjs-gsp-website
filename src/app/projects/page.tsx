@@ -30,11 +30,11 @@ export default async function ProjectsPage() {
   )
 
   return (
-    <main className="container mx-auto min-h-screen max-w-6xl p-8">
+    <main className="container mx-auto min-h-screen max-w-6xl p-8 text-2xl">
       <div className="flex flex-col items-center gap-8">
         <div className="w-full flex justify-center my-8">
-          <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in text-4xl md:text-6xl">
-            <span className="-rotate-1">projects</span>
+          <h1 className="animate-appearance-in text-6xl md:text-6xl font-extrabold p-2 text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-28 flex items-center justify-center rotate-90">
+            <span className="-skew-x-12">projects</span>
           </h1>
         </div>
 
@@ -49,8 +49,8 @@ export default async function ProjectsPage() {
               const projectImageUrl =
                 project.imageGallery && project.imageGallery.length > 0
                   ? urlFor(project.imageGallery[0])
-                      ?.width(400)
-                      .height(225)
+                      ?.width(800)
+                      .height(400)
                       .url()
                   : null
 
@@ -82,12 +82,12 @@ export default async function ProjectsPage() {
                     )}
 
                     <div className="flex flex-col gap-2">
-                      <h2 className="text-xl md:text-2xl font-medium group-hover:underline">
+                      <h2 className="text-3xl md:text-4xl font-medium group-hover:underline">
                         {project.title.toLowerCase()}
                       </h2>
 
                       {description && (
-                        <p className="text-sm text-gsp-white/80 line-clamp-3">
+                        <p className="text-xl md:text-2xl text-gsp-white/80 line-clamp-3">
                           {description.toLowerCase()}
                         </p>
                       )}
@@ -100,13 +100,13 @@ export default async function ProjectsPage() {
                               .map((collaborator: string, index: number) => (
                                 <span
                                   key={index}
-                                  className="px-2 py-1 bg-gsp-white/10 rounded-sm text-xs"
+                                  className="px-2 py-1 bg-gsp-white/10 rounded-sm text-lg md:text-xl"
                                 >
                                   {collaborator.toLowerCase()}
                                 </span>
                               ))}
                             {project.collaborators.length > 3 && (
-                              <span className="px-2 py-1 bg-gsp-white/10 rounded-sm text-xs">
+                              <span className="px-2 py-1 bg-gsp-white/10 rounded-sm text-lg md:text-xl">
                                 +{project.collaborators.length - 3} more
                               </span>
                             )}

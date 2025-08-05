@@ -41,7 +41,7 @@ export default async function ProjectPage({
   // Get the first image from the gallery if it exists
   const projectImageUrl =
     project.imageGallery && project.imageGallery.length > 0
-      ? urlFor(project.imageGallery[0])?.width(1000).height(1000).url()
+      ? urlFor(project.imageGallery[0])?.width(800).height(500).url()
       : null
 
   return (
@@ -58,9 +58,9 @@ export default async function ProjectPage({
           <Image
             src={projectImageUrl}
             alt={project.title}
-            className="w-full object-cover"
-            width="550"
-            height="310"
+            className="w-full object-cover max-w-[600px] mx-auto"
+            width="800"
+            height="500"
           />
         )}
         <div className="prose max-w-none my-4 p-3 text-justify">
