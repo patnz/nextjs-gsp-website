@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 import { NavData } from '@/app/types'
 import { processNavData } from '@/app/utils/navUtils'
