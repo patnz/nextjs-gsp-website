@@ -27,7 +27,13 @@ export default function HomePage() {
           height={500}
           alt="Golden Scissor Puppets"
         />
-
+        <video
+          src="/videos/home-page-clip.mp4"
+          muted
+          loop
+          autoPlay
+          className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-0 opacity-0 animate-fade-in pointer-events-none"
+        ></video>
         {/* Grid Navigation */}
         <div className="fixed z-30 w-full h-screen flex flex-col items-center justify-center opacity-0 animate-fade-in duration-100">
           <div className="grid grid-cols-3 grid-rows-3 w-screen h-4/5 px-4">

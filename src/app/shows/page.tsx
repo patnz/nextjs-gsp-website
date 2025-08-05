@@ -39,8 +39,8 @@ export default async function ShowsPage() {
             no shows found
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-            {shows.map((show) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
+            {shows.map((show, index) => {
               const mainImage = show.mainImage
                 ? urlFor(show.mainImage)?.url()
                 : null
@@ -58,20 +58,18 @@ export default async function ShowsPage() {
                   href={`/shows/${show.slug.current}`}
                   className="group block"
                 >
-                  <article className="flex flex-col gap-4 p-4 border border-gsp-white/20 hover:border-gsp-white/60 transition-colors duration-200">
+                  <article className="flex flex-col gap-4 border-4 hover:border-gsp-white/60 transition-colors duration-200">
                     {mainImage && (
-                      <div className="aspect-video overflow-hidden">
-                        <Image
-                          src={mainImage}
-                          alt={show.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                          width={400}
-                          height={225}
-                        />
-                      </div>
+                      <Image
+                        src={mainImage}
+                        alt={show.title}
+                        className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-200"
+                        width={400}
+                        height={225}
+                      />
                     )}
 
-                    <div className="flex flex-col gap-2">
+                    {/* <div className="flex flex-col gap-2">
                       <div className="flex items-baseline gap-2">
                         <h2 className="text-xl md:text-2xl font-medium group-hover:underline">
                           {show.title.toLowerCase()}
@@ -88,7 +86,7 @@ export default async function ShowsPage() {
                           {description.toLowerCase()}
                         </p>
                       )}
-                    </div>
+                    </div> */}
                   </article>
                 </Link>
               )
