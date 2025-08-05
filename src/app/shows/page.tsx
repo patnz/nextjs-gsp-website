@@ -29,8 +29,8 @@ export default async function ShowsPage() {
     <main className="container mx-auto min-h-screen max-w-6xl p-8">
       <div className="flex flex-col items-center gap-8">
         <div className="w-full flex justify-center my-8">
-          <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in text-4xl md:text-6xl">
-            <span className="-rotate-1">shows</span>
+          <h1 className="animate-appearance-in text-6xl md:text-6xl font-extrabold p-2 text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-28 flex items-center justify-center rotate-90">
+            <span className="-skew-x-12">shows</span>
           </h1>
         </div>
 

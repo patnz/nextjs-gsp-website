@@ -15,19 +15,23 @@ export default function SimpleNavigation() {
   }
 
   return (
-    <div className="fixed top-4 left-4 z-40">
+    <div className="fixed top-0 left-0 z-40 flex justify-end items-end w-full">
       <Link
         href="/"
-        className="flex items-center justify-center p-3 bg-gsp-black/80 border-2 border-gsp-white/60 rounded-full hover:border-gsp-gold hover:scale-110 transition-all duration-300 backdrop-blur-sm"
+        className="flex items-center justify-center px-2 m-2 md:my-4 md:mx-8 hover:scale-110 transition-all duration-300 hover:no-underline"
         title="Back to Home"
       >
-        <Image
+        {/* <Image
           src="/images/gsp-logo.png"
           alt="GSP Logo - Back to Home"
           width={32}
           height={32}
           className="opacity-90"
-        />
+        /> */}
+
+        <span className="text-gsp-white text-4xl md:text-6xl font-bold hover:no-underline">
+          x
+        </span>
       </Link>
     </div>
   )

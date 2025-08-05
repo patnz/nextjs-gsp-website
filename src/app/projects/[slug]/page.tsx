@@ -41,15 +41,15 @@ export default async function ProjectPage({
   // Get the first image from the gallery if it exists
   const projectImageUrl =
     project.imageGallery && project.imageGallery.length > 0
-      ? urlFor(project.imageGallery[0])?.width(550).height(310).url()
+      ? urlFor(project.imageGallery[0])?.width(1000).height(1000).url()
       : null
 
   return (
     <>
-      <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4">
+      <main className="container mx-auto min-h-screen max-w-3xl flex flex-col gap-4 text-2xl">
         <div className="w-full flex text-2xl md:text-4xl my-8 text-center justify-center px-4">
-          <h1 className="flex gap-2 w-fit border-b-2 border-gsp-white/80 px-6 pt-2 animate-appearance-in">
-            <span className="text-2xl md:text-4xl">
+          <h1 className="flex animate-appearance-intext-6xl md:text-6xl p-2 text-gsp-white -skew-x-12 items-center justify-center">
+            <span className="text-5xl md:text-6xl">
               {`${project.title.toLowerCase()}`}
             </span>
           </h1>
@@ -76,15 +76,15 @@ export default async function ProjectPage({
         {/* Collaborators section */}
         {project.collaborators && project.collaborators.length > 0 && (
           <div className="my-4">
-            <h2 className="text-xl mb-2 border-b border-gsp-white/40 pb-1">
+            <h2 className="mb-2 border-b border-gsp-white/40 pb-1">
               Collaborators
             </h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-6 mt-4">
               {project.collaborators.map(
                 (collaborator: string, index: number) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gsp-white/10 rounded-md text-sm"
+                    className="px-3 py-1 bg-gsp-white/10 rounded-md text-3xl"
                   >
                     {collaborator.toLowerCase()}
                   </span>
@@ -107,11 +107,11 @@ export default async function ProjectPage({
                 .map((image: SanityImageSource, index: number) => (
                   <div key={index} className="border-2 border-gsp-white/80">
                     <Image
-                      src={urlFor(image)?.width(320).height(240).url() || ''}
+                      src={urlFor(image)?.width(800).height(800).url() || ''}
                       alt={`Project image ${index + 1}`}
                       className="w-full h-64 object-cover"
-                      width={320}
-                      height={240}
+                      width={800}
+                      height={800}
                     />
                   </div>
                 ))}

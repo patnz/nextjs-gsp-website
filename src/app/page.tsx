@@ -30,10 +30,10 @@ export default function HomePage() {
 
         {/* Grid Navigation */}
         <div className="fixed z-30 w-full h-screen flex flex-col items-center justify-center opacity-0 animate-fade-in duration-100">
-          <div className="grid grid-cols-3 grid-rows-3 w-screen lg:w-2/3 h-full md:h-4/5 px-4">
+          <div className="grid grid-cols-3 grid-rows-3 w-screen h-4/5 px-4">
             <div className="relative w-full h-full flex items-center justify-center">
               <Link
-                className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
+                className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-x-150 hover:border-gsp-gold duration-300 hover:no-underline"
                 href="/shows"
               >
                 <span>shows</span>
@@ -44,7 +44,7 @@ export default function HomePage() {
             </div>
             <div className="relative w-full h-full flex items-center justify-center">
               <Link
-                className="text-3xl md:text-5xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
+                className="text-3xl md:text-5xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-x-150 transition-all hover:border-gsp-gold duration-300 hover:no-underline"
                 href="/projects"
               >
                 <span>projects</span>
@@ -61,7 +61,7 @@ export default function HomePage() {
             </div>
             <div className="relative w-full h-full flex items-center justify-center">
               <Link
-                className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
+                className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-x-150 transition-all hover:border-gsp-gold duration-300 hover:no-underline"
                 href="/collabs"
               >
                 <span>collabs</span>
@@ -72,7 +72,7 @@ export default function HomePage() {
             </div>
             <div className="relative w-full h-full flex items-center justify-center">
               <Link
-                className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
+                className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-x-150 transition-all hover:border-gsp-gold duration-300 hover:no-underline"
                 href="/team"
               >
                 <span>freaks</span>

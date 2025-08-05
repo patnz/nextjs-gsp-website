@@ -42,25 +42,17 @@ export default async function ShowPage({
 
   return (
     <>
-      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32  z-30">
-        <div className=" w-full flex text-2xl md:text-4xl my-8 text-center  justify-center px-4">
-          <h1 className="flex gap-2 w-fit border-b-2 pb-4 border-gsp-white/60 px-6 pt-2 animate-appearance-in ">
-            <span className="text-8xl md:text-4xl -rotate-1">
-              {`${show.title.toLowerCase()}`}
-            </span>
-            <span className="text-base md:text-xl rotate-3">{show.year}</span>
-          </h1>
-        </div>
+      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 z-30 text-2xl">
         {mainImage && (
           <Image
             src={mainImage}
             alt={show.title}
-            className="w-full max-w-[600px] object-contain border-gsp-white/80 "
+            className="w-full max-w-[400px] object-contain border-gsp-white/80 "
             width="550"
             height="310"
           />
         )}
-        <div className="prose max-w-none my-4 p-3 text-justify text-white">
+        <div className="prose max-w-none my-4 p-3 text-justify text-gsp-white">
           {typeof show.description === 'string' ? (
             <p>{show.description.toLowerCase()}</p>
           ) : (
@@ -73,11 +65,11 @@ export default async function ShowPage({
         {/* Press quotes section */}
 
         {show.pressQuotes && show.pressQuotes.length > 0 && (
-          <div className=" flex flex-col gap-4 text-justify">
+          <div className=" flex flex-col gap-8 text-center mb-8">
             {show.pressQuotes.map((quote: string, index: number) => (
               <blockquote
                 key={index}
-                className=" border-l-4 border-gray-200 pl-4 italic"
+                className="bg-gsp-white/20 p-2 mx-4 sm:mx-12 border-gsp-white italic text-center rounded-sm border-y-8 border-dotted"
               >
                 {quote.toLowerCase()}
               </blockquote>
@@ -92,11 +84,11 @@ export default async function ShowPage({
                 (image: SanityImageSource, index: number) => (
                   <div key={index} className="border-2 border-gsp-white/80">
                     <Image
-                      src={urlFor(image)?.width(320).height(240).url() || ''}
+                      src={urlFor(image)?.width(800).height(500).url() || ''}
                       alt={`Show image ${index}`}
                       className=" w-full h-64 object-cover"
-                      width={320}
-                      height={240}
+                      width={800}
+                      height={800}
                     />
                   </div>
                 )
