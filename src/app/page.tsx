@@ -4,13 +4,13 @@ export default function HomePage() {
   return (
     <div>
       <main className="bg-black flex flex-col items-center justify-center h-screen font-gspFont">
-        <video
+        {/* <video
           src="/videos/home-page-clip.mp4"
           muted
           loop
           autoPlay
           className=" h-screen md:w-screen object-cover object-left md:object-center overflow-hidden z-0 opacity-0 animate-fade-in pointer-events-none"
-        ></video>
+        ></video> */}
         <Image
           className="fixed pointer-events-none z-10 w-[500px] mix-blend-color-dodge mb-12 opacity-100"
           src="/images/home-title-white.png"
