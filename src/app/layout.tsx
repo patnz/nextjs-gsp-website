@@ -1,4 +1,4 @@
-import Navigation from '@/app/components/Navigation'
+import SimpleNav from '@/app/components/SimpleNav'
 // import FloatingDecorations from './components/FloatingDecorations'
 import fetchDocuments from './utils/fetchingUtils'
 import type { Metadata } from 'next'
@@ -19,6 +19,7 @@ export default async function RootLayout({
 }) {
   // Fetch all data for navigation
   const navData = await fetchDocuments()
+  console.log('Fetched navigation data:', navData)
 
   return (
     <html lang="en" className="dark">
@@ -38,7 +39,7 @@ export default async function RootLayout({
         {/* VIDEO BACKDROP */}
         <Providers>
           {/* <FloatingDecorations /> */}
-          <Navigation data={navData} />
+          <SimpleNav />
           {children}
         </Providers>
       </body>
