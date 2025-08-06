@@ -7,7 +7,7 @@ export default function HomePage() {
       <main className="bg-black flex flex-col items-center justify-center h-screen font-gspFont">
         {/* Your existing title graphics */}
         <Image
-          className="fixed pointer-events-none z-10 w-[500px] mix-blend-color-dodge mb-12 opacity-100"
+          className="animate-fade-in fixed pointer-events-none z-10 w-[500px] mix-blend-color-dodge mb-12 opacity-100"
           src="/images/home-title-white.png"
           width={500}
           height={500}
