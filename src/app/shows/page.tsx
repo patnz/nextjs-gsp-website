@@ -40,17 +40,17 @@ export default async function ShowsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
-            {shows.map((show, index) => {
+            {shows.map((show) => {
               const mainImage = show.mainImage
                 ? urlFor(show.mainImage)?.url()
                 : null
-              const description =
-                typeof show.description === 'string'
-                  ? show.description
-                  : Array.isArray(show.description) &&
-                      show.description[0]?.children?.[0]?.text
-                    ? show.description[0].children[0].text
-                    : ''
+              // const description =
+              //   typeof show.description === 'string'
+              //     ? show.description
+              //     : Array.isArray(show.description) &&
+              //         show.description[0]?.children?.[0]?.text
+              //       ? show.description[0].children[0].text
+              //       : ''
 
               return (
                 <Link

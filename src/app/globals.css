@@ -95,7 +95,16 @@
   }
 
   .animate-flicker {
-    animation: flicker .6s infinite steps(10);
+    animation: flicker 2s infinite steps(10);
+  }
+
+
+    .animate-flicker-slow {
+    animation: flicker 10s infinite steps(10);
+  }
+
+      .animate-flicker-slowest {
+    animation: flicker 20s infinite steps(10);
   }
   
   .animate-fade-in {
