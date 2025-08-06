@@ -54,13 +54,13 @@ export default async function ProjectsPage() {
                       .url()
                   : null
 
-              const description =
-                typeof project.description === 'string'
-                  ? project.description
-                  : Array.isArray(project.description) &&
-                      project.description[0]?.children?.[0]?.text
-                    ? project.description[0].children[0].text
-                    : ''
+              // const description =
+              //   typeof project.description === 'string'
+              //     ? project.description
+              //     : Array.isArray(project.description) &&
+              //         project.description[0]?.children?.[0]?.text
+              //       ? project.description[0].children[0].text
+              //       : ''
 
               return (
                 <Link
@@ -69,6 +69,11 @@ export default async function ProjectsPage() {
                   className="group block"
                 >
                   <article className="flex flex-col gap-4 p-4 border border-gsp-white/20 hover:border-gsp-white/60 transition-colors duration-200">
+                    <div className="flex flex-col gap-2">
+                      <h2 className="text-3xl md:text-4xl font-medium group-hover:underline">
+                        {project.title.toLowerCase()}
+                      </h2>
+                    </div>
                     {projectImageUrl && (
                       <div className="aspect-video overflow-hidden">
                         <Image
@@ -80,8 +85,7 @@ export default async function ProjectsPage() {
                         />
                       </div>
                     )}
-
-                    <div className="flex flex-col gap-2">
+                    {/* <div className="flex flex-col gap-2">
                       <h2 className="text-3xl md:text-4xl font-medium group-hover:underline">
                         {project.title.toLowerCase()}
                       </h2>
@@ -112,7 +116,7 @@ export default async function ProjectsPage() {
                             )}
                           </div>
                         )}
-                    </div>
+                    </div> */}
                   </article>
                 </Link>
               )

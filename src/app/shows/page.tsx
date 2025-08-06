@@ -56,14 +56,14 @@ export default async function ShowsPage() {
                 <Link
                   key={show._id}
                   href={`/shows/${show.slug.current}`}
-                  className="group block"
+                  className="group block group-hover:scale-105"
                 >
-                  <article className="flex flex-col gap-4 border-4 hover:border-gsp-white/60 transition-colors duration-200">
+                  <article className="flex flex-col gap-4 border-4 group-hover:scale-105 transition-all duration-200">
                     {mainImage && (
                       <Image
                         src={mainImage}
                         alt={show.title}
-                        className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-200"
+                        className="w-full h-auto aspect-[3/4] object-cover"
                         width={400}
                         height={225}
                       />
