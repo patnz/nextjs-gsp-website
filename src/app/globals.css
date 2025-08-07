@@ -111,6 +111,10 @@
     animation: fade-in 10s linear 0.5s forwards;
   }
 
+    .animate-fade-in-fast {
+    animation: fade-in 1s linear 0.5s forwards;
+  }
+
   .animate-fade-in-not-quite {
     animation: fade-in-not-quite 5s linear 0.5s forwards;
   }
@@ -119,6 +123,23 @@
     animation: fade-in 5s linear 0.5s forwards;
   }
 }
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation-name: slow-spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: var(--spin-speed, 5s); /* Default: 5s */
+}
+
 
 
 body {

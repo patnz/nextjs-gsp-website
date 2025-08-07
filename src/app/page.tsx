@@ -6,27 +6,7 @@ export default function HomePage() {
     <div>
       <main className="bg-black flex flex-col items-center justify-center h-screen font-gspFont">
         {/* Your existing title graphics */}
-        <Image
-          className="animate-fade-in fixed pointer-events-none z-10 w-[500px] mix-blend-color-dodge mb-12 opacity-100"
-          src="/images/home-title-white.png"
-          width={500}
-          height={500}
-          alt="Golden Scissor Puppets"
-        />
-        <Image
-          className="fixed pointer-events-none z-10 w-[500px] mix-blend-color-dodge mb-[48px] md:mb-[52px] mr-1 opacity-20 animate-flicker"
-          src="/images/home-title-green.png"
-          width={500}
-          height={500}
-          alt="Golden Scissor Puppets"
-        />
-        <Image
-          className="fixed pointer-events-none z-10 w-[500px] mix-blend-color-dodge mb-12 mr- opacity-50 animate-flicker-slow scale-105"
-          src="/images/home-title-gold.png"
-          width={500}
-          height={500}
-          alt="Golden Scissor Puppets"
-        />
+
         <div className="h-screen md:w-screen animate-fade-in">
           <video
             src="/videos/home-page-clip.mp4"
@@ -37,7 +17,7 @@ export default function HomePage() {
           ></video>
         </div>
         {/* Grid Navigation */}
-        <div className="fixed z-30 w-full h-screen flex flex-col items-center justify-center opacity-0 animate-fade-in duration-100">
+        <div className="fixed z-30 w-full h-screen flex flex-col items-center justify-center opacity-0 animate-fade-in-fast duration-100">
           <div className="grid grid-cols-3 grid-rows-3 w-screen h-4/5 px-4">
             <div className="relative w-full h-full flex items-center justify-center">
               <Link
@@ -73,8 +53,21 @@ export default function HomePage() {
             <div className="w-full h-full flex items-center justify-center">
               {/* empty grid item */}
             </div>
-            <div className="w-full h-full flex items-center justify-center">
-              {/* empty grid item */}
+            <div className="w-full h-full flex items-center justify-center relative bg-blend-screen">
+              <Image
+                className="fixed pointer-events-none z-30 w-32 opacity-50 -skew-x-6 animate-flicker-slowest"
+                src="/images/birge-white.png"
+                width={500}
+                height={500}
+                alt="Golden Scissor Puppets"
+              />
+              {/* <Image
+                className="fixed pointer-events-none z-20 w-64 ml-1 mt-1 opacity-50 bg-blend-difference"
+                src="/images/home-title-gold.png"
+                width={500}
+                height={500}
+                alt="Golden Scissor Puppets"
+              /> */}
             </div>
             <div className="w-full h-full flex items-center justify-center">
               {/* empty grid item */}
