@@ -26,9 +26,9 @@ export default async function ShowsPage() {
   const shows = await client.fetch<SanityDocument[]>(SHOWS_QUERY, {}, options)
 
   return (
-    <main className="container mx-auto min-h-screen max-w-6xl flex flex-col items-center gap-8">
+    <main className="container mx-auto min-h-screen max-w-6xl flex flex-col items-center gap-8 border-2">
       <div className="w-full flex justify-center mb-8">
-        <h1 className="relative text-6xl md:text-6xl font-extrabold p-2 text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-28 flex items-center justify-center">
+        <h1 className="relative animate-appearance-in text-6xl md:text-6xl font-extrabold p-2 text-gsp-white -skew-x-12 flex items-center justify-center">
           <span className="absolute -skew-x-12 scale-110 animate-flicker-slowest text-gsp-white/30">
             shows
           </span>

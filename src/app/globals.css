@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #26292B;
+  --foreground: #26292B;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #26292B;
+    --foreground: #26292B;
   }
 }
 
@@ -157,7 +157,7 @@ body {
   color: #FCF9ED;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 4rem 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
