@@ -47,7 +47,7 @@ export default async function ShowPage({
           <Image
             src={mainImage}
             alt={show.title}
-            className="w-full max-w-[400px] object-contain border-gsp-white/80 "
+            className="w-full max-w-[400px] object-contain border-gsp-white/80 mt-4 md:mt-0"
             width="550"
             height="310"
           />

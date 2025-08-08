@@ -33,7 +33,7 @@ export default async function CollabsPage() {
   )
   return (
     <main className="container mx-auto min-h-screen max-w-6xl flex flex-col items-center gap-8">
-      <div className="w-full flex justify-center mb-8">
+      <div className="w-full flex justify-center">
         <h1 className="relative animate-appearance-in text-6xl md:text-6xl font-extrabold p-2 text-gsp-white -skew-x-12 flex items-center justify-center">
           <span className="absolute -skew-x-12 scale-110 animate-flicker-slowest text-gsp-white/30">
             collabs

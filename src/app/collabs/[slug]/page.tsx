@@ -49,7 +49,7 @@ export default async function ShowPage({
             <Image
               src={mainImage}
               alt={collab.title}
-              className="w-full max-w-[400px] aspect-[4/6] object-contain border-gsp-white rounded-sm  border-2 z-50"
+              className="w-full max-w-[400px] aspect-[4/6] object-contain border-gsp-white rounded-sm  border-2 z-50 mt-4 md:mt-0"
               width="550"
               height="310"
             />
