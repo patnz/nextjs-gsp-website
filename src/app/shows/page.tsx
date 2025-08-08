@@ -57,7 +57,7 @@ export default async function ShowsPage() {
             return (
               <Link
                 key={show._id}
-                href={`/collabs/${show.slug.current}`}
+                href={`/shows/${show.slug.current}`}
                 className="group block group-hover:scale-105 z-10"
               >
                 <article className="relative flex flex-col justify-center items-center gap-4  group-hover:scale-105 transition-all duration-200 ">
