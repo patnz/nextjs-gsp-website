@@ -42,7 +42,7 @@ export default async function ShowPage({
 
   return (
     <>
-      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 z-30 text-2xl">
+      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 z-30 text-3xl ">
         {mainImage && (
           <Image
             src={mainImage}
@@ -52,7 +52,11 @@ export default async function ShowPage({
             height="310"
           />
         )}
-        <div className="prose max-w-none my-4 p-3 text-justify text-gsp-white">
+
+        <h1 className="text-5xl md:text-8xl leading-10  text-center w-full pt-8">
+          {show.title}
+        </h1>
+        <div className="text-3xl max-w-none my-4 p-3 text-justify text-gsp-white">
           {typeof show.description === 'string' ? (
             <p>{show.description.toLowerCase()}</p>
           ) : (

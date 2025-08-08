@@ -19,7 +19,6 @@ export default async function RootLayout({
 }) {
   // Fetch all data for navigation
   const navData = await fetchDocuments()
-  console.log('Fetched navigation data:', navData)
 
   return (
     <html lang="en" className="dark">

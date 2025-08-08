@@ -13,8 +13,6 @@ interface NavComponentProps {
 export default function Navigation({ data }: NavComponentProps) {
   const navStructure = processNavData(data)
 
-  console.log('Navigation data:', navStructure)
-
   return (
     <>
       {/* <div className="fixed z-40 w-full h-16 flex">
@@ -36,9 +34,7 @@ export default function Navigation({ data }: NavComponentProps) {
           <div className="relative w-full h-full flex items-center justify-center">
             <Link
               className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
-              onClick={() => {
-                console.log('clicked shows')
-              }}
+              onClick={() => {}}
               href="/shows"
             >
               <span>shows</span>
@@ -50,9 +46,7 @@ export default function Navigation({ data }: NavComponentProps) {
           <div className="relative w-full h-full flex items-center justify-center">
             <Link
               className="text-3xl md:text-5xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
-              onClick={() => {
-                console.log('clicked projects')
-              }}
+              onClick={() => {}}
               href="/projects"
             >
               <span>projects</span>
@@ -71,7 +65,7 @@ export default function Navigation({ data }: NavComponentProps) {
             <Link
               className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
               onClick={() => {
-                console.log('clicked collabs')
+                ;('clicked collabs')
               }}
               href="/collabs"
             >
@@ -84,9 +78,7 @@ export default function Navigation({ data }: NavComponentProps) {
           <div className="relative w-full h-full flex items-center justify-center">
             <Link
               className="text-4xl md:text-6xl font-extrabold p-2 bg-gsp-black/70 border-y-4 md:border-y-8 border-gsp-white border-dotted text-gsp-white rounded-full -skew-x-12 w-16 h-16 md:w-28 md:h-24 flex items-center justify-center hover:scale-110 active:scale-[60] transition-all hover:border-gsp-gold duration-300 hover:no-underline"
-              onClick={() => {
-                console.log('clicked freaks')
-              }}
+              onClick={() => {}}
               href="/freaks"
             >
               <span>freaks</span>

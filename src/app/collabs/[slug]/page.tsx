@@ -26,8 +26,7 @@ export default async function ShowPage({
     options
   )
 
-  console.log('coooolaaab>???>,,,,', collab)
-
+  console.log('collab')
   // Handle the case where collab doesn't exist
   if (!collab) {
     return (
@@ -49,12 +48,20 @@ export default async function ShowPage({
           <Image
             src={mainImage}
             alt={collab.title}
-            className="w-full max-w-[400px] object-contain border-gsp-white/80 "
+            className="w-full max-w-[400px] object-contain border-gsp-white/80 z-50 border-2"
             width="550"
             height="310"
           />
         )}
-        <div className="prose max-w-none my-4 p-3 text-justify text-gsp-white">
+
+        <h1 className="text-5xl md:text-6xl leading-10  text-center w-full pt-8">
+          {collab.title}
+        </h1>
+        {/* <p className="text-5xl md:text-6xl leading-10  text-center w-full pt-8">
+          {collab}
+        </p> */}
+
+        <div className="text-3xl max-w-none my-4 p-3 text-justify text-gsp-white">
           {typeof collab.description === 'string' ? (
             <p>{collab.description.toLowerCase()}</p>
           ) : (

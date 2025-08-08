@@ -38,7 +38,7 @@ export default async function CollabsPage() {
           <span className="absolute -skew-x-12 scale-110 animate-flicker-slowest text-gsp-white/30">
             collabs
           </span>
-          <span className="-skew-x-12 animate-flicker-slow">collabs</span>
+          <span className="-skew-x-12 animate-appearance-in">collabs</span>
         </h1>
       </div>
 
@@ -67,7 +67,7 @@ export default async function CollabsPage() {
                 className="group block group-hover:scale-105 z-10"
               >
                 <article className="relative flex flex-col justify-center items-center gap-4  group-hover:scale-105 transition-all duration-200 ">
-                  <div className="absolute z-30 w-[110%] h-[102%] aspect-[4/5] object-cover bg-gsp-white skew-y-12 animate-spin-slow"></div>
+                  <div className="absolute z-30 w-[102%] h-[102%] aspect-[4/5] object-cover bg-gsp-white/10 animate-appearance-in duration-100"></div>
                   {mainImage && (
                     <Image
                       src={mainImage}

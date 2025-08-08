@@ -33,8 +33,6 @@ export default function DesktopNav({
     </NavbarMenuItem>
   )
 
-  console.log(navData)
-
   return (
     <>
       <nav className="flex flex-col  items-center ">
