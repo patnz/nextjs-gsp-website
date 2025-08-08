@@ -4,6 +4,7 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import { client } from '@/app/sanity/client'
 import Link from 'next/link'
 import Image from 'next/image'
+import { div } from 'framer-motion/client'
 
 const COLLABS_QUERY = `*[_type == "collab" && slug.current == $slug][0]`
 
@@ -26,7 +27,6 @@ export default async function ShowPage({
     options
   )
 
-  console.log('collab')
   // Handle the case where collab doesn't exist
   if (!collab) {
     return (
@@ -43,23 +43,22 @@ export default async function ShowPage({
 
   return (
     <>
-      <main className=" container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 z-30 text-2xl">
+      <main className="relative container mx-auto min-h-screen max-w-3xl flex flex-col items-center gap-4 lg:px-32 z-30 text-2xl">
         {mainImage && (
-          <Image
-            src={mainImage}
-            alt={collab.title}
-            className="w-full max-w-[400px] object-contain border-gsp-white/80 z-50 border-2"
-            width="550"
-            height="310"
-          />
+          <>
+            <Image
+              src={mainImage}
+              alt={collab.title}
+              className="w-full max-w-[400px] aspect-[4/6] object-contain border-gsp-white rounded-sm  border-2 z-50"
+              width="550"
+              height="310"
+            />
+          </>
         )}
 
-        <h1 className="text-5xl md:text-6xl leading-10  text-center w-full pt-8">
+        <h1 className="text-5xl md:text-6xl leading-10  text-center w-full pt-8 mt-8 -skew-x-8">
           {collab.title}
         </h1>
-        {/* <p className="text-5xl md:text-6xl leading-10  text-center w-full pt-8">
-          {collab}
-        </p> */}
 
         <div className="text-3xl max-w-none my-4 p-3 text-justify text-gsp-white">
           {typeof collab.description === 'string' ? (
@@ -70,6 +69,25 @@ export default async function ShowPage({
             )
           )}
         </div>
+
+        <h2 className="w-4/5 grid grid-cols-3 gap-4 mb-8 animate-flicker-slowest text-gsp-gold">
+          {collab.collaborators.map((collaborator: string, index) => {
+            return (
+              <>
+                {index > 0 ? (
+                  <div className="flex justify-center text-center w-full items-center">
+                    +
+                  </div>
+                ) : (
+                  ''
+                )}
+                <div className="flex justify-center text-center w-full items-center leading-4">
+                  {collaborator}{' '}
+                </div>
+              </>
+            )
+          })}
+        </h2>
 
         {/* Press quotes section */}
 
