@@ -1,6 +1,6 @@
 import SimpleNav from '@/app/components/SimpleNav'
 // import FloatingDecorations from './components/FloatingDecorations'
-import fetchDocuments from './utils/fetchingUtils'
+// import fetchDocuments from './utils/fetchingUtils'
 import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
@@ -18,7 +18,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   // Fetch all data for navigation
-  const navData = await fetchDocuments()
+  // const navData = await fetchDocuments()
 
   return (
     <html lang="en" className="dark">

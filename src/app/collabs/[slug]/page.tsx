@@ -4,7 +4,7 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import { client } from '@/app/sanity/client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { div } from 'framer-motion/client'
+// import { div } from 'framer-motion/client'
 
 const COLLABS_QUERY = `*[_type == "collab" && slug.current == $slug][0]`
 
@@ -71,7 +71,7 @@ export default async function ShowPage({
         </div>
 
         <h2 className="w-4/5 grid grid-cols-3 gap-4 mb-8 animate-flicker-slowest text-gsp-gold">
-          {collab.collaborators.map((collaborator: string, index) => {
+          {collab.collaborators.map((collaborator: string, index: number) => {
             return (
               <>
                 {index > 0 ? (
