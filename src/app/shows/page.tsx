@@ -70,25 +70,6 @@ export default async function ShowsPage() {
                       height={225}
                     />
                   )}
-
-                  {/* <div className="flex flex-col gap-2">
-                      <div className="flex items-baseline gap-2">
-                        <h2 className="text-xl md:text-2xl font-medium group-hover:underline">
-                          {show.title.toLowerCase()}
-                        </h2>
-                        {show.year && (
-                          <span className="text-sm text-gsp-white/60">
-                            {show.year}
-                          </span>
-                        )}
-                      </div>
-
-                      {description && (
-                        <p className="text-sm text-gsp-white/80 line-clamp-3">
-                          {description.toLowerCase()}
-                        </p>
-                      )}
-                    </div> */}
                 </article>
               </Link>
             )
