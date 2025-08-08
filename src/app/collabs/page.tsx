@@ -77,6 +77,13 @@ export default async function CollabsPage() {
                       height={225}
                     />
                   )}
+                  <div className="absolute z-50 w-full aspect-[4/5] flex flex-col justify-end object-cover animate-appearance-in duration-100">
+                    <div className="relative flex w-full justify-end">
+                      <div className="text-2xl w-full leading-6 md:text-2xl  flex items-center justify-center text-center bg-gsp-black border-gsp-white/80 scale-105 border-2 -skew-y-2 px-2 md:px-3 mb-12">
+                        {collab.title}
+                      </div>
+                    </div>
+                  </div>
                 </article>
               </Link>
             )

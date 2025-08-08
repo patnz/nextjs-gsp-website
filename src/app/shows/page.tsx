@@ -26,7 +26,7 @@ export default async function ShowsPage() {
   const shows = await client.fetch<SanityDocument[]>(SHOWS_QUERY, {}, options)
 
   return (
-    <main className="container mx-auto min-h-screen max-w-6xl flex flex-col items-center gap-8 border-2">
+    <main className="container mx-auto min-h-screen max-w-6xl flex flex-col items-center gap-8 ">
       <div className="w-full flex justify-center mb-8">
         <h1 className="relative animate-appearance-in text-6xl md:text-6xl font-extrabold p-2 text-gsp-white -skew-x-12 flex items-center justify-center">
           <span className="absolute -skew-x-12 scale-110 animate-flicker-slowest text-gsp-white/30">
@@ -57,15 +57,16 @@ export default async function ShowsPage() {
             return (
               <Link
                 key={show._id}
-                href={`/shows/${show.slug.current}`}
-                className="group block group-hover:scale-105"
+                href={`/collabs/${show.slug.current}`}
+                className="group block group-hover:scale-105 z-10"
               >
-                <article className="flex flex-col gap-4 border-4 group-hover:scale-105 transition-all duration-200 animate-flicker-slowest">
+                <article className="relative flex flex-col justify-center items-center gap-4  group-hover:scale-105 transition-all duration-200 ">
+                  <div className="absolute z-30 w-[102%] h-[102%] aspect-[4/5] object-cover bg-gsp-white/10 animate-appearance-in duration-100"></div>
                   {mainImage && (
                     <Image
                       src={mainImage}
                       alt={show.title}
-                      className="w-full h-auto aspect-[3/4] object-cover "
+                      className="z-40 w-full h-auto aspect-[3/4] object-cover border-2 border-gsp-white/80 animate-flicker-slowest hover:animate-none"
                       width={400}
                       height={225}
                     />

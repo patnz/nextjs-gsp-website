@@ -68,7 +68,7 @@ export default async function ShowPage({
 
         {/* Press quotes section */}
 
-        {show.pressQuotes && show.pressQuotes.length > 0 && (
+        {/* {show.pressQuotes && show.pressQuotes.length > 0 && (
           <div className=" flex flex-col gap-8 text-center mb-8">
             {show.pressQuotes.map((quote: string, index: number) => (
               <blockquote
@@ -79,7 +79,7 @@ export default async function ShowPage({
               </blockquote>
             ))}
           </div>
-        )}
+        )} */}
         {/* Image gallery section */}
         {show.imageGallery && show.imageGallery.length > 1 && (
           <div className="">
