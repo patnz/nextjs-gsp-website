@@ -5,8 +5,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import { client } from '@/app/sanity/client'
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 const { projectId, dataset } = client.config()
 const urlFor = (source: SanityImageSource) =>
