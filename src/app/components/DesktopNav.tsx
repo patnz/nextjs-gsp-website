@@ -112,14 +112,14 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
 
             {navData.liveOnStage && (
               <>
-                <div className="relative group  saturate-200">
+                <div className="relative group hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200">
                   <button
                     onClick={handleShowsMenuToggle}
-                    className="hover:scale-110 duration-200 absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all z-40"
+                    className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
                   >
                     live on stage
                   </button>
-                  <p className="group-hover:scale-110 hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow ml-[1px] mt-[1px] z-30 duration-100">
+                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] z-30 duration-100">
                     live on stage
                   </p>
 
@@ -130,7 +130,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                           return (
                             <Link
                               key={show._id}
-                              href={`/shows/${show.title}`}
+                              href={`/`}
                               className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
                             >
                               {show.title}
@@ -188,7 +188,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
       <footer className="fixed bottom-0 left-0 right-0 z-40 w-screen ">
         <div className="w-full h-16 flex items-center justify-evenly">
           <div className="flex items-center justify-evenly w-full px-6">
-            {navData.freaks && navData.freaks.length > 0 && (
+            {/* {navData.freaks && navData.freaks.length > 0 && (
               <>
                 <div className="group hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200">
                   <>
@@ -204,13 +204,13 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   </>
                 </div>
               </>
-            )}
+            )} */}
 
             {/* contact on large device */}
             <div className="group hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200 hidden md:block">
               <>
                 <Link
-                  href="/contact"
+                  href="/"
                   className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
                 >
                   contact the freaks
@@ -225,7 +225,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             <div className="group hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200 block md:hidden">
               <>
                 <Link
-                  href="/contact"
+                  href={`/`}
                   className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
                 >
                   contact
