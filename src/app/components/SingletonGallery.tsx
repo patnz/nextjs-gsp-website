@@ -118,18 +118,14 @@ export default function SingletonGalleryPage({
                 return (
                   <div
                     key={`image-${index}`}
-                    className={`h-screen flex-shrink-0 relative flex items-center justify-center ${isFirstImage ? 'w-screen' : ''}`}
+                    className="h-screen w-auto flex-shrink-0 relative flex items-center"
                   >
                     <Image
                       src={imageUrl}
                       alt={item.data.alt || section.title || ''}
                       width={1920}
                       height={1080}
-                      className={
-                        isFirstImage
-                          ? 'w-full h-full object-cover'
-                          : 'max-h-full max-w-full object-contain'
-                      }
+                      className="h-full w-auto object-contain"
                       priority={index < 3}
                       quality={90}
                     />
