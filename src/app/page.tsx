@@ -7,7 +7,7 @@ export default function HomePage() {
       <main className="bg-black flex flex-col items-center justify-center h-screen font-gspFont">
         {/* Your existing title graphics */}
 
-        <div className="h-screen md:w-screen ">
+        <div className="h-screen md:w-screen">
           <video
             src="/videos/home-page-clip.mp4"
             muted

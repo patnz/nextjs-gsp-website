@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { NavData } from '@/app/types'
 import Image from 'next/image'
@@ -10,9 +10,11 @@ interface DesktopNavProps {
 }
 
 export default function DesktopNav({ navData }: DesktopNavProps) {
-  // const [showDropdown, setShowDropdown] = useState(false)
+  const [sideLinkTop, setSideLinkTop] = useState<number | null>(null)
 
-  console.log('navdata', navData)
+  useEffect(() => {
+    setSideLinkTop(window.innerHeight / 2)
+  }, [])
 
   return (
     <>
@@ -56,17 +58,16 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {navData.onTheStreet && (
               <Link
                 href="/on-the-street"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
+                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold hidden md:block"
               >
                 on the street
               </Link>
             )}
 
-            {/* Live on Stage - Simple Link for now since it's a single document */}
             {navData.liveOnStage && (
               <Link
                 href="/live-on-stage"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold hidden md:block "
+                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
               >
                 live on stage
               </Link>
@@ -76,32 +77,38 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
       </nav>
 
       {/* Mobile Sideways Navigation Links */}
-      <div className="md:hidden fixed top-1/2 left-0 z-50 -rotate-90">
-        {/* Left Sideways Link */}
-
-        {navData.inDaClub && (
-          <Link
-            href="/"
-            className="text-gsp-white duration-300 hover:bg-gsp-green border-gsp-green transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold hover:saturate-200"
+      {sideLinkTop !== null && (
+        <>
+          <div
+            className="md:hidden fixed left-0 z-50 -rotate-90 "
+            style={{ top: sideLinkTop }}
           >
-            in da club
-          </Link>
-        )}
-      </div>
+            {navData.inDaClub && (
+              <Link
+                href="/in-da-club"
+                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
+              >
+                in da club
+              </Link>
+            )}
+          </div>
 
-      <div className="md:hidden fixed top-1/2 right-0 z-50 rotate-90">
-        {/* Left Sideways Link */}
-        {/* Right Sideways Link */}
-        {navData.liveOnStage && (
-          <Link
-            // to do fix href
-            href="/"
-            className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold hover:bg-gsp-green hover:border-4 border-gsp-green"
+          <div
+            className="md:hidden fixed right-0 z-50 rotate-90"
+            style={{ top: sideLinkTop }}
           >
-            live on stage
-          </Link>
-        )}
-      </div>
+            {navData.onTheStreet && (
+              <Link
+                href="/on-the-street"
+                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
+              >
+                on the street
+              </Link>
+            )}
+          </div>
+        </>
+      )}
+
       {/* Bottom Footer */}
       <footer className="fixed bottom-0 left-0 right-0 z-40 w-screen ">
         <div className="w-full h-16 flex items-center justify-evenly">

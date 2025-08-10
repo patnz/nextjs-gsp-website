@@ -23,24 +23,25 @@ export default function SingletonGalleryPage({
   sectionData: section,
 }: SingletonGalleryPageProps) {
   const [scrollY, setScrollY] = useState(0)
-
+  const [viewportHeight, setViewportHeight] = useState(0)
   useEffect(() => {
-    // Fix mobile viewport height issue
     const setVh = () => {
-      document.documentElement.style.setProperty(
-        '--vh',
-        `${window.innerHeight * 0.01}px`
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+      const fixedVh = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue('--vh')
       )
+      setViewportHeight(fixedVh * 100)
     }
-    setVh()
-    window.addEventListener('resize', setVh)
 
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
+    setVh() // initial setup
+
+    window.addEventListener('resize', setVh)
+    window.addEventListener('scroll', () => setScrollY(window.scrollY))
 
     return () => {
       window.removeEventListener('resize', setVh)
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', () => setScrollY(window.scrollY))
     }
   }, [])
 
@@ -53,9 +54,7 @@ export default function SingletonGalleryPage({
     ...images.map((img: SanityImageSource) => ({ type: 'image', data: img })),
   ]
 
-  const viewportHeight =
-    typeof window !== 'undefined' ? window.innerHeight : 800
-
+  // Use viewportHeight state instead of window.innerHeight
   const maxScroll = mediaItems.length * viewportHeight
   const scrollProgress = Math.min(
     scrollY / Math.max(maxScroll - viewportHeight, 1),
@@ -67,10 +66,10 @@ export default function SingletonGalleryPage({
   return (
     <>
       {/* Scroll height based on number of items */}
-      <div style={{ height: `${mediaItems.length * 100}vh` }} />
+      <div style={{ height: `${mediaItems.length * 40}vh` }} />
 
       {/* Gallery */}
-      <div className="fixed inset-0 bg-black overflow-hidden">
+      <div className="fixed inset-0 overflow-hidden">
         <div
           className="flex h-[calc(var(--vh)*100)] transition-transform duration-75 ease-out"
           style={{
@@ -110,11 +109,11 @@ export default function SingletonGalleryPage({
                       alt={item.data.alt || section.title || ''}
                       width={1920}
                       height={1080}
-                      className={
+                      className={`  ${
                         isFirst
-                          ? 'w-full h-full object-cover'
-                          : 'h-full w-auto object-contain'
-                      }
+                          ? 'w-full h-[105vh] object-cover'
+                          : 'h-[105vh] w-auto object-contain'
+                      }`}
                       priority={index < 3}
                       quality={90}
                     />
