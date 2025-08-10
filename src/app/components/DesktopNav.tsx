@@ -13,6 +13,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
   const [sideLinkTop, setSideLinkTop] = useState<number | null>(null)
 
   useEffect(() => {
+    console.log('window innner height->', window.innerHeight)
     setSideLinkTop(window.innerHeight / 2)
   }, [])
 
