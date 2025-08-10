@@ -94,6 +94,16 @@
     100% { opacity: 1; }
   }
 
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
   .animate-flicker {
     animation: flicker 2s infinite steps(10);
   }
@@ -122,6 +132,12 @@
   .animate-fade-in-floating {
     animation: fade-in 5s linear 0.5s forwards;
   }
+  .animate-slow-spin {
+    animation-name: slow-spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: var(--spin-speed, 5s); /* Default: 5s */
+  }
 }
 
 @keyframes slow-spin {
@@ -131,13 +147,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.animate-spin-slow {
-  animation-name: slow-spin;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: var(--spin-speed, 5s); /* Default: 5s */
 }
 
 

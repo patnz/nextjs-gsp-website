@@ -94,7 +94,7 @@ export interface HomePageGallery {
 // Updated NavData interface
 export interface NavData {
   freaks: Freak[]
-  liveOnStage: LiveOnStage
+  liveOnStage: LiveOnStage[]
   onTheStreet: OnTheStreet
   inDaClub: InDaClub
   atTheFest: AtTheFest

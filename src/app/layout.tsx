@@ -1,12 +1,9 @@
-// import SimpleNav from '@/app/components/SimpleNav'
-// import FloatingDecorations from './components/FloatingDecorations'
-// import fetchDocuments from './utils/fetchingUtils'
 import type { Metadata } from 'next'
 import './globals.css'
-// import { Providers } from './providers'
 import fonts from './fonts'
 import DesktopNav from './components/DesktopNav'
 import fetchDocuments from './utils/fetchingUtils'
+import { NavDataProvider } from './utils/contextUtils'
 
 export const metadata: Metadata = {
   title:
@@ -19,7 +16,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Fetch all data for navigation
   const navData = await fetchDocuments()
 
   return (
@@ -27,23 +23,10 @@ export default async function RootLayout({
       <body
         className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} ${fonts.gspFont.variable} antialiased font-gspFont`}
       >
-        {/* VIDEO BACKDROP */}
-        {/* <div className="fixed inset-0 z-10 w-full h-screen overflow-hidden pointer-events-none">
-          <video
-            autoPlay
-            muted
-            loop
-            className="w-full h-full object-cover opacity-20"
-            src="/videos/texture-backdrop-1.mp4"
-          />
-        </div> */}
-        {/* VIDEO BACKDROP */}
-        {/* <Providers> */}
-        {/* <FloatingDecorations /> */}
-        {/* <SimpleNav /> */}
-        <DesktopNav navData={navData} />
-        {children}
-        {/* </Providers> */}
+        <NavDataProvider data={navData}>
+          <DesktopNav navData={navData} />
+          {children}
+        </NavDataProvider>
       </body>
     </html>
   )

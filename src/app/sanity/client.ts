@@ -19,7 +19,7 @@ export async function getFreakBySlug(slug: string): Promise<Types.Freak> {
   })
 }
 
-export async function getAllLiveOnStage(): Promise<Types.LiveOnStage> {
+export async function getAllLiveOnStage(): Promise<Types.LiveOnStage[]> {
   return client.fetch(`*[_type == "liveOnStage"] | order(title asc)`)
 }
 
