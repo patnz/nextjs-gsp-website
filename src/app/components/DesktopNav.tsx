@@ -18,7 +18,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
   }, [])
 
   return (
-    <>
+    <div className="text-gsp-white text-xl xs:text-2xl font-extrabold">
       {/* Top Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 w-screen bg-blend-exclusion">
         <div className="w-full h-16 flex items-center justify-evenly ">
@@ -27,7 +27,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {navData.inDaClub && (
               <Link
                 href="/in-da-club"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold hidden md:block "
+                className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold hidden md:block"
               >
                 in da club
               </Link>
@@ -36,7 +36,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {navData.atTheFest && (
               <Link
                 href="/at-the-fest"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
+                className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
               >
                 at the fest
               </Link>
@@ -44,22 +44,20 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
 
             {/* Center Logo */}
             <Link href="/" className="flex items-center">
-              <div className="text-gsp-gold font-bold text-2xl tracking-wider">
-                <Image
-                  src="/images/gsp-logo-white.png"
-                  className="h-8 w-8"
-                  width={100}
-                  height={100}
-                  alt="gsp logo"
-                />
-              </div>
+              <Image
+                src="/images/gsp-logo-white.png"
+                className="h-8 w-8"
+                width={100}
+                height={100}
+                alt="gsp logo"
+              />
             </Link>
 
             {/* Right Navigation Items */}
             {navData.onTheStreet && (
               <Link
                 href="/on-the-street"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold hidden md:block"
+                className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold hidden md:block"
               >
                 on the street
               </Link>
@@ -68,7 +66,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {navData.liveOnStage && (
               <Link
                 href="/live-on-stage"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
+                className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
               >
                 live on stage
               </Link>
@@ -87,7 +85,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {navData.inDaClub && (
               <Link
                 href="/in-da-club"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
+                className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
               >
                 in da club
               </Link>
@@ -101,7 +99,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {navData.onTheStreet && (
               <Link
                 href="/on-the-street"
-                className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-xl tracking-wider hover:no-underline hover:text-gsp-gold"
+                className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
               >
                 on the street
               </Link>
@@ -118,7 +116,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
               <>
                 <Link
                   href="/"
-                  className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-lg tracking-wider hover:no-underline hover:text-gsp-gold block"
+                  className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold block"
                 >
                   meet the freaks
                 </Link>
@@ -127,19 +125,19 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
 
             <Link
               href="/"
-              className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-lg tracking-wider hover:no-underline hover:text-gsp-gold hidden md:block"
+              className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold hidden md:block"
             >
               contact the freaks
             </Link>
             <Link
               href="/"
-              className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-lg tracking-wider hover:no-underline hover:text-gsp-gold block md:hidden"
+              className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold block md:hidden"
             >
               contact
             </Link>
           </div>
         </div>
       </footer>
-    </>
+    </div>
   )
 }

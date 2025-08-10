@@ -12,6 +12,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '390px',
+      },
       fontFamily: {
         amaticSc: 'var(--font-amatic-sc)',
         orbitron: 'var(--font-orbitron)',
