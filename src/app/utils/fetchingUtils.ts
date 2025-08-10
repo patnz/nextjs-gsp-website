@@ -1,21 +1,44 @@
 import {
-  getAllShows,
-  getAllProjects,
-  getAllTeamMembers,
-  getAllCommunityPosts,
+  getAllFreaks,
+  getAllLiveOnStage,
+  getAllOnTheStreet,
+  getAllInDaClub,
+  getAllAtTheFest,
   getAllLinks,
+  getAboutUs,
+  getHomePageGallery,
 } from '@/app/sanity/client'
 import { NavData } from '../types'
 
 export default async function fetchDocuments(): Promise<NavData> {
-  const [shows, projects, teamMembers, communityPosts, links] =
-    await Promise.all([
-      getAllShows(),
-      getAllProjects(),
-      getAllTeamMembers(),
-      getAllCommunityPosts(),
-      getAllLinks(),
-    ])
+  const [
+    freaks,
+    liveOnStage,
+    onTheStreet,
+    inDaClub,
+    atTheFest,
+    links,
+    aboutUs,
+    homePageGallery,
+  ] = await Promise.all([
+    getAllFreaks(),
+    getAllLiveOnStage(),
+    getAllOnTheStreet(),
+    getAllInDaClub(),
+    getAllAtTheFest(),
+    getAllLinks(),
+    getAboutUs(),
+    getHomePageGallery(),
+  ])
 
-  return { shows, projects, teamMembers, communityPosts, links }
+  return {
+    freaks,
+    liveOnStage,
+    onTheStreet,
+    inDaClub,
+    atTheFest,
+    links,
+    aboutUs,
+    homePageGallery,
+  }
 }

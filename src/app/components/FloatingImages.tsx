@@ -148,7 +148,7 @@ export default function FloatingImages({
   }
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-30 opacity-0 animate-fade-in-floating mix-blend-overlay">
+    <div className="fixed inset-0 pointer-events-none z-30 mix-blend-overlay">
       <AnimatePresence>
         {floatingImages.map(
           (img) =>

@@ -7,96 +7,97 @@ interface SanityImage {
   alt?: string
 }
 
-interface CommunityPost {
+// New document types based on your schema files
+export interface Freak {
   _id: string
-  title: string
-  slug: { current: string }
-  publishedDate: string
-  content: string
-  featuredImage?: SanityImage
-  author: TeamMember
-}
-
-interface ContactInfo {
+  _type: 'freak'
   name: string
-  email: string
-  phoneNumber?: string
-  location?: string
-  socialMediaLinks?: string[]
+
+  bio?: string
+  photo: SanityImage // Sanity image type
 }
 
-interface Gallery {
+export interface LiveOnStage {
   _id: string
+  _type: 'liveOnStage'
   title: string
-  slug: { current: string }
+  slug: {
+    current: string
+  }
   description?: string
-  images: SanityImage[]
+  year?: number
+  venue?: string
+  images?: SanityImage[] // Sanity image array
+  videos?: any[] // Sanity video array
 }
 
-interface Link {
+export interface OnTheStreet {
   _id: string
+  _type: 'onTheStreet'
   title: string
-  url: string
-  image?: SanityImage
+  slug: {
+    current: string
+  }
+  description?: string
+  location?: string
+  date?: string
+  images?: SanityImage[] // Sanity image array
+  videos?: any[] // Sanity video array
 }
 
-interface Project {
+export interface InDaClub {
   _id: string
+  _type: 'inDaClub'
   title: string
-  slug: { current: string }
-  description: string
+  slug: {
+    current: string
+  }
+  description?: string
   collaborators?: string[]
-  imageGallery?: SanityImage[]
+  date?: string
+  images?: SanityImage[] // Sanity image array
+  videos?: any[] // Sanity video array
 }
 
-interface Show {
+export interface AtTheFest {
   _id: string
+  _type: 'atTheFest'
   title: string
-  slug: { current: string }
-  description: string
-  year: number
-  mainImage: SanityImage
-  imageGallery?: SanityImage[]
-  pressQuotes?: string[]
+  slug: {
+    current: string
+  }
+  description?: string
+  festival?: string
+  year?: number
+  location?: string
+  images?: SanityImage[] // Sanity image array
+  videos?: any[] // Sanity video array
 }
 
-interface TeamMember {
+export interface AboutUs {
   _id: string
-  name: string
-  role: string
-  biography?: string
-  photo?: SanityImage
+  _type: 'aboutUs'
+  title: string
+  text?: string // Rich text content
+  images?: SanityImage[] // Sanity image array
+  teamPhoto?: any // Sanity image type
 }
 
-interface NavData {
-  shows: Show[]
-  projects: Project[]
-  teamMembers: TeamMember[]
-  communityPosts: CommunityPost[]
-  links: Link[]
+export interface HomePageGallery {
+  _id: string
+  _type: 'homePageGallery'
+  title: string
+  images: SanityImage[] // Sanity image array
+  videos?: any // Sanity image type
 }
 
-export interface NavItem {
-  label: string
-  href: string
-}
-
-export interface ProcessedNavItem {
-  label: string
-  items: NavItem[]
-}
-
-export interface ProcessedNavData {
-  data: ProcessedNavItem[]
-}
-
-export type {
-  CommunityPost,
-  ContactInfo,
-  Gallery,
-  Link,
-  Project,
-  Show,
-  TeamMember,
-  NavData,
+// Updated NavData interface
+export interface NavData {
+  freaks: Freak[]
+  liveOnStage: LiveOnStage
+  onTheStreet: OnTheStreet
+  inDaClub: InDaClub
+  atTheFest: AtTheFest
+  aboutUs: AboutUs
+  homePageGallery: HomePageGallery
 }
