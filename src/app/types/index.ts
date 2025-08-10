@@ -18,17 +18,17 @@ export interface Freak {
 }
 
 export interface LiveOnStage {
-  _id: string
-  _type: 'liveOnStage'
-  title: string
-  slug: {
+  _id?: string
+  _type?: 'liveOnStage'
+  title?: string
+  slug?: {
     current: string
   }
   description?: string
   year?: number
   venue?: string
   images?: SanityImage[] // Sanity image array
-  videos?: any[] // Sanity video array
+  // videos?: any[] // Sanity video array
 }
 
 export interface OnTheStreet {
@@ -42,7 +42,7 @@ export interface OnTheStreet {
   location?: string
   date?: string
   images?: SanityImage[] // Sanity image array
-  videos?: any[] // Sanity video array
+  // videos?: any[] // Sanity video array
 }
 
 export interface InDaClub {
@@ -56,7 +56,7 @@ export interface InDaClub {
   collaborators?: string[]
   date?: string
   images?: SanityImage[] // Sanity image array
-  videos?: any[] // Sanity video array
+  // videos?: any[] // Sanity video array
 }
 
 export interface AtTheFest {
@@ -71,7 +71,7 @@ export interface AtTheFest {
   year?: number
   location?: string
   images?: SanityImage[] // Sanity image array
-  videos?: any[] // Sanity video array
+  // videos?: any[] // Sanity video array
 }
 
 export interface AboutUs {
@@ -80,7 +80,7 @@ export interface AboutUs {
   title: string
   text?: string // Rich text content
   images?: SanityImage[] // Sanity image array
-  teamPhoto?: any // Sanity image type
+  // teamPhoto?: any // Sanity image type
 }
 
 export interface HomePageGallery {
@@ -88,7 +88,7 @@ export interface HomePageGallery {
   _type: 'homePageGallery'
   title: string
   images: SanityImage[] // Sanity image array
-  videos?: any // Sanity image type
+  // videos?: any // Sanity image type
 }
 
 // Updated NavData interface

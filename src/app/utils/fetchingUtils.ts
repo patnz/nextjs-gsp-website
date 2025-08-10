@@ -4,7 +4,6 @@ import {
   getAllOnTheStreet,
   getAllInDaClub,
   getAllAtTheFest,
-  getAllLinks,
   getAboutUs,
   getHomePageGallery,
 } from '@/app/sanity/client'
@@ -17,7 +16,6 @@ export default async function fetchDocuments(): Promise<NavData> {
     onTheStreet,
     inDaClub,
     atTheFest,
-    links,
     aboutUs,
     homePageGallery,
   ] = await Promise.all([
@@ -26,7 +24,6 @@ export default async function fetchDocuments(): Promise<NavData> {
     getAllOnTheStreet(),
     getAllInDaClub(),
     getAllAtTheFest(),
-    getAllLinks(),
     getAboutUs(),
     getHomePageGallery(),
   ])
@@ -37,7 +34,6 @@ export default async function fetchDocuments(): Promise<NavData> {
     onTheStreet,
     inDaClub,
     atTheFest,
-    links,
     aboutUs,
     homePageGallery,
   }

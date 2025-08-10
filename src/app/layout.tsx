@@ -1,4 +1,4 @@
-import SimpleNav from '@/app/components/SimpleNav'
+// import SimpleNav from '@/app/components/SimpleNav'
 // import FloatingDecorations from './components/FloatingDecorations'
 // import fetchDocuments from './utils/fetchingUtils'
 import type { Metadata } from 'next'
@@ -39,10 +39,10 @@ export default async function RootLayout({
         </div> */}
         {/* VIDEO BACKDROP */}
         {/* <Providers> */}
-          {/* <FloatingDecorations /> */}
-          {/* <SimpleNav /> */}
-          <DesktopNav navData={navData} />
-          {children}
+        {/* <FloatingDecorations /> */}
+        {/* <SimpleNav /> */}
+        <DesktopNav navData={navData} />
+        {children}
         {/* </Providers> */}
       </body>
     </html>

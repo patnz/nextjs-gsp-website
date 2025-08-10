@@ -9,21 +9,21 @@ import { notFound } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 // Query for singleton documents - fetch the single document of each type
-const SINGLETON_QUERY = `*[_type == $type][0] {
-  _id,
-  _type,
-  title,
-  slug,
-  description,
-  images,
-  videos,
-  collaborators,
-  date,
-  location,
-  festival,
-  year,
-  venue
-}`
+// const SINGLETON_QUERY = `*[_type == $type][0] {
+//   _id,
+//   _type,
+//   title,
+//   slug,
+//   description,
+//   images,
+//   videos,
+//   collaborators,
+//   date,
+//   location,
+//   festival,
+//   year,
+//   venue
+// }`
 
 const { projectId, dataset } = client.config()
 const urlFor = (source: SanityImageSource) =>
@@ -31,15 +31,12 @@ const urlFor = (source: SanityImageSource) =>
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null
 
-const options = { next: { revalidate: 30 } }
-
 interface SingletonGalleryPageProps {
   sectionType: 'inDaClub' | 'atTheFest' | 'onTheStreet' | 'liveOnStage'
   sectionData: SanityDocument
 }
 
 export default function SingletonGalleryPage({
-  sectionType,
   sectionData: section,
 }: SingletonGalleryPageProps) {
   const [scrollY, setScrollY] = useState(0)
@@ -56,12 +53,12 @@ export default function SingletonGalleryPage({
 
   // Get images and videos
   const images = section.images || []
-  const videos = section.videos || []
+  // const videos = section.videos || []
 
   // Combine into media array
   const mediaItems = [
-    ...images.map((img: any) => ({ type: 'image', data: img })),
-    ...videos.map((vid: any) => ({ type: 'video', data: vid })),
+    ...images.map((img: SanityImageSource) => ({ type: 'image', data: img })),
+    // ...videos.map((vid: any) => ({ type: 'video', data: vid })),
   ]
 
   // Calculate horizontal translation based on scroll
@@ -103,8 +100,8 @@ export default function SingletonGalleryPage({
                 let imageUrl = null
 
                 if (item.data.asset && item.data.asset._ref) {
-                  // Standard Sanity image with asset reference
-                  imageUrl = urlFor(item.data)?.width(1200).height(800).url()
+                  // Standard Sanity image with asset reference - remove height constraint
+                  imageUrl = urlFor(item.data)?.width(1920).url()
                 } else if (
                   item.data._upload &&
                   item.data._upload.previewImage
@@ -115,17 +112,24 @@ export default function SingletonGalleryPage({
 
                 if (!imageUrl) return null
 
+                // First image takes full width, others maintain aspect ratio
+                const isFirstImage = index === 0
+
                 return (
                   <div
                     key={`image-${index}`}
-                    className="h-screen flex-shrink-0 relative"
+                    className={`h-screen flex-shrink-0 relative flex items-center justify-center ${isFirstImage ? 'w-screen' : ''}`}
                   >
                     <Image
                       src={imageUrl}
                       alt={item.data.alt || section.title || ''}
-                      width={1200}
-                      height={800}
-                      className="h-full w-auto object-cover"
+                      width={1920}
+                      height={1080}
+                      className={
+                        isFirstImage
+                          ? 'w-full h-full object-cover'
+                          : 'max-h-full max-w-full object-contain'
+                      }
                       priority={index < 3}
                       quality={90}
                     />
@@ -138,13 +142,20 @@ export default function SingletonGalleryPage({
 
                 if (!videoUrl) return null
 
+                // First video takes full width, others maintain aspect ratio
+                const isFirstVideo = index === 0
+
                 return (
                   <div
                     key={`video-${index}`}
-                    className="h-screen flex-shrink-0 relative"
+                    className={`h-screen flex-shrink-0 relative flex items-center justify-center ${isFirstVideo ? 'w-screen' : ''}`}
                   >
                     <video
-                      className="h-full w-auto object-cover"
+                      className={
+                        isFirstVideo
+                          ? 'w-full h-full object-cover'
+                          : 'max-h-full max-w-full object-contain'
+                      }
                       controls
                       muted
                       playsInline
