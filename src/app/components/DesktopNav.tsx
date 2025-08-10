@@ -109,7 +109,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {navData.freaks && navData.freaks.length > 0 && (
               <>
                 <Link
-                  href="/freaks"
+                  href="/"
                   className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-lg tracking-wider hover:no-underline hover:text-gsp-gold block"
                 >
                   meet the freaks
@@ -118,13 +118,13 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             )}
 
             <Link
-              href="/contact"
+              href="/"
               className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-lg tracking-wider hover:no-underline hover:text-gsp-gold hidden md:block"
             >
               contact the freaks
             </Link>
             <Link
-              href="/contact"
+              href="/"
               className="text-gsp-white hover:scale-105 duration-300 transition-all font-extrabold text-lg tracking-wider hover:no-underline hover:text-gsp-gold block md:hidden"
             >
               contact
