@@ -131,19 +131,18 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   {showsMenuToggle && (
                     <div className="absolute left-0 flex flex-col items-end w-full gap-2 mt-2">
                       {navData.liveOnStage &&
-                        navData.liveOnStage.map((show: LiveOnStage) => {
-                          return (
-                            <>
-                              <Link
-                                key={show._id}
-                                href={`/`}
-                                className="w-fit whitespace-nowrap text-right hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
-                              >
-                                {show.title}
-                              </Link>
-                            </>
-                          )
-                        })}
+                        navData.liveOnStage.map((show: LiveOnStage) => (
+                          <Link
+                            key={show._id}
+                            href={`/live-on-stage/${show.slug?.current}`}
+                            onClick={() => {
+                              setShowsMenuToggle(false)
+                            }}
+                            className="w-fit whitespace-nowrap text-right hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
+                          >
+                            {show.title}
+                          </Link>
+                        ))}
                     </div>
                   )}
                 </div>
