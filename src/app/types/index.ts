@@ -42,7 +42,7 @@ export interface OnTheStreet {
   location?: string
   date?: string
   images?: SanityImage[] // Sanity image array
-  // videos?: any[] // Sanity video array
+  // videos?: any[] //// Sanity video array
 }
 
 export interface InDaClub {
