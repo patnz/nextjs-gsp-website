@@ -4,6 +4,8 @@ import fonts from './fonts'
 import DesktopNav from './components/DesktopNav'
 import fetchDocuments from './utils/fetchingUtils'
 import { NavDataProvider } from './utils/contextUtils'
+import GoogleAnalytics from './components/GoogleAnalytics'
+import PageViewTracker from './components/PageViewTracker'
 
 export const metadata: Metadata = {
   title:
@@ -20,6 +22,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body
         className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} ${fonts.gspFont.variable} antialiased font-gspFont`}
       >
@@ -27,6 +32,7 @@ export default async function RootLayout({
           <DesktopNav navData={navData} />
           {children}
         </NavDataProvider>
+        <PageViewTracker />
       </body>
     </html>
   )
