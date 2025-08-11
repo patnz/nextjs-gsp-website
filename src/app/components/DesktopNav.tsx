@@ -198,7 +198,8 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {/* Contact on large device */}
             <div className="group hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200 hidden md:block">
               <Link
-                href="/"
+                href="https://instagram.com/goldenscissorpuppets"
+                target="_blank"
                 className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
               >
                 contact the freaks
@@ -211,7 +212,8 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
             {/* Contact on small device */}
             <div className="group hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200 block md:hidden">
               <Link
-                href={`/`}
+                href="https://instagram.com/goldenscissorpuppets"
+                target="_blank"
                 className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
               >
                 contact the freaks
