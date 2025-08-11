@@ -11,10 +11,10 @@ declare global {
         transaction_id?: string
         currency?: string
         method?: string
-        [key: string]: any
+        [key: string]: unknown
       }
     ) => void
-    dataLayer: any[]
+    dataLayer: unknown[]
   }
 }
 

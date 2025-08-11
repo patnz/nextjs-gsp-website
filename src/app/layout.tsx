@@ -6,6 +6,7 @@ import fetchDocuments from './utils/fetchingUtils'
 import { NavDataProvider } from './utils/contextUtils'
 import GoogleAnalytics from './components/GoogleAnalytics'
 import PageViewTracker from './components/PageViewTracker'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title:
@@ -32,7 +33,9 @@ export default async function RootLayout({
           <DesktopNav navData={navData} />
           {children}
         </NavDataProvider>
-        <PageViewTracker />
+        <Suspense>
+          <PageViewTracker />
+        </Suspense>
       </body>
     </html>
   )
