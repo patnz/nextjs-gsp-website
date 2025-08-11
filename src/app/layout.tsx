@@ -23,9 +23,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark">
-      <head>
-        <GoogleAnalytics />
-      </head>
       <body
         className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.amaticSc.variable} ${fonts.orbitron.variable} ${fonts.pressStart.variable} ${fonts.courierPrime.variable} ${fonts.gspFont.variable} antialiased font-gspFont`}
       >
@@ -36,6 +33,7 @@ export default async function RootLayout({
         <Suspense>
           <PageViewTracker />
         </Suspense>
+        <GoogleAnalytics />
       </body>
     </html>
   )
