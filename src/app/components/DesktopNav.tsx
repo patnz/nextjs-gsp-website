@@ -112,7 +112,12 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
 
             {navData.liveOnStage && (
               <>
-                <div className="relative group hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200">
+                <div className="relative group hover:scale-110 duration-200 transition-all hover:no-underline saturate-200">
+                  {/* <span
+                    className={` absolute -right-8 top-8 -rotate-45 ${showsMenuToggle ? 'flex' : 'hidden'}`}
+                  >
+                    ↲
+                  </span> */}
                   <button
                     onClick={handleShowsMenuToggle}
                     className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
@@ -124,17 +129,19 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   </p>
 
                   {showsMenuToggle && (
-                    <div className="absolute left-0 flex flex-col items-center w-full gap-2 mt-2">
+                    <div className="absolute left-0 flex flex-col items-end w-full gap-2 mt-2">
                       {navData.liveOnStage &&
                         navData.liveOnStage.map((show: LiveOnStage) => {
                           return (
-                            <Link
-                              key={show._id}
-                              href={`/`}
-                              className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
-                            >
-                              {show.title}
-                            </Link>
+                            <>
+                              <Link
+                                key={show._id}
+                                href={`/`}
+                                className="w-fit whitespace-nowrap text-right hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
+                              >
+                                {show.title}
+                              </Link>
+                            </>
                           )
                         })}
                     </div>
