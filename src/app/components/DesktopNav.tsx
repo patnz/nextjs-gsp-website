@@ -44,7 +44,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   >
                     in da club
                   </Link>
-                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] z-30 duration-100">
+                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
                     in da club
                   </p>
                 </>
@@ -60,7 +60,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   >
                     at the fest
                   </Link>
-                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] z-30 duration-100">
+                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
                     at the fest
                   </p>
                 </>
@@ -103,7 +103,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   >
                     on the street
                   </Link>
-                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow ml-[1px] mt-[1px] z-30 duration-100">
+                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
                     on the street
                   </p>
                 </>
@@ -124,7 +124,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   >
                     live on stage
                   </button>
-                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] z-30 duration-100">
+                  <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
                     live on stage
                   </p>
 
@@ -156,18 +156,18 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
       {sideLinkTop !== null && (
         <>
           <div
-            className="md:hidden fixed left-0 z-50 -rotate-90 hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200"
+            className="md:hidden fixed group left-0 z-50 -rotate-90 hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200"
             style={{ top: sideLinkTop }}
           >
             {navData.inDaClub && (
               <>
                 <Link
                   href="/in-da-club"
-                  className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500"
+                  className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
                 >
                   in da club
                 </Link>
-                <p className=" hover:no-underline text-gsp-black  ml-[1px] mt-[1px]">
+                <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
                   in da club
                 </p>
               </>
@@ -175,16 +175,21 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
           </div>
 
           <div
-            className="md:hidden fixed right-0 z-50 rotate-90"
+            className="md:hidden fixed group right-0 z-50 rotate-90 hover:scale-110 duration-200 transition-all hover:no-underline hover:text-gsp-gold saturate-200"
             style={{ top: sideLinkTop }}
           >
             {navData.onTheStreet && (
-              <Link
-                href="/on-the-street"
-                className="hover:scale-105 duration-300 transition-all hover:no-underline hover:text-gsp-gold"
-              >
-                on the street
-              </Link>
+              <>
+                <Link
+                  href="/on-the-street"
+                  className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
+                >
+                  on the street
+                </Link>
+                <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
+                  on the street
+                </p>
+              </>
             )}
           </div>
         </>
@@ -204,7 +209,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                     >
                       meet the freaks
                     </Link>
-                    <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] z-30 duration-100">
+                    <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
                       meet the freaks
                     </p>
                   </>
@@ -221,7 +226,7 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                 >
                   contact the freaks
                 </Link>
-                <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] z-30 duration-100">
+                <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
                   contact the freaks
                 </p>
               </>
@@ -234,10 +239,10 @@ export default function DesktopNav({ navData }: DesktopNavProps) {
                   href={`/`}
                   className="absolute hover:no-underline text-gsp-white hover:text-gsp-gold transition-all duration-500 z-40"
                 >
-                  contact
+                  contact the freaks
                 </Link>
-                <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-white group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] z-30 duration-100">
-                  contact
+                <p className=" hover:no-underline text-gsp-black group-hover:text-gsp-red group-hover:animate-flicker-slow group-hover:drop-shadow-2xl ml-[1px] mt-[1px] group-hover:ml-[2px] group-hover:mt-[2px] z-30 duration-100">
+                  contact the freaks
                 </p>
               </>
             </div>
