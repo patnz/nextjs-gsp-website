@@ -149,7 +149,28 @@
   }
 }
 
+.scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
 
+
+
+
+        /* Ensure consistent viewport handling across devices */
+        * {
+          box-sizing: border-box;
+        }
+
+        /* Handle mobile browser UI changes */
+        @supports (height: 100dvh) {
+          .fixed.inset-0 {
+            height: 100dvh;
+          }
+        }
 
 body {
   margin: 0;
@@ -159,6 +180,7 @@ body {
   /* gsp back ^ */
   color: #FCF9ED;
   /* gsp white */
+  overflow: hidden;
 }
 .scrollbar-hide {
   -ms-overflow-style: none;

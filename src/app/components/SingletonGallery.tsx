@@ -5,7 +5,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import { client } from '@/app/sanity/client'
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const { projectId, dataset } = client.config()
 const urlFor = (source: SanityImageSource) =>
@@ -35,6 +35,43 @@ export default function SingletonGalleryPage({
     animationId: number | null
     lastTime: number
   }>({ velocity: 0, animationId: null, lastTime: 0 })
+
+  // Track viewport height to handle mobile browser UI changes
+  const [viewportHeight, setViewportHeight] = useState<number>(0)
+
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      // Use visualViewport API if available, otherwise fallback to window.innerHeight
+      const height = window.visualViewport?.height || window.innerHeight
+      setViewportHeight(height)
+
+      // Update CSS custom property for consistent height across the app
+      document.documentElement.style.setProperty(
+        '--viewport-height',
+        `${height}px`
+      )
+    }
+
+    updateViewportHeight()
+
+    // Listen for viewport changes (mobile browser UI showing/hiding)
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', updateViewportHeight)
+    }
+    window.addEventListener('resize', updateViewportHeight)
+    window.addEventListener('orientationchange', updateViewportHeight)
+
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener(
+          'resize',
+          updateViewportHeight
+        )
+      }
+      window.removeEventListener('resize', updateViewportHeight)
+      window.removeEventListener('orientationchange', updateViewportHeight)
+    }
+  }, [])
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -175,7 +212,13 @@ export default function SingletonGalleryPage({
   return (
     <>
       {/* Gallery */}
-      <div className="fixed inset-0">
+      <div
+        className="fixed inset-0"
+        style={{
+          height: viewportHeight ? `${viewportHeight}px` : '100vh',
+          width: '100vw',
+        }}
+      >
         <div
           ref={galleryRef}
           className="flex h-full w-full overflow-x-auto overflow-y-hidden scrollbar-hide"
@@ -183,11 +226,11 @@ export default function SingletonGalleryPage({
             scrollBehavior: 'auto',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
+            height: '100%',
+            minHeight: '100%',
           }}
         >
           {mediaItems.map((item, index) => {
-            const isFirst = index === 0
-
             if (item.type === 'image') {
               let imageUrl = null
               if (item.data.asset && item.data.asset._ref) {
@@ -200,20 +243,24 @@ export default function SingletonGalleryPage({
               return (
                 <div
                   key={`image-${index}`}
-                  className={`flex-shrink-0 relative ${
-                    isFirst ? 'w-full' : 'w-auto'
-                  }`}
+                  className="flex-shrink-0 flex items-center justify-center"
+                  style={{
+                    width: 'auto',
+                    height: '100%',
+                    minHeight: '100%',
+                  }}
                 >
                   <Image
                     src={imageUrl}
                     alt={item.data.alt || section.title || ''}
                     width={1920}
                     height={1080}
-                    className={`${
-                      isFirst
-                        ? 'w-full h-full object-cover'
-                        : 'h-full w-auto object-contain'
-                    }`}
+                    className="max-h-full max-w-none object-contain"
+                    style={{
+                      objectFit: 'contain',
+                      height: '100%',
+                      width: 'auto',
+                    }}
                     priority={index < 3}
                     quality={90}
                   />
@@ -228,16 +275,20 @@ export default function SingletonGalleryPage({
               return (
                 <div
                   key={`video-${index}`}
-                  className={`flex-shrink-0 relative flex items-center ${
-                    isFirst ? 'w-screen' : 'w-auto'
-                  }`}
+                  className="flex-shrink-0 flex items-center justify-center"
+                  style={{
+                    width: 'auto',
+                    height: '100%',
+                    minHeight: '100%',
+                  }}
                 >
                   <video
-                    className={
-                      isFirst
-                        ? 'w-full h-full object-cover'
-                        : 'h-full w-auto object-contain'
-                    }
+                    className="max-h-full object-contain"
+                    style={{
+                      objectFit: 'contain',
+                      height: '100%',
+                      width: 'auto',
+                    }}
                     controls
                     muted
                     playsInline
@@ -264,6 +315,25 @@ export default function SingletonGalleryPage({
 
         body {
           overflow: hidden;
+          margin: 0;
+          padding: 0;
+        }
+
+        html {
+          margin: 0;
+          padding: 0;
+        }
+
+        /* Ensure consistent viewport handling across devices */
+        * {
+          box-sizing: border-box;
+        }
+
+        /* Handle mobile browser UI changes */
+        @supports (height: 100dvh) {
+          .fixed.inset-0 {
+            height: 100dvh;
+          }
         }
       `}</style>
     </>
