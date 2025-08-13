@@ -11,7 +11,8 @@ import { Suspense } from 'react'
 export const metadata: Metadata = {
   title:
     'Golden Scissor Puppets | Making Your Fever Dream A Reality | Puppet Freaks Based in Naarm Melbourne | Performance Art Puppetry',
-  description: '',
+  description:
+    'Dive into surreal worlds with Golden Scissor Puppets — bold performance art & puppetry from Naarm Melbourne.',
 }
 
 export default async function RootLayout({

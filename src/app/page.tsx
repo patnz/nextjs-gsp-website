@@ -63,7 +63,13 @@ export default function HomePageGallery() {
   if (images.length === 0) {
     return (
       <div className="h-screen flex items-center justify-center bg-black">
-        <p className="text-2xl text-white/60">No images found</p>
+        <Image
+          src="/images/gsp-logo-white.png"
+          className="absolute h-32 w-32"
+          width={500}
+          height={500}
+          alt="Golden Scissor Puppets Logo"
+        />
       </div>
     )
   }
